@@ -84,13 +84,7 @@ git push origin gh-pages
 
 二回目移行
 ```
-make html
-cd build/html
-git add .
-git commit -m "first commit"
-git push origin gh-pages
-
-
+make gh-pages
 ```
 
 **[⬆ back to top](#構成)**
@@ -99,6 +93,10 @@ git push origin gh-pages
 **[⬆ back to top](#構成)**
 
 ## 開発
+```
+make livehtml
+```
+
 **[⬆ back to top](#構成)**
 
 # 参照 #
