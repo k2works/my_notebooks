@@ -63,6 +63,36 @@ exclude_patterns = ['_build', '**.ipynb_checkpoints']
 **[⬆ back to top](#構成)**
 
 ## 配置
+初期設定
+```
+make html
+cd build/html
+rm -rf *
+git init
+git remote add origin https://github.com/k2works/my_notebooks.git
+git checkout -b gh-pages
+cd ../../
+make html
+cd build/html
+git add .
+git commit -m "first commit"
+git add .
+touch .nojekyll
+git commit -a -m "Add .nojekyll"
+git push origin gh-pages
+```
+
+二回目移行
+```
+make html
+cd build/html
+git add .
+git commit -m "first commit"
+git push origin gh-pages
+
+
+```
+
 **[⬆ back to top](#構成)**
 
 ## 運用
@@ -76,3 +106,4 @@ exclude_patterns = ['_build', '**.ipynb_checkpoints']
 + [sphinx でドキュメント作成からWeb公開までをやってみた](https://qiita.com/kinpira/items/505bccacb2fba89c0ff0)
 + [reStructuredTextチートシート](http://teambtrb.com/2017/08/20/post-464/)
 + [Sphinxを便利にして、みんなに使ってもらいたい](https://qiita.com/kinpira/items/505bccacb2fba89c0ff0)
++ [Automatic Github Pages generation from Sphinx documentation](http://nikhilism.com/post/2012/automatic-github-pages-generation-from/)
