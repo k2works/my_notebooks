@@ -24,7 +24,7 @@ livehtml:
 
 gh-pages:
 	git checkout gh-pages
-	rm -rf build _sources _static study_for_math
+	rm -rf build _sources _static _images study_for_math
 	git checkout master $(GH_PAGES_SOURCES)
 	git reset HEAD
 	make html
