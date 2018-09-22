@@ -1,0 +1,922 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>データをグラフで視覚化する &mdash; My Notebooks 1.0.0 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="1. UML" href="../sample.html" />
+    <link rel="prev" title="数を扱う" href="01.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> My Notebooks
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Pythonからはじめる数学入門:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01.html">数を扱う</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">データをグラフで視覚化する</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#デカルト座標平面を理解する">デカルト座標平面を理解する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#リストとタプルの操作">リストとタプルの操作</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#リストやタプルで繰り返す">リストやタプルで繰り返す</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#matplotlibでグラフを作る">matplotlibでグラフを作る</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#グラフで点を作る">グラフで点を作る</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ニューヨーク市の年間平均気温をグラフ化する">ニューヨーク市の年間平均気温をグラフ化する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ニューヨーク市の月間気温傾向を比較する">ニューヨーク市の月間気温傾向を比較する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#グラフのカスタマイズ">グラフのカスタマイズ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#題名と説明ラベルを追加する">題名と説明ラベルを追加する</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#軸のカスタマイズ">軸のカスタマイズ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyplotを使ってプロットする">pyplotを使ってプロットする</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#プロットの保存">プロットの保存</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#式をプロットする">式をプロットする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ニュートンの万有引力の法則">ニュートンの万有引力の法則</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#投射運動">投射運動</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">サンプル</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sample.html">1. UML</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">My Notebooks</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>データをグラフで視覚化する</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/study_for_math/02.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="データをグラフで視覚化する">
+<h1>データをグラフで視覚化する<a class="headerlink" href="#データをグラフで視覚化する" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="デカルト座標平面を理解する">
+<h2>デカルト座標平面を理解する<a class="headerlink" href="#デカルト座標平面を理解する" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="リストとタプルの操作">
+<h2>リストとタプルの操作<a class="headerlink" href="#リストとタプルの操作" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+
+<span class="k">class</span> <span class="nc">TestListTuple</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_01</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">simplelist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">simplelist</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">simplelist</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">simplelist</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_02</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">stringList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a string&#39;</span><span class="p">,</span> <span class="s1">&#39;b string&#39;</span><span class="p">,</span> <span class="s1">&#39;c string&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">stringList</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;a string&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">stringList</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;b string&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="nb">exit</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK
+</pre></div></div>
+</div>
+<div class="section" id="リストやタプルで繰り返す">
+<h3>リストやタプルで繰り返す<a class="headerlink" href="#リストやタプルで繰り返す" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">TestForin</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_01</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="nb">exit</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1
+2
+3
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="matplotlibでグラフを作る">
+<h2>matplotlibでグラフを作る<a class="headerlink" href="#matplotlibでグラフを作る" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">x_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">y_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_numbers</span><span class="p">,</span> <span class="n">y_numbers</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_02_7_0.png" src="../_images/study_for_math_02_7_0.png" />
+</div>
+</div>
+<div class="section" id="グラフで点を作る">
+<h3>グラフで点を作る<a class="headerlink" href="#グラフで点を作る" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">x_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">y_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_numbers</span><span class="p">,</span> <span class="n">y_numbers</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_02_9_0.png" src="../_images/study_for_math_02_9_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="ニューヨーク市の年間平均気温をグラフ化する">
+<h3>ニューヨーク市の年間平均気温をグラフ化する<a class="headerlink" href="#ニューヨーク市の年間平均気温をグラフ化する" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">nyc_temp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">53.9</span><span class="p">,</span> <span class="mf">56.3</span><span class="p">,</span> <span class="mf">56.4</span><span class="p">,</span> <span class="mf">53.4</span><span class="p">,</span> <span class="mf">54.5</span><span class="p">,</span> <span class="mf">55.8</span><span class="p">,</span> <span class="mf">56.8</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">55.3</span><span class="p">,</span> <span class="mf">54.0</span><span class="p">,</span> <span class="mf">56.7</span><span class="p">,</span> <span class="mf">56.4</span><span class="p">,</span> <span class="mf">57.3</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nyc_temp</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_02_11_0.png" src="../_images/study_for_math_02_11_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">nyc_temp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">53.9</span><span class="p">,</span> <span class="mf">56.3</span><span class="p">,</span> <span class="mf">56.4</span><span class="p">,</span> <span class="mf">53.4</span><span class="p">,</span> <span class="mf">54.5</span><span class="p">,</span> <span class="mf">55.8</span><span class="p">,</span> <span class="mf">56.8</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">55.3</span><span class="p">,</span> <span class="mf">54.0</span><span class="p">,</span> <span class="mf">56.7</span><span class="p">,</span> <span class="mf">56.4</span><span class="p">,</span> <span class="mf">57.3</span><span class="p">]</span>
+<span class="n">years</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2013</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span><span class="n">nyc_temp</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_02_12_0.png" src="../_images/study_for_math_02_12_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="ニューヨーク市の月間気温傾向を比較する">
+<h3>ニューヨーク市の月間気温傾向を比較する<a class="headerlink" href="#ニューヨーク市の月間気温傾向を比較する" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">nyc_temp_2000</span> <span class="o">=</span> <span class="p">[</span><span class="mf">31.3</span><span class="p">,</span> <span class="mf">37.3</span><span class="p">,</span> <span class="mf">47.2</span><span class="p">,</span> <span class="mf">51.0</span><span class="p">,</span> <span class="mf">63.5</span><span class="p">,</span> <span class="mf">71.3</span><span class="p">,</span> <span class="mf">72.3</span><span class="p">,</span> <span class="mf">72.7</span><span class="p">,</span> <span class="mf">66.0</span><span class="p">,</span> <span class="mf">57.0</span><span class="p">,</span> <span class="mf">45.3</span><span class="p">,</span> <span class="mf">31.1</span><span class="p">]</span>
+<span class="n">nyc_temp_2006</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.9</span><span class="p">,</span> <span class="mf">35.7</span><span class="p">,</span> <span class="mf">43.1</span><span class="p">,</span> <span class="mf">55.7</span><span class="p">,</span> <span class="mf">63.1</span><span class="p">,</span> <span class="mf">71.0</span><span class="p">,</span> <span class="mf">77.9</span><span class="p">,</span> <span class="mf">75.8</span><span class="p">,</span> <span class="mf">66.6</span><span class="p">,</span> <span class="mf">56.2</span><span class="p">,</span> <span class="mf">51.9</span><span class="p">,</span> <span class="mf">43.6</span><span class="p">]</span>
+<span class="n">nyc_temp_2012</span> <span class="o">=</span> <span class="p">[</span><span class="mf">37.3</span><span class="p">,</span> <span class="mf">40.9</span><span class="p">,</span> <span class="mf">50.9</span><span class="p">,</span> <span class="mf">54.8</span><span class="p">,</span> <span class="mf">65.1</span><span class="p">,</span> <span class="mf">71.0</span><span class="p">,</span> <span class="mf">78.8</span><span class="p">,</span> <span class="mf">76.7</span><span class="p">,</span> <span class="mf">68.8</span><span class="p">,</span> <span class="mf">58.0</span><span class="p">,</span> <span class="mf">43.9</span><span class="p">,</span> <span class="mf">41.5</span><span class="p">]</span>
+<span class="n">months</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">nyc_temp_2000</span><span class="p">,</span> <span class="n">months</span><span class="p">,</span> <span class="n">nyc_temp_2006</span><span class="p">,</span> <span class="n">months</span><span class="p">,</span> <span class="n">nyc_temp_2012</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_02_14_0.png" src="../_images/study_for_math_02_14_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">nyc_temp_2000</span> <span class="o">=</span> <span class="p">[</span><span class="mf">31.3</span><span class="p">,</span> <span class="mf">37.3</span><span class="p">,</span> <span class="mf">47.2</span><span class="p">,</span> <span class="mf">51.0</span><span class="p">,</span> <span class="mf">63.5</span><span class="p">,</span> <span class="mf">71.3</span><span class="p">,</span> <span class="mf">72.3</span><span class="p">,</span> <span class="mf">72.7</span><span class="p">,</span> <span class="mf">66.0</span><span class="p">,</span> <span class="mf">57.0</span><span class="p">,</span> <span class="mf">45.3</span><span class="p">,</span> <span class="mf">31.1</span><span class="p">]</span>
+<span class="n">nyc_temp_2006</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.9</span><span class="p">,</span> <span class="mf">35.7</span><span class="p">,</span> <span class="mf">43.1</span><span class="p">,</span> <span class="mf">55.7</span><span class="p">,</span> <span class="mf">63.1</span><span class="p">,</span> <span class="mf">71.0</span><span class="p">,</span> <span class="mf">77.9</span><span class="p">,</span> <span class="mf">75.8</span><span class="p">,</span> <span class="mf">66.6</span><span class="p">,</span> <span class="mf">56.2</span><span class="p">,</span> <span class="mf">51.9</span><span class="p">,</span> <span class="mf">43.6</span><span class="p">]</span>
+<span class="n">nyc_temp_2012</span> <span class="o">=</span> <span class="p">[</span><span class="mf">37.3</span><span class="p">,</span> <span class="mf">40.9</span><span class="p">,</span> <span class="mf">50.9</span><span class="p">,</span> <span class="mf">54.8</span><span class="p">,</span> <span class="mf">65.1</span><span class="p">,</span> <span class="mf">71.0</span><span class="p">,</span> <span class="mf">78.8</span><span class="p">,</span> <span class="mf">76.7</span><span class="p">,</span> <span class="mf">68.8</span><span class="p">,</span> <span class="mf">58.0</span><span class="p">,</span> <span class="mf">43.9</span><span class="p">,</span> <span class="mf">41.5</span><span class="p">]</span>
+<span class="n">months</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">nyc_temp_2000</span><span class="p">,</span> <span class="n">months</span><span class="p">,</span> <span class="n">nyc_temp_2006</span><span class="p">,</span> <span class="n">months</span><span class="p">,</span> <span class="n">nyc_temp_2012</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2006</span><span class="p">,</span> <span class="mi">2012</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_02_15_0.png" src="../_images/study_for_math_02_15_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="グラフのカスタマイズ">
+<h3>グラフのカスタマイズ<a class="headerlink" href="#グラフのカスタマイズ" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="題名と説明ラベルを追加する">
+<h4>題名と説明ラベルを追加する<a class="headerlink" href="#題名と説明ラベルを追加する" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">nyc_temp_2000</span> <span class="o">=</span> <span class="p">[</span><span class="mf">31.3</span><span class="p">,</span> <span class="mf">37.3</span><span class="p">,</span> <span class="mf">47.2</span><span class="p">,</span> <span class="mf">51.0</span><span class="p">,</span> <span class="mf">63.5</span><span class="p">,</span> <span class="mf">71.3</span><span class="p">,</span> <span class="mf">72.3</span><span class="p">,</span> <span class="mf">72.7</span><span class="p">,</span> <span class="mf">66.0</span><span class="p">,</span> <span class="mf">57.0</span><span class="p">,</span> <span class="mf">45.3</span><span class="p">,</span> <span class="mf">31.1</span><span class="p">]</span>
+<span class="n">nyc_temp_2006</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.9</span><span class="p">,</span> <span class="mf">35.7</span><span class="p">,</span> <span class="mf">43.1</span><span class="p">,</span> <span class="mf">55.7</span><span class="p">,</span> <span class="mf">63.1</span><span class="p">,</span> <span class="mf">71.0</span><span class="p">,</span> <span class="mf">77.9</span><span class="p">,</span> <span class="mf">75.8</span><span class="p">,</span> <span class="mf">66.6</span><span class="p">,</span> <span class="mf">56.2</span><span class="p">,</span> <span class="mf">51.9</span><span class="p">,</span> <span class="mf">43.6</span><span class="p">]</span>
+<span class="n">nyc_temp_2012</span> <span class="o">=</span> <span class="p">[</span><span class="mf">37.3</span><span class="p">,</span> <span class="mf">40.9</span><span class="p">,</span> <span class="mf">50.9</span><span class="p">,</span> <span class="mf">54.8</span><span class="p">,</span> <span class="mf">65.1</span><span class="p">,</span> <span class="mf">71.0</span><span class="p">,</span> <span class="mf">78.8</span><span class="p">,</span> <span class="mf">76.7</span><span class="p">,</span> <span class="mf">68.8</span><span class="p">,</span> <span class="mf">58.0</span><span class="p">,</span> <span class="mf">43.9</span><span class="p">,</span> <span class="mf">41.5</span><span class="p">]</span>
+<span class="n">months</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">nyc_temp_2000</span><span class="p">,</span> <span class="n">months</span><span class="p">,</span> <span class="n">nyc_temp_2006</span><span class="p">,</span> <span class="n">months</span><span class="p">,</span> <span class="n">nyc_temp_2012</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Average monthly temperature in  NYC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2006</span><span class="p">,</span> <span class="mi">2012</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_02_18_0.png" src="../_images/study_for_math_02_18_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="軸のカスタマイズ">
+<h4>軸のカスタマイズ<a class="headerlink" href="#軸のカスタマイズ" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">nyc_temp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">53.9</span><span class="p">,</span> <span class="mf">56.3</span><span class="p">,</span> <span class="mf">56.4</span><span class="p">,</span> <span class="mf">53.4</span><span class="p">,</span> <span class="mf">54.5</span><span class="p">,</span> <span class="mf">55.8</span><span class="p">,</span> <span class="mf">56.8</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">55.3</span><span class="p">,</span> <span class="mf">54.0</span><span class="p">,</span> <span class="mf">56.7</span><span class="p">,</span> <span class="mf">56.4</span><span class="p">,</span> <span class="mf">57.3</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nyc_temp</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_02_20_0.png" src="../_images/study_for_math_02_20_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="pyplotを使ってプロットする">
+<h4>pyplotを使ってプロットする<a class="headerlink" href="#pyplotを使ってプロットする" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">pyplotを使った簡単なプロット</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">create_graph</span><span class="p">():</span>
+    <span class="n">x_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="n">y_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_numbers</span><span class="p">,</span> <span class="n">y_numbers</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="n">create_graph</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_02_22_0.png" src="../_images/study_for_math_02_22_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="プロットの保存">
+<h3>プロットの保存<a class="headerlink" href="#プロットの保存" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;mygraph.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_02_24_0.png" src="../_images/study_for_math_02_24_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="式をプロットする">
+<h2>式をプロットする<a class="headerlink" href="#式をプロットする" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="ニュートンの万有引力の法則">
+<h3>ニュートンの万有引力の法則<a class="headerlink" href="#ニュートンの万有引力の法則" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(F = {Gm_1m_2 \over r^2}\)</span></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">2物体間の万有引力と距離の関係</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+
+<span class="c1"># グラフを描く</span>
+<span class="k">def</span> <span class="nf">draw_graph</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance in meters&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Gravitational force in newtons&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gravitational force and distace&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">generate_f_r</span><span class="p">():</span>
+    <span class="c1"># generate value for r</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1001</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+    <span class="c1"># Fの計算値を格納数する空リスト</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># 定数G</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="mf">6.674</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="o">**-</span><span class="mi">11</span><span class="p">)</span>
+    <span class="c1"># two masses</span>
+    <span class="n">m1</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">m2</span> <span class="o">=</span> <span class="mf">1.5</span>
+    <span class="c1"># 引力を計算しリストFに加える</span>
+    <span class="k">for</span> <span class="n">dist</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+        <span class="n">force</span> <span class="o">=</span> <span class="n">G</span><span class="o">*</span><span class="p">(</span><span class="n">m1</span><span class="o">*</span><span class="n">m2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">dist</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">F</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">force</span><span class="p">)</span>
+    <span class="c1"># draw_graph関数呼び出し</span>
+    <span class="n">draw_graph</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+
+
+<span class="n">generate_f_r</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="投射運動">
+<h3>投射運動<a class="headerlink" href="#投射運動" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(u_y=u\sin\theta-gt\)</span></p>
+<p><span class="math notranslate nohighlight">\(S_y=u(\sin\theta)t - {1 \over2}gt^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(t={u \sin\theta \over g}\)</span></p>
+<p><span class="math notranslate nohighlight">\(t_{fly} = 2t_{fly} = 2{u\sin\theta \over g}\)</span></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="kn">import</span> <span class="nn">math</span>
+
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">２つの値の間の等間隔な浮動小数点数の生成</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">frange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">final</span><span class="p">,</span> <span class="n">increment</span><span class="p">):</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">final</span><span class="p">:</span>
+        <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">increment</span>
+
+    <span class="k">return</span> <span class="n">numbers</span>
+
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">投射運動物体の軌跡を描く</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">draw_trajectory_graph</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x-coordinate&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y-coordinate&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Projecttitle motion of a ball&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">draw_trajectory</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="mf">9.8</span>
+    <span class="c1"># Time of flight</span>
+    <span class="n">t_flight</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">/</span><span class="n">g</span>
+    <span class="c1"># find time intervals</span>
+    <span class="n">intervals</span> <span class="o">=</span> <span class="n">frange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_flight</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
+    <span class="c1"># list of x and y coordinates</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">intervals</span><span class="p">:</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">draw_trajectory_graph</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+
+<span class="n">initial_velocity</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">angle_of_projection</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">draw_trajectory</span><span class="p">(</span><span class="n">initial_velocity</span><span class="p">,</span> <span class="n">angle_of_projection</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_02_31_0.png" src="../_images/study_for_math_02_31_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sample.html" class="btn btn-neutral float-right" title="1. UML" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="01.html" class="btn btn-neutral" title="数を扱う" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, k2works.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.0',
+            LANGUAGE:'ja',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to My Notebooks&#39;s documentation! &mdash; My Notebooks 1.0.0 ドキュメント</title>
+  <title>1. UML &mdash; My Notebooks 1.0.0 ドキュメント</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="next" title="数を扱う" href="study_for_math/01.html" /> 
+    <link rel="prev" title="データをグラフで視覚化する" href="study_for_math/02.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -47,7 +47,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> My Notebooks
+            <a href="index.html" class="icon icon-home"> My Notebooks
           
 
           
@@ -83,8 +83,13 @@
 <li class="toctree-l1"><a class="reference internal" href="study_for_math/02.html">データをグラフで視覚化する</a></li>
 </ul>
 <p class="caption"><span class="caption-text">サンプル</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="sample.html">1. UML</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. UML</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1.1. ユースケース図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.2. クラス図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.3. シーケンス図</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -99,7 +104,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">My Notebooks</a>
+          <a href="index.html">My Notebooks</a>
         
       </nav>
 
@@ -128,15 +133,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Welcome to My Notebooks's documentation!</li>
+      <li>1. UML</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/sample.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,29 +173,50 @@
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
-<div class="section" id="welcome-to-my-notebooks-s-documentation">
-<h1>Welcome to My Notebooks's documentation!<a class="headerlink" href="#welcome-to-my-notebooks-s-documentation" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Pythonからはじめる数学入門:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="study_for_math/01.html">数を扱う</a></li>
-<li class="toctree-l1"><a class="reference internal" href="study_for_math/02.html">データをグラフで視覚化する</a></li>
-</ul>
+<div class="section" id="uml">
+<h1>1. UML<a class="headerlink" href="#uml" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id1">
+<h2>1.1. ユースケース図<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p class="plantuml">
+<img src="_images/plantuml-16fbebc4568a1ae4732412b6347075b727980b74.png" alt="left to right direction
+skinparam packageStyle rectangle
+actor customer
+actor clerk
+rectangle checkout {
+  customer -- (checkout)
+  (checkout) .&gt; (payment) : include
+  (help) .&gt; (checkout) : extends
+  (checkout) -- clerk
+}"/>
+</p>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">サンプル</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="sample.html">1. UML</a></li>
-</ul>
+<div class="section" id="id2">
+<h2>1.2. クラス図<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p class="plantuml">
+<img src="_images/plantuml-19b95436ec751811ef7c6e9b36e22b9e4cf85bc3.png" alt="class Car
+Driver - Car : drives &gt;
+Car *- Wheel : have 4 &gt;
+Car -- Person : &lt; owns"/>
+</p>
 </div>
+<div class="section" id="id3">
+<h2>1.3. シーケンス図<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p class="plantuml">
+<img src="_images/plantuml-8124d5abb21b9f1f0bcfd8bffca9141b27507240.png" alt="participant User
+User -&gt; A: DoWork
+activate A
+A -&gt; B: &lt;&lt; createRequest &gt;&gt;
+activate B
+B -&gt; C: DoWork
+activate C
+C --&gt; B: WorkDone
+destroy C
+B --&gt; A: RequestCreated
+deactivate B
+A -&gt; User: Done
+deactivate A"/>
+</p>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">モジュール索引</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">検索ページ</span></a></li>
-</ul>
 </div>
 
 
@@ -201,8 +227,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="study_for_math/01.html" class="btn btn-neutral float-right" title="数を扱う" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="study_for_math/02.html" class="btn btn-neutral" title="データをグラフで視覚化する" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

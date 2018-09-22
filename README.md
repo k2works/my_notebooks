@@ -1,7 +1,7 @@
-My Jupyter Notebook scrap
+My Jupyter Notebook
 ===================
 # 目的 #
-スクラップブック
+俺のノートブック
 
 # 前提 #
 | ソフトウェア   | バージョン   | 備考        |
@@ -16,6 +16,50 @@ My Jupyter Notebook scrap
 1. [開発](#開発 )
 
 ## 構築
+### sphinxのセットアップ
+```
+pip install sphinx
+```
+### プロジェクトの作成
++ Separate source and build directories (y/n) [n]: y
++ Project name: my_notebooks
++ Author name(s): k2works
++ Project version []: 1.0.0
++ Project language [en]: ja
+
+```
+sphinx-quickstart
+```
+### デザインテーマの変更
+```
+pip install sphinx_rtd_theme
+```
+### 
+
+### PlantUML対応
+```
+pip sphinxcontrib-plantuml
+```
+
+### 自動ビルド対応
+```
+pip install sphinx-autobuild
+make livehtml
+```
+
+### Jupyterノートブック取り込み
+```
+pip install nbsphinx
+```
+`conf.py`
+```
+extensions = [
+    'nbsphinx',
+    'sphinx.ext.mathjax',
+]
+exclude_patterns = ['_build', '**.ipynb_checkpoints']
+```
+
 **[⬆ back to top](#構成)**
 
 ## 配置
@@ -28,4 +72,7 @@ My Jupyter Notebook scrap
 **[⬆ back to top](#構成)**
 
 # 参照 #
- 
++ [SPHINX](http://www.sphinx-doc.org/ja/stable/index.html)
++ [sphinx でドキュメント作成からWeb公開までをやってみた](https://qiita.com/kinpira/items/505bccacb2fba89c0ff0)
++ [reStructuredTextチートシート](http://teambtrb.com/2017/08/20/post-464/)
++ [Sphinxを便利にして、みんなに使ってもらいたい](https://qiita.com/kinpira/items/505bccacb2fba89c0ff0)
