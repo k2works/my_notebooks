@@ -1,57 +1,179 @@
 
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>データをグラフで視覚化する &mdash; My Notebooks 1.0.0 ドキュメント</title>
+  
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  
+  
+  
+  
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>データをグラフで視覚化する &#8212; My Notebooks 1.0.0 ドキュメント</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/translations.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../_static/cloud.base.js"></script>
-    <script type="text/javascript" src="../_static/cloud.js"></script>
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="1. UML" href="../sample.html" />
     <link rel="prev" title="数を扱う" href="01.html" /> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head><body>
-    <div class="relbar-top">
-        
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>ナビゲーション</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="総合索引"
-             accesskey="I">索引</a></li>
-        <li class="right" >
-          <a href="../sample.html" title="1. UML"
-             accesskey="N">次へ</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="01.html" title="数を扱う"
-             accesskey="P">前へ</a> &nbsp; &nbsp;</li>
-    <li><a href="../index.html">My Notebooks 1.0.0 ドキュメント</a> &#187;</li>
- 
-      </ul>
-    </div>
-    </div>
-  
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> My Notebooks
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Pythonからはじめる数学入門:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01.html">数を扱う</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">データをグラフで視覚化する</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#デカルト座標平面を理解する">デカルト座標平面を理解する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#リストとタプルの操作">リストとタプルの操作</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#リストやタプルで繰り返す">リストやタプルで繰り返す</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#matplotlibでグラフを作る">matplotlibでグラフを作る</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#グラフで点を作る">グラフで点を作る</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ニューヨーク市の年間平均気温をグラフ化する">ニューヨーク市の年間平均気温をグラフ化する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ニューヨーク市の月間気温傾向を比較する">ニューヨーク市の月間気温傾向を比較する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#グラフのカスタマイズ">グラフのカスタマイズ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#題名と説明ラベルを追加する">題名と説明ラベルを追加する</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#軸のカスタマイズ">軸のカスタマイズ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyplotを使ってプロットする">pyplotを使ってプロットする</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#プロットの保存">プロットの保存</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#式をプロットする">式をプロットする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ニュートンの万有引力の法則">ニュートンの万有引力の法則</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#投射運動">投射運動</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">サンプル</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sample.html">1. UML</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">My Notebooks</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>データをグラフで視覚化する</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/study_for_math/02.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   
 <style>
@@ -219,28 +341,21 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 
-/* CSS overrides for cloud theme */
+/* CSS overrides for sphinx_rtd_theme */
 
-/* nicer titles and more space for info and warning logos */
-
-div.admonition p.admonition-title {
-    background: rgba(0, 0, 0, .05);
-    margin: .5em -1em;
-    margin-top: -.5em !important;
-    padding: .5em .5em .5em 2.65em;
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
 }
 
-/* indent single paragraph */
-div.admonition {
-    text-indent: 20px;
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
 }
-/* don't indent multiple paragraphs */
-div.admonition > p {
-    text-indent: 0;
-}
-/* remove excessive padding */
-div.admonition.inline-title p.admonition-title {
-    padding-left: .2em;
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
 <div class="section" id="データをグラフで視覚化する">
@@ -738,116 +853,70 @@ OK
 </div>
 
 
+           </div>
+           
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sample.html" class="btn btn-neutral float-right" title="1. UML" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="01.html" class="btn btn-neutral" title="数を扱う" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, k2works.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
-    <h3><a href="../index.html">Page contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">データをグラフで視覚化する</a><ul>
-<li><a class="reference internal" href="#デカルト座標平面を理解する">デカルト座標平面を理解する</a></li>
-<li><a class="reference internal" href="#リストとタプルの操作">リストとタプルの操作</a><ul>
-<li><a class="reference internal" href="#リストやタプルで繰り返す">リストやタプルで繰り返す</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#matplotlibでグラフを作る">matplotlibでグラフを作る</a><ul>
-<li><a class="reference internal" href="#グラフで点を作る">グラフで点を作る</a></li>
-<li><a class="reference internal" href="#ニューヨーク市の年間平均気温をグラフ化する">ニューヨーク市の年間平均気温をグラフ化する</a></li>
-<li><a class="reference internal" href="#ニューヨーク市の月間気温傾向を比較する">ニューヨーク市の月間気温傾向を比較する</a></li>
-<li><a class="reference internal" href="#グラフのカスタマイズ">グラフのカスタマイズ</a><ul>
-<li><a class="reference internal" href="#題名と説明ラベルを追加する">題名と説明ラベルを追加する</a></li>
-<li><a class="reference internal" href="#軸のカスタマイズ">軸のカスタマイズ</a></li>
-<li><a class="reference internal" href="#pyplotを使ってプロットする">pyplotを使ってプロットする</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#プロットの保存">プロットの保存</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#式をプロットする">式をプロットする</a><ul>
-<li><a class="reference internal" href="#ニュートンの万有引力の法則">ニュートンの万有引力の法則</a></li>
-<li><a class="reference internal" href="#投射運動">投射運動</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+
+    </section>
 
   </div>
-  <div class="sphinxprev">
-    <h4>Previous page</h4>
-    <p class="topless"><a href="01.html"
-                          title="Previous page">&larr; 数を扱う</a></p>
-  </div>
-  <div class="sphinxnext">
-    <h4>Next page</h4>
-    <p class="topless"><a href="../sample.html"
-                          title="Next page">&rarr; 1. UML</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>このページ</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/study_for_math/02.ipynb.txt"
-            rel="nofollow">ソースコードを表示</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>クイック検索</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="検索" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-    
-    
-        <div class="sidebar-toggle-group no-js">
-            
-            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
-                 «
-                <span class="show-for-small">hide menu</span>
-                
-            </button>
-            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
-                
-                <span class="show-for-small">menu</span>
-                <span class="hide-for-small">sidebar</span>
-                 »
-            </button>
-        </div>
-    
-      <div class="clearer"></div>
-    </div>
-    <div class="relbar-bottom">
-        
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>ナビゲーション</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="総合索引"
-             >索引</a></li>
-        <li class="right" >
-          <a href="../sample.html" title="1. UML"
-             >次へ</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="01.html" title="数を扱う"
-             >前へ</a> &nbsp; &nbsp;</li>
-    <li><a href="../index.html">My Notebooks 1.0.0 ドキュメント</a> &#187;</li>
- 
-      </ul>
-    </div>
-    </div>
+  
 
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, k2works.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.0 で生成しました。
-    </div>
-    <!-- cloud_sptheme 1.4 -->
-  </body>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.0',
+            LANGUAGE:'ja',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>
