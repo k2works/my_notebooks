@@ -15,6 +15,12 @@ Welcome to My Notebooks's documentation!
 
 .. toctree::
    :maxdepth: 1
+   :caption: 経営法務:
+
+   /business_related_legal/corporation_law
+
+.. toctree::
+   :maxdepth: 1
    :caption: サンプル
    :numbered:
 
