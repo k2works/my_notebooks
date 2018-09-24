@@ -1,14 +1,7 @@
 import unittest
 from corporation_law import *
 
-
-class 会社テスト(unittest.TestCase):
-    def test_持分会社は会社(self):
-        self.assertTrue(issubclass(持分会社, 会社))
-
-    def test_株式会社は会社(self):
-        self.assertTrue(issubclass(株式会社, 会社))
-
+class 合名会社テスト(unittest.TestCase):
     def test_合名会社は持分会社(self):
         self.assertTrue(issubclass(合名会社, 持分会社))
 
@@ -30,6 +23,48 @@ class 会社テスト(unittest.TestCase):
         社員 = 無限責任社員(直接責任())
         会社 = 合名会社([社員])
         self.assertTrue(会社.法人格)
+
+    def test_合名会社は権利義務の帰属主体となる(self):
+        社員 = 無限責任社員(直接責任())
+        会社 = 合名会社([社員])
+        self.assertTrue(会社.権利義務の帰属主体())
+
+    def test_合名会社の社員は業務執行権と会社代表権を持つ(self):
+        社員 = 無限責任社員(直接責任())
+        会社 = 合名会社([社員])
+        self.assertIn(業務執行権(), 会社.社員[0].権利)
+        self.assertIn(会社代表権(), 会社.社員[0].権利)
+
+    def test_合名会社の出資の目的は財産信用労務のいずれでも良い(self):
+        社員 = 無限責任社員(直接責任())
+        会社 = 合名会社([社員])
+        self.assertIn(財産(), 会社.資本)
+        self.assertIn(信用(), 会社.資本)
+        self.assertIn(労務(), 会社.資本)
+
+    def test_合名会社の社員は退社制度が認められる(self):
+        社員1 = 無限責任社員(直接責任())
+        社員2 = 無限責任社員(直接責任())
+        会社 = 合名会社([社員1, 社員2])
+        会社.退社(社員1)
+        self.assertIn(会社.社員[0], [社員2])
+
+    def test_合名会社の社員は他の社員の承諾がない限り原則として持分の譲渡はできない(self):
+        社員1 = 無限責任社員(直接責任())
+        社員2 = 無限責任社員(直接責任())
+        社員3 = 無限責任社員(直接責任())
+        会社 = 合名会社([社員1, 社員2, 社員3])
+        with self.assertRaises(Exception) as cm:
+            会社.持分の譲渡(社員1)
+        self.assertEqual(cm.exception.args[0], '持分の譲渡はできない')
+
+
+class 会社テスト(unittest.TestCase):
+    def test_持分会社は会社(self):
+        self.assertTrue(issubclass(持分会社, 会社))
+
+    def test_株式会社は会社(self):
+        self.assertTrue(issubclass(株式会社, 会社))
 
     def test_合資会社は持分会社(self):
         self.assertTrue(issubclass(合資会社, 持分会社))

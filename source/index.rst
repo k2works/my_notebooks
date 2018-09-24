@@ -14,10 +14,10 @@ Welcome to My Notebooks's documentation!
    /study_for_math/02
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: 経営法務:
 
-   /business_related_legal/corporation_law
+   /business_related_legal/index
 
 .. toctree::
    :maxdepth: 1
