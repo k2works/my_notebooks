@@ -16,6 +16,10 @@ My Jupyter Notebook
 1. [開発](#開発 )
 
 ## 構築
+### jupyterのインストール
+```
+pip install jupyter
+```
 ### sphinxのセットアップ
 ```
 pip install sphinx
@@ -38,7 +42,7 @@ pip install sphinx_rtd_theme
 
 ### PlantUML対応
 ```
-pip sphinxcontrib-plantuml
+pip install sphinxcontrib-plantuml
 ```
 
 ### 自動ビルド対応
