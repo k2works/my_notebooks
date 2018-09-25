@@ -1,0 +1,1329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>データを統計量で記述する &mdash; My Notebooks 1.0.0 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="1. UML" href="../sample.html" />
+    <link rel="prev" title="データをグラフで視覚化する" href="02.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> My Notebooks
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Pythonからはじめる数学入門:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01.html">数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">データをグラフで視覚化する</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">データを統計量で記述する</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#平均を求める">平均を求める</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#中央値を求める">中央値を求める</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#最頻値を求め度数分布表を作る">最頻値を求め度数分布表を作る</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#一番多い要素を見つける">一番多い要素を見つける</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#最頻値を探す">最頻値を探す</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#度数分布を作る">度数分布を作る</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#散らばりを測る">散らばりを測る</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#数集合の範囲を求める">数集合の範囲を求める</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#分散と標準偏差を求める">分散と標準偏差を求める</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#２つのデータセットの相関を計算する">２つのデータセットの相関を計算する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#相関係数を計算する">相関係数を計算する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#散布図">散布図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ファイルからデータを読み込む">ファイルからデータを読み込む</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#テキストファイルからデータを読み込む">テキストファイルからデータを読み込む</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#CSVファイルからデータを読み込む">CSVファイルからデータを読み込む</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">サンプル</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sample.html">1. UML</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">My Notebooks</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>データを統計量で記述する</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/study_for_math/03.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="データを統計量で記述する">
+<h1>データを統計量で記述する<a class="headerlink" href="#データを統計量で記述する" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="平均を求める">
+<h2>平均を求める<a class="headerlink" href="#平均を求める" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">平均を計算</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">calculate_mean</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span> <span class="n">N</span>
+
+    <span class="k">return</span> <span class="n">mean</span>
+
+
+<span class="k">class</span> <span class="nc">TestCalculateMean</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_01</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">donations</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">503</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1200</span><span class="p">]</span>
+        <span class="n">mean</span> <span class="o">=</span> <span class="n">calculate_mean</span><span class="p">(</span><span class="n">donations</span><span class="p">)</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">donations</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="mf">477.75</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.003s
+
+OK
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="中央値を求める">
+<h2>中央値を求める<a class="headerlink" href="#中央値を求める" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">中央値を計算</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">calculate_median</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="n">numbers</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">N</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">m1</span> <span class="o">=</span> <span class="n">N</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">m2</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">m1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">m2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">median</span> <span class="o">=</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">m1</span><span class="p">]</span> <span class="o">+</span> <span class="n">numbers</span><span class="p">[</span><span class="n">m2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">median</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">median</span>
+
+
+<span class="k">class</span> <span class="nc">TestListCalculateMedian</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_01</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">donations</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">503</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1200</span><span class="p">]</span>
+        <span class="n">median</span> <span class="o">=</span> <span class="n">calculate_median</span><span class="p">(</span><span class="n">donations</span><span class="p">)</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">donations</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">median</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_02</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">donations</span> <span class="o">=</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">900</span><span class="p">]</span>
+        <span class="n">median</span> <span class="o">=</span> <span class="n">calculate_median</span><span class="p">(</span><span class="n">donations</span><span class="p">)</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">donations</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">median</span><span class="p">,</span> <span class="mi">85</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_03</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">donations</span> <span class="o">=</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+        <span class="n">median</span> <span class="o">=</span> <span class="n">calculate_median</span><span class="p">(</span><span class="n">donations</span><span class="p">)</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">donations</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">median</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.006s
+
+OK
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="最頻値を求め度数分布表を作る">
+<h2>最頻値を求め度数分布表を作る<a class="headerlink" href="#最頻値を求め度数分布表を作る" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="一番多い要素を見つける">
+<h3>一番多い要素を見つける<a class="headerlink" href="#一番多い要素を見つける" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Counter</span>
+
+<span class="n">simplelist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">simplelist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">mode</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mode</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(4, 2), (2, 1), (1, 1), (3, 1)]
+[(4, 2)]
+[(4, 2), (2, 1)]
+[(4, 2)]
+4
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="最頻値を探す">
+<h3>最頻値を探す<a class="headerlink" href="#最頻値を探す" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">最頻値を計算</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">calculate_mode</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mode</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">TestListCalculateMode</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_01</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">calculate_mode</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.008s
+
+OK
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">数のリストに複数の最頻値があるときに最頻値を計算</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">calculate_modes</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="n">numbers_freq</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>
+    <span class="n">max_count</span> <span class="o">=</span> <span class="n">numbers_freq</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">modes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numbers_freq</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">num</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">max_count</span><span class="p">:</span>
+            <span class="n">modes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">modes</span>
+
+
+<span class="k">class</span> <span class="nc">TestListCalculateModes</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_01</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">modes</span> <span class="o">=</span> <span class="n">calculate_modes</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">modes</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.005s
+
+OK
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="度数分布を作る">
+<h3>度数分布を作る<a class="headerlink" href="#度数分布を作る" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">点数</th>
+<th class="head">頻度</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>7</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>8</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>9</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>10</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">数のリストの度数分布表</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">frequency_table</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number</span><span class="se">\t</span><span class="s1">Frequency&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">most_common</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="se">\t</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">number</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+    <span class="n">frequency_table</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number  Frequency
+9       5
+6       3
+7       2
+8       2
+10      2
+5       2
+1       2
+2       1
+4       1
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">数のリストの度数分布表</span>
+<span class="sd">数の順に表示するよう修正</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">frequency_sorted_table</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="n">numbers_freq</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>
+    <span class="n">numbers_freq</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number</span><span class="se">\t</span><span class="s1">Frequency&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers_freq</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="se">\t</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">number</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+    <span class="n">frequency_sorted_table</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number  Frequency
+1       2
+2       1
+4       1
+5       2
+6       3
+7       2
+8       2
+9       5
+10      2
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="散らばりを測る">
+<h2>散らばりを測る<a class="headerlink" href="#散らばりを測る" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="数集合の範囲を求める">
+<h3>数集合の範囲を求める<a class="headerlink" href="#数集合の範囲を求める" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">範囲を決める</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">find_range</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">lowest</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="n">highest</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">highest</span> <span class="o">-</span> <span class="n">lowest</span>
+
+    <span class="k">return</span> <span class="n">lowest</span><span class="p">,</span> <span class="n">highest</span><span class="p">,</span> <span class="n">f</span>
+
+
+<span class="k">class</span> <span class="nc">TestFindRange</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_01</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">donations</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">503</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1200</span><span class="p">]</span>
+        <span class="n">lowest</span><span class="p">,</span> <span class="n">highest</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">find_range</span><span class="p">(</span><span class="n">donations</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">lowest</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">highest</span><span class="p">,</span> <span class="mi">1200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1140</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.007s
+
+OK
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="分散と標準偏差を求める">
+<h3>分散と標準偏差を求める<a class="headerlink" href="#分散と標準偏差を求める" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\frac{\sum(x_i - x_{avg})^2}{n}\)</span></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">数のリストの分散と標準偏差を求める</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">calculate_variance</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span> <span class="n">N</span>
+
+    <span class="n">diff</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="n">diff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span>
+
+    <span class="n">squared_diff</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">diff</span><span class="p">:</span>
+        <span class="n">squared_diff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">sum_squared_diff</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">squared_diff</span><span class="p">)</span>
+    <span class="n">variance</span> <span class="o">=</span> <span class="n">sum_squared_diff</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">variance</span>
+
+
+<span class="k">class</span> <span class="nc">TestCalculateVariance</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_01</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">donations</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">503</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1200</span><span class="p">]</span>
+        <span class="n">variance</span> <span class="o">=</span> <span class="n">calculate_variance</span><span class="p">(</span><span class="n">donations</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">variance</span><span class="p">,</span> <span class="mf">141047.35416666666</span><span class="p">)</span>
+        <span class="n">std</span> <span class="o">=</span> <span class="n">variance</span> <span class="o">**</span> <span class="mf">0.5</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">std</span><span class="p">,</span> <span class="mf">375.5627166887931</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.007s
+
+OK
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="２つのデータセットの相関を計算する">
+<h2>２つのデータセットの相関を計算する<a class="headerlink" href="#２つのデータセットの相関を計算する" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="相関係数を計算する">
+<h3>相関係数を計算する<a class="headerlink" href="#相関係数を計算する" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\frac{n\sum xy - \sum x\sum y}{\sqrt{n \sum x^2 -(\sum x)^2(n\sum y^2 - (\sum y)^2)}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\sum xy\)</span>　2つの数集合:math:<cite>x</cite>と<span class="math notranslate nohighlight">\(y\)</span>の個別要素の積和</p>
+<p><span class="math notranslate nohighlight">\(\sum x\)</span>　 集合<span class="math notranslate nohighlight">\(x\)</span>の数の和</p>
+<p><span class="math notranslate nohighlight">\(\sum y\)</span>　 集合<span class="math notranslate nohighlight">\(y\)</span>の数の和</p>
+<p><span class="math notranslate nohighlight">\((\sum x)^2\)</span>　集合:math:<cite>x</cite>の数の和の2乗</p>
+<p><span class="math notranslate nohighlight">\((\sum y)^2\)</span>　集合:math:<cite>y</cite>の数の和の2乗</p>
+<p><span class="math notranslate nohighlight">\(\sum x^2\)</span>　 集合<span class="math notranslate nohighlight">\(x\)</span>の数の和の2乗</p>
+<p><span class="math notranslate nohighlight">\(\sum y^2\)</span>　 集合<span class="math notranslate nohighlight">\(y\)</span>の数の和の2乗</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">相関係数を計算するプログラム</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">find_corr_x_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># 積の和を求める</span>
+    <span class="n">prod</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">prod</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xi</span> <span class="o">*</span> <span class="n">yi</span><span class="p">)</span>
+    <span class="n">sum_prod_x_y</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">prod</span><span class="p">)</span>
+    <span class="n">sum_x</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">sum_y</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">squared_sum_x</span> <span class="o">=</span> <span class="n">sum_x</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">squared_sum_y</span> <span class="o">=</span> <span class="n">sum_y</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">x_square</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">x_square</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xi</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># 和を求める</span>
+    <span class="n">x_square_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x_square</span><span class="p">)</span>
+    <span class="n">y_square</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">yi</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
+        <span class="n">y_square</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yi</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># 和を求める</span>
+    <span class="n">y_square_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y_square</span><span class="p">)</span>
+    <span class="c1"># 式を使って相関を計算</span>
+    <span class="n">numerator</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">sum_prod_x_y</span> <span class="o">-</span> <span class="n">sum_x</span> <span class="o">*</span> <span class="n">sum_y</span>
+    <span class="n">denominatior_term1</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">x_square_sum</span> <span class="o">-</span> <span class="n">squared_sum_x</span>
+    <span class="n">denominatior_term2</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">y_square_sum</span> <span class="o">-</span> <span class="n">squared_sum_y</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="p">(</span><span class="n">denominatior_term1</span><span class="o">*</span><span class="n">denominatior_term2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+    <span class="n">correlation</span> <span class="o">=</span> <span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span>
+
+    <span class="k">return</span> <span class="n">correlation</span>
+
+
+<span class="k">class</span> <span class="nc">TestFindCorr</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_01</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">corr</span> <span class="o">=</span> <span class="n">find_corr_x_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">corr</span> <span class="o">=</span> <span class="n">find_corr_x_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">corr</span> <span class="o">=</span> <span class="n">find_corr_x_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="mf">0.39735970711951313</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.006s
+
+OK
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="散布図">
+<h2>散布図<a class="headerlink" href="#散布図" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">!{</span>sys.executable<span class="o">}</span> -m pip install seaborn
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Requirement already satisfied: seaborn in /Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages (0.9.0)
+Requirement already satisfied: pandas&gt;=0.15.2 in /Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages (from seaborn) (0.23.4)
+Requirement already satisfied: scipy&gt;=0.14.0 in /Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages (from seaborn) (1.1.0)
+Requirement already satisfied: numpy&gt;=1.9.3 in /Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages (from seaborn) (1.15.1)
+Requirement already satisfied: matplotlib&gt;=1.4.3 in /Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages (from seaborn) (3.0.0)
+Requirement already satisfied: pytz&gt;=2011k in /Users/k2works/.local/lib/python3.7/site-packages (from pandas&gt;=0.15.2-&gt;seaborn) (2018.5)
+Requirement already satisfied: python-dateutil&gt;=2.5.0 in /Users/k2works/.local/lib/python3.7/site-packages (from pandas&gt;=0.15.2-&gt;seaborn) (2.7.3)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages (from matplotlib&gt;=1.4.3-&gt;seaborn) (0.10.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages (from matplotlib&gt;=1.4.3-&gt;seaborn) (1.0.1)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in /Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages (from matplotlib&gt;=1.4.3-&gt;seaborn) (2.2.1)
+Requirement already satisfied: six&gt;=1.5 in /Users/k2works/.local/lib/python3.7/site-packages (from python-dateutil&gt;=2.5.0-&gt;pandas&gt;=0.15.2-&gt;seaborn) (1.11.0)
+Requirement already satisfied: setuptools in /Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages (from kiwisolver&gt;=1.0.1-&gt;matplotlib&gt;=1.4.3-&gt;seaborn) (39.0.1)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_03_25_0.png" src="../_images/study_for_math_03_25_0.png" />
+</div>
+</div>
+<p><a class="reference external" href="http://blog.livedoor.jp/oyajieng_memo/archives/1677707.html">アンスコムの4つ組</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">!{</span>sys.executable<span class="o">}</span> -m pip install numpy pandas
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Requirement already satisfied: numpy in /Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages (1.15.1)
+Requirement already satisfied: pandas in /Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages (0.23.4)
+Requirement already satisfied: pytz&gt;=2011k in /Users/k2works/.local/lib/python3.7/site-packages (from pandas) (2018.5)
+Requirement already satisfied: python-dateutil&gt;=2.5.0 in /Users/k2works/.local/lib/python3.7/site-packages (from pandas) (2.7.3)
+Requirement already satisfied: six&gt;=1.5 in /Users/k2works/.local/lib/python3.7/site-packages (from python-dateutil&gt;=2.5.0-&gt;pandas) (1.11.0)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">Series</span><span class="p">,</span><span class="n">DataFrame</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">anscombe</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;anscombe&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">anscombe</span><span class="p">,</span><span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">anscombe</span><span class="p">,</span><span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span><span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_03_28_0.png" src="../_images/study_for_math_03_28_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_03_28_1.png" src="../_images/study_for_math_03_28_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="ファイルからデータを読み込む">
+<h2>ファイルからデータを読み込む<a class="headerlink" href="#ファイルからデータを読み込む" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="テキストファイルからデータを読み込む">
+<h3>テキストファイルからデータを読み込む<a class="headerlink" href="#テキストファイルからデータを読み込む" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+
+<span class="k">def</span> <span class="nf">calculate_mean</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span> <span class="n">N</span>
+
+    <span class="k">return</span> <span class="n">mean</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">ファイルに格納した平均を計算</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">numbers</span>
+
+
+<span class="k">class</span> <span class="nc">TestReadData</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_01</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s1">&#39;mydata.txt&#39;</span><span class="p">)</span>
+        <span class="n">mean</span> <span class="o">=</span> <span class="n">calculate_mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="mf">477.75</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.005s
+
+OK
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="CSVファイルからデータを読み込む">
+<h3>CSVファイルからデータを読み込む<a class="headerlink" href="#CSVファイルからデータを読み込む" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">CSVファイルからデータを読み込む</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">scatter_plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Square&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">squared</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="n">squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">numbers</span><span class="p">,</span> <span class="n">squared</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">numbers</span><span class="p">,</span> <span class="n">squared</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;numbers.csv&#39;</span><span class="p">)</span>
+    <span class="n">scatter_plot</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">squared</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_03_32_0.png" src="../_images/study_for_math_03_32_0.png" />
+</div>
+</div>
+<p><a class="reference external" href="https://www.google.com/trends/correlate/">https://www.google.com/trends/correlate/</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="k">def</span> <span class="nf">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+
+        <span class="n">summer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">highest_correlated</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="n">summer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="n">highest_correlated</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+
+    <span class="k">return</span> <span class="n">summer</span><span class="p">,</span> <span class="n">highest_correlated</span>
+
+<span class="k">def</span> <span class="nf">scatter_plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Square&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">find_corr_x_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># 積の和を求める</span>
+    <span class="n">prod</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">xi</span><span class="p">,</span><span class="n">yi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+        <span class="n">prod</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xi</span><span class="o">*</span><span class="n">yi</span><span class="p">)</span>
+    <span class="n">sum_prod_x_y</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">prod</span><span class="p">)</span>
+    <span class="n">sum_x</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">sum_y</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">squared_sum_x</span> <span class="o">=</span> <span class="n">sum_x</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">squared_sum_y</span> <span class="o">=</span> <span class="n">sum_y</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">x_square</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">x_square</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># 和を求める</span>
+    <span class="n">x_square_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x_square</span><span class="p">)</span>
+    <span class="n">y_square</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">yi</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
+        <span class="n">y_square</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># 和を求める</span>
+    <span class="n">y_square_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y_square</span><span class="p">)</span>
+
+    <span class="c1"># 式を使って相関を計算</span>
+    <span class="n">numerator</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="n">sum_prod_x_y</span> <span class="o">-</span> <span class="n">sum_x</span><span class="o">*</span><span class="n">sum_y</span>
+    <span class="n">denominatior_term1</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="n">x_square_sum</span> <span class="o">-</span> <span class="n">squared_sum_x</span>
+    <span class="n">denominatior_term2</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="n">y_square_sum</span> <span class="o">-</span> <span class="n">squared_sum_y</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="p">(</span><span class="n">denominatior_term1</span><span class="o">*</span><span class="n">denominatior_term2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+    <span class="n">correlation</span> <span class="o">=</span> <span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span>
+
+    <span class="k">return</span> <span class="n">correlation</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">summer</span><span class="p">,</span> <span class="n">highest_correlated</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;correlate-summer.csv&#39;</span><span class="p">)</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="n">find_corr_x_y</span><span class="p">(</span><span class="n">summer</span><span class="p">,</span> <span class="n">highest_correlated</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Highest correlation: </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">corr</span><span class="p">))</span>
+    <span class="n">scatter_plot</span><span class="p">(</span><span class="n">summer</span><span class="p">,</span> <span class="n">highest_correlated</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Highest correlation: 0.9643403143357506
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/study_for_math_03_34_1.png" src="../_images/study_for_math_03_34_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sample.html" class="btn btn-neutral float-right" title="1. UML" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="02.html" class="btn btn-neutral" title="データをグラフで視覚化する" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, k2works.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.0',
+            LANGUAGE:'ja',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
