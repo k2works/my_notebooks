@@ -15,6 +15,12 @@ Welcome to My Notebooks's documentation!
    /study_for_math/03
 
 .. toctree::
+   :maxdepth: 2
+   :caption: 経営法務:
+
+   /business_related_legal/index
+
+.. toctree::
    :maxdepth: 1
    :caption: サンプル
    :numbered:
