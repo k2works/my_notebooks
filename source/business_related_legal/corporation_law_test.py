@@ -1,6 +1,7 @@
 import unittest
 from corporation_law import *
 
+
 class 合名会社テスト(unittest.TestCase):
     def test_合名会社は持分会社(self):
         self.assertTrue(issubclass(合名会社, 持分会社))
@@ -59,13 +60,7 @@ class 合名会社テスト(unittest.TestCase):
         self.assertEqual(cm.exception.args[0], '持分の譲渡はできない')
 
 
-class 会社テスト(unittest.TestCase):
-    def test_持分会社は会社(self):
-        self.assertTrue(issubclass(持分会社, 会社))
-
-    def test_株式会社は会社(self):
-        self.assertTrue(issubclass(株式会社, 会社))
-
+class 合資会社テスト(unittest.TestCase):
     def test_合資会社は持分会社(self):
         self.assertTrue(issubclass(合資会社, 持分会社))
 
@@ -77,11 +72,15 @@ class 会社テスト(unittest.TestCase):
         self.assertIn(会社.社員[1], [社員2])
 
         with self.assertRaises(Exception) as cm:
-            合資会社([有限責任社員(直接責任())])
+            合資会社([社員1])
+        self.assertEqual(cm.exception.args[0], '構成員2名以上')
+
+        with self.assertRaises(Exception) as cm:
+            合資会社([社員1, 社員1])
         self.assertEqual(cm.exception.args[0], '無限責任社員が必要')
 
         with self.assertRaises(Exception) as cm:
-            合資会社([無限責任社員(直接責任())])
+            合資会社([社員2, 社員2])
         self.assertEqual(cm.exception.args[0], '有限責任社員が必要')
 
     def test_合資会社は所有と経営が一致している(self):
@@ -95,6 +94,36 @@ class 会社テスト(unittest.TestCase):
         社員2 = 無限責任社員(直接責任())
         会社 = 合資会社([社員1, 社員2])
         self.assertTrue(会社.法人格)
+
+    def test_合資会社の各社員は原則として業務執行権を持つ(self):
+        社員1 = 有限責任社員(直接責任())
+        社員2 = 無限責任社員(直接責任())
+        会社 = 合資会社([社員1, 社員2])
+        self.assertIn(業務執行権(), 会社.社員[0].権利)
+        self.assertIn(業務執行権(), 会社.社員[1].権利)
+
+    def test_合資会社の直接有限責任社員の出資は金銭等に限られる(self):
+        社員1 = 有限責任社員(直接責任(), {'財産': None, '信用': 信用(), '労務': None})
+        社員2 = 無限責任社員(直接責任(), {'財産': 財産(), '信用': None, '労務': None})
+
+        with self.assertRaises(Exception) as cm:
+            会社 = 合資会社([社員1, 社員2])
+        self.assertEqual(cm.exception.args[0], '直接有限責任社員の出資は金銭等に限られる')
+
+    def test_合資会社の直接無限責任社員の出資は金銭等信用労務(self):
+        社員1 = 有限責任社員(直接責任(), {'財産': 財産(), '信用': None, '労務': None})
+        社員2 = 無限責任社員(直接責任(), {'財産': None, '信用': 信用(), '労務': 労務()})
+        会社 = 合資会社([社員1, 社員2])
+        self.assertIn(信用(), 会社.資本)
+        self.assertIn(労務(), 会社.資本)
+
+
+class 会社テスト(unittest.TestCase):
+    def test_持分会社は会社(self):
+        self.assertTrue(issubclass(持分会社, 会社))
+
+    def test_株式会社は会社(self):
+        self.assertTrue(issubclass(株式会社, 会社))
 
     def test_合同会社は持分会社(self):
         self.assertTrue(issubclass(合同会社, 持分会社))

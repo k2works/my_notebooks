@@ -13,6 +13,9 @@ class 人的会社(会社):
 
 
 class 持分会社(人的会社):
+    _社員 = []
+    _資本 = []
+
     def __init__(self, 社員構成):
         self._社員 = 社員構成
         self._法人格 = True
@@ -24,6 +27,10 @@ class 持分会社(人的会社):
     @property
     def 法人格(self):
         return self._法人格
+
+    @property
+    def 資本(self):
+        return self._資本    
 
     def 権利義務の帰属主体(self):
         return self._法人格
@@ -46,9 +53,6 @@ class 株式会社(物的会社):
 
 
 class 合名会社(持分会社):
-    _社員 = []
-    _資本 = []
-
     def __init__(self, 社員構成):
         if 有限責任社員(間接責任()) in 社員構成:
             raise Exception('無限責任社員のみ')
@@ -65,10 +69,6 @@ class 合名会社(持分会社):
         [self._資本.append(社員.出資('信用')) for 社員 in self._社員]
         [self._資本.append(社員.出資('労務')) for 社員 in self._社員]
 
-    @property
-    def 資本(self):
-        return self._資本
-
     def 退社(self, 社員):
         self._社員.remove(社員)
 
@@ -84,12 +84,26 @@ class 合名会社(持分会社):
 
 class 合資会社(持分会社):
     def __init__(self, 社員構成):
+        if len(社員構成) < 2:
+            raise Exception('構成員2名以上')
         if 有限責任社員(直接責任()) not in 社員構成:
             raise Exception('有限責任社員が必要')
         if 無限責任社員(直接責任()) not in 社員構成:
             raise Exception('無限責任社員が必要')
+
+        [社員.権利.append(業務執行権()) for 社員 in 社員構成]
+
         self._社員 = 社員構成
         self._法人格 = True
+
+        for 社員 in self._社員:
+            if type(社員) is type(有限責任社員(直接責任())):            
+                if 社員.資本['財産'] is None:
+                    raise Exception('直接有限責任社員の出資は金銭等に限られる')
+
+        [self._資本.append(社員.出資('財産')) for 社員 in self._社員]
+        [self._資本.append(社員.出資('信用')) for 社員 in self._社員 if type(社員) is type(無限責任社員(直接責任()))]
+        [self._資本.append(社員.出資('労務')) for 社員 in self._社員 if type(社員) is type(無限責任社員(直接責任()))]
 
 
 class 合同会社(持分会社):
