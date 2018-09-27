@@ -51,6 +51,18 @@ class 株式会社(物的会社):
     def 法人格(self):
         return self.__法人格
 
+    def 退社制度(self,社員):
+        raise Exception('退社制度は認められない')
+
+    def 株式の譲渡(self, 譲渡する社員):
+        self.__社員.remove(譲渡する社員)
+        self.__社員.append(有限責任社員(間接責任()))
+
+
+class 特例有限会社(株式会社):
+    def __init__(self, 社員):
+        raise Exception('H18有限会社法廃止')
+
 
 class 合名会社(持分会社):
     def __init__(self, 社員構成):
@@ -69,7 +81,7 @@ class 合名会社(持分会社):
         [self._資本.append(社員.出資('信用')) for 社員 in self._社員]
         [self._資本.append(社員.出資('労務')) for 社員 in self._社員]
 
-    def 退社(self, 社員):
+    def 退社制度(self, 社員):
         self._社員.remove(社員)
 
     def 持分の譲渡(self, 譲渡する社員):
@@ -123,11 +135,6 @@ class 合同会社(持分会社):
                 raise Exception('出資は金銭等に限られる')
 
         [self._資本.append(社員.出資('財産')) for 社員 in self._社員]
-
-
-class 特例有限会社(株式会社):
-    def __init__(self, 社員):
-        raise Exception('H18有限会社法廃止')
 
 
 class 有限責任事業組合(持分会社):

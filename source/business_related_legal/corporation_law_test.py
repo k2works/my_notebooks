@@ -47,7 +47,7 @@ class 合名会社テスト(unittest.TestCase):
         社員1 = 無限責任社員(直接責任())
         社員2 = 無限責任社員(直接責任())
         会社 = 合名会社([社員1, 社員2])
-        会社.退社(社員1)
+        会社.退社制度(社員1)
         self.assertIn(会社.社員[0], [社員2])
 
     def test_合名会社の社員は他の社員の承諾がない限り原則として持分の譲渡はできない(self):
@@ -147,17 +147,17 @@ class 合同会社テスト(unittest.TestCase):
         self.assertIn(業務執行権(), 会社.社員[0].権利)
 
     def test_合同会社の出資は金銭等に限られ信用労務による出資はできない(self):
-        社員 = 有限責任社員(間接責任,{'財産': 財産(), '信用': None, '労務': None})
+        社員 = 有限責任社員(間接責任, {'財産': 財産(), '信用': None, '労務': None})
         会社 = 合同会社([社員])
         self.assertIn(財産(), 会社.資本)
 
-        社員 = 有限責任社員(間接責任,{'財産': None, '信用': 信用(), '労務': 労務()})
+        社員 = 有限責任社員(間接責任, {'財産': None, '信用': 信用(), '労務': 労務()})
         with self.assertRaises(Exception) as cm:
             会社 = 合同会社([社員])
-        self.assertEqual(cm.exception.args[0],'出資は金銭等に限られる')
+        self.assertEqual(cm.exception.args[0], '出資は金銭等に限られる')
 
 
-class 会社テスト(unittest.TestCase):
+class 株式会社テスト(unittest.TestCase):
     def test_持分会社は会社(self):
         self.assertTrue(issubclass(持分会社, 会社))
 
@@ -188,6 +188,24 @@ class 会社テスト(unittest.TestCase):
             特例有限会社([有限責任社員(間接責任())])
         self.assertEqual(cm.exception.args[0], 'H18有限会社法廃止')
 
+    def test_株式会社の社員は退社制度が認められない(self):
+        社員1 = 有限責任社員(間接責任())
+        社員2 = 有限責任社員(間接責任())
+        会社 = 株式会社([社員1, 社員2])
+        with self.assertRaises(Exception) as cm:
+            会社.退社制度(社員2)
+        self.assertEquals(cm.exception.args[0], '退社制度は認められない')
+        self.assertEqual(len(会社.社員), 2)
+
+    def test_株式会社の社員は株式を譲渡して投下資本を回収できる(self):
+        社員1 = 有限責任社員(間接責任())
+        社員2 = 有限責任社員(間接責任())
+        会社 = 株式会社([社員1, 社員2])
+        会社.株式の譲渡(社員2)
+        self.assertEquals(len(会社.社員), 2)
+
+
+class 会社テスト(unittest.TestCase):
     def test_有限責任事業組合は持分会社(self):
         self.assertTrue(issubclass(有限責任事業組合, 持分会社))
 
