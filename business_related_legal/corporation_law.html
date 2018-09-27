@@ -1,0 +1,776 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>会社法 &mdash; My Notebooks 1.0.0 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="1. UML" href="../sample.html" />
+    <link rel="prev" title="経営法務" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> My Notebooks
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Pythonからはじめる数学入門:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../study_for_math/01.html">数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../study_for_math/02.html">データをグラフで視覚化する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../study_for_math/03.html">データを統計量で記述する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../study_for_math/04.html">SymPyで代数と式を計算する</a></li>
+</ul>
+<p class="caption"><span class="caption-text">経営法務:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">経営法務</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">会社法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#会社の種類">会社の種類</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#会社の種類">会社の種類</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#合名会社">合名会社</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#合資会社">合資会社</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">サンプル</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sample.html">1. UML</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">My Notebooks</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">経営法務</a> &raquo;</li>
+        
+      <li>会社法</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/business_related_legal/corporation_law.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="会社法">
+<h1>会社法<a class="headerlink" href="#会社法" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="会社の種類">
+<h2>会社の種類<a class="headerlink" href="#会社の種類" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="会社の種類">
+<span id="id3"></span><h3>会社の種類<a class="headerlink" href="#会社の種類" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>会社<ul>
+<li>持分会社<ul>
+<li>合同会社 (直接)無限責任社員のみ</li>
+<li>合資会社 (直接)有限責任社員のみ &amp; (直接)無限責任社員のみ</li>
+<li>合同会社 (間接)有限責任社員のみ</li>
+</ul>
+</li>
+<li>株式会社<ul>
+<li>株式会社 (間接)有限責任社員のみ</li>
+<li>特例有限会社 H18有限会社法廃止</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">iplantuml</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%</span><span class="k">plantuml</span> --jar
+
+@startuml
+class 会社
+会社 &lt;|-- 持分会社
+会社 &lt;|-- 株式会社
+持分会社 &lt;|-- 合名会社
+持分会社 &lt;|-- 合資会社
+持分会社 &lt;|-- 合同会社
+株式会社 &lt;|-- 特例有限会社
+合名会社 *-- 無限責任社員
+合資会社 *-- 無限責任社員
+合資会社 *-- 有限責任社員
+合同会社 *-- 有限責任社員
+株式会社 *-- 有限責任社員
+
+class 社員
+社員 &lt;|-- 無限責任社員
+社員 &lt;|-- 有限責任社員
+無限責任社員 *-- 直接責任
+無限責任社員 *-- 間接責任
+有限責任社員 *-- 直接責任
+有限責任社員 *-- 間接責任
+
+class 責任
+責任 &lt;|-- 直接責任
+責任 &lt;|-- 間接責任
+@enduml
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Out[31]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/business_related_legal_corporation_law_3_0.svg" src="../_images/business_related_legal_corporation_law_3_0.svg" /></div>
+</div>
+</div>
+</div>
+<div class="section" id="合名会社">
+<h2>合名会社<a class="headerlink" href="#合名会社" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>定義<ul>
+<li>直接無限責任社員のみからなる会社</li>
+<li>法人である以上、権利・義務の帰属主体となる</li>
+</ul>
+</li>
+<li>特質<ul>
+<li>社員は業務執行権と会社代表権を持つ</li>
+<li>出資の目的は、財産・信用・労務のいずれでもよい</li>
+<li>退社制度が認められる</li>
+<li>他の社員の承諾がない限り、原則として持分の譲渡はできない</li>
+<li>定款によって持分の譲渡を禁止することができる</li>
+</ul>
+</li>
+<li>設立</li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+
+<span class="k">class</span> <span class="nc">合名会社</span><span class="p">(</span><span class="n">持分会社</span><span class="p">):</span>
+    <span class="n">_社員</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">_資本</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">社員構成</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">())</span> <span class="ow">in</span> <span class="n">社員構成</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;無限責任社員のみ&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span> <span class="ow">in</span> <span class="n">社員構成</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;無限責任社員のみ&#39;</span><span class="p">)</span>
+
+        <span class="p">[</span><span class="n">社員</span><span class="o">.</span><span class="n">権利</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">業務執行権</span><span class="p">())</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="n">社員構成</span><span class="p">]</span>
+        <span class="p">[</span><span class="n">社員</span><span class="o">.</span><span class="n">権利</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">会社代表権</span><span class="p">())</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="n">社員構成</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span> <span class="o">=</span> <span class="n">社員構成</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_法人格</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;財産&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">]</span>
+        <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;信用&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">]</span>
+        <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;労務&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">資本</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_資本</span>
+
+    <span class="k">def</span> <span class="nf">退社</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">社員</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">社員</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">持分の譲渡</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">譲渡する社員</span><span class="p">):</span>
+        <span class="n">承認社員</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span>
+        <span class="n">承認社員</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">譲渡する社員</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="n">承認社員</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">社員</span><span class="o">.</span><span class="n">承認</span><span class="p">(</span><span class="n">譲渡する社員</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;持分の譲渡はできない&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">譲渡する社員</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">合名会社テスト</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_合名会社は持分会社</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">合名会社</span><span class="p">,</span> <span class="n">持分会社</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">test_合名会社は無限責任社員のみで構成される</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">会社</span> <span class="o">=</span> <span class="n">合名会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">社員</span><span class="p">])</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="n">合名会社</span><span class="p">([</span><span class="n">有限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;無限責任社員のみ&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_合名会社は所有と経営が一致している</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">会社</span> <span class="o">=</span> <span class="n">合名会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">会社</span><span class="p">),</span> <span class="s1">&#39;所有と経営が一致&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_合名会社は法人格を持つ</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">会社</span> <span class="o">=</span> <span class="n">合名会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">会社</span><span class="o">.</span><span class="n">法人格</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_合名会社は権利義務の帰属主体となる</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">会社</span> <span class="o">=</span> <span class="n">合名会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">会社</span><span class="o">.</span><span class="n">権利義務の帰属主体</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">test_合名会社の社員は業務執行権と会社代表権を持つ</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">会社</span> <span class="o">=</span> <span class="n">合名会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">業務執行権</span><span class="p">(),</span> <span class="n">会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">権利</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">会社代表権</span><span class="p">(),</span> <span class="n">会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">権利</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_合名会社の出資の目的は財産信用労務のいずれでも良い</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">会社</span> <span class="o">=</span> <span class="n">合名会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">財産</span><span class="p">(),</span> <span class="n">会社</span><span class="o">.</span><span class="n">資本</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">信用</span><span class="p">(),</span> <span class="n">会社</span><span class="o">.</span><span class="n">資本</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">労務</span><span class="p">(),</span> <span class="n">会社</span><span class="o">.</span><span class="n">資本</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_合名会社の社員は退社制度が認められる</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">会社</span> <span class="o">=</span> <span class="n">合名会社</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">])</span>
+        <span class="n">会社</span><span class="o">.</span><span class="n">退社</span><span class="p">(</span><span class="n">社員1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">社員2</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_合名会社の社員は他の社員の承諾がない限り原則として持分の譲渡はできない</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">社員3</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">会社</span> <span class="o">=</span> <span class="n">合名会社</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">,</span> <span class="n">社員3</span><span class="p">])</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="n">会社</span><span class="o">.</span><span class="n">持分の譲渡</span><span class="p">(</span><span class="n">社員1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;持分の譲渡はできない&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+................
+----------------------------------------------------------------------
+Ran 16 tests in 0.010s
+
+OK
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="合資会社">
+<h2>合資会社<a class="headerlink" href="#合資会社" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>定義<ul>
+<li>直接無限責任社員と直接有限責任社員からなる会社</li>
+<li>法人である以上、権利・義務の帰属主体となる</li>
+</ul>
+</li>
+<li>特質<ul>
+<li>各社員は原則として業務執行権を有し、義務を負う</li>
+<li>直接有限責任社員の出資は金銭等に限られ、信用・労務による出資はできない</li>
+</ul>
+</li>
+<li>設立</li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+
+<span class="k">class</span> <span class="nc">合資会社</span><span class="p">(</span><span class="n">持分会社</span><span class="p">):</span>
+    <span class="n">_社員</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">_資本</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">社員構成</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">社員構成</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;構成員2名以上&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">社員構成</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;有限責任社員が必要&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">社員構成</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;無限責任社員が必要&#39;</span><span class="p">)</span>
+
+        <span class="p">[</span><span class="n">社員</span><span class="o">.</span><span class="n">権利</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">業務執行権</span><span class="p">())</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="n">社員構成</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span> <span class="o">=</span> <span class="n">社員構成</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_法人格</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">社員</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">有限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())):</span>
+                <span class="k">if</span> <span class="n">社員</span><span class="o">.</span><span class="n">資本</span><span class="p">[</span><span class="s1">&#39;財産&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;直接有限責任社員の出資は金銭等に限られる&#39;</span><span class="p">)</span>
+
+        <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;財産&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">]</span>
+        <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;信用&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">社員</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">()))]</span>
+        <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;労務&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">社員</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">()))]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">資本</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_資本</span>
+
+
+<span class="k">class</span> <span class="nc">合資会社テスト</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_合資会社は持分会社</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">合資会社</span><span class="p">,</span> <span class="n">持分会社</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">test_合資会社は有限責任社員と無限責任社員で構成される</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">会社</span> <span class="o">=</span> <span class="n">合資会社</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">社員1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">社員2</span><span class="p">])</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="n">合資会社</span><span class="p">([</span><span class="n">社員1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;構成員2名以上&#39;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="n">合資会社</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span><span class="n">社員1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;無限責任社員が必要&#39;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="n">合資会社</span><span class="p">([</span><span class="n">社員2</span><span class="p">,</span><span class="n">社員2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;有限責任社員が必要&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_合資会社は所有と経営が一致している</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">会社</span> <span class="o">=</span> <span class="n">合資会社</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">会社</span><span class="p">),</span> <span class="s1">&#39;所有と経営が一致&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_合資会社は法人格を持つ</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">会社</span> <span class="o">=</span> <span class="n">合資会社</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">会社</span><span class="o">.</span><span class="n">法人格</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_合資会社の各社員は原則として業務執行権を持つ</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span>
+        <span class="n">会社</span> <span class="o">=</span> <span class="n">合資会社</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">業務執行権</span><span class="p">(),</span><span class="n">会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">権利</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">業務執行権</span><span class="p">(),</span><span class="n">会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">権利</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_合資会社の直接有限責任社員の出資は金銭等に限られる</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">(),{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="n">信用</span><span class="p">(),</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">(),{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">財産</span><span class="p">(),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="n">会社</span> <span class="o">=</span> <span class="n">合資会社</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;直接有限責任社員の出資は金銭等に限られる&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_合資会社の直接無限責任社員の出資は金銭等信用労務</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">(),{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">財産</span><span class="p">(),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">(),{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="n">信用</span><span class="p">(),</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="n">労務</span><span class="p">()})</span>
+        <span class="n">会社</span> <span class="o">=</span> <span class="n">合資会社</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">信用</span><span class="p">(),</span><span class="n">会社</span><span class="o">.</span><span class="n">資本</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">労務</span><span class="p">(),</span><span class="n">会社</span><span class="o">.</span><span class="n">資本</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+................
+----------------------------------------------------------------------
+Ran 16 tests in 0.009s
+
+OK
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sample.html" class="btn btn-neutral float-right" title="1. UML" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="経営法務" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, k2works.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.0',
+            LANGUAGE:'ja',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
