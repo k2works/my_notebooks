@@ -91,10 +91,12 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">会社法</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#会社の種類">会社の種類</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#会社の種類">会社の種類</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#持分会社の特徴">持分会社の特徴</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#合名会社">合名会社</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#合資会社">合資会社</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#合同会社">合同会社</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#株式会社">株式会社</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#有限責任事業組合">有限責任事業組合</a></li>
 </ul>
 </li>
 </ul>
@@ -378,7 +380,7 @@ div.nboutput div.output_area.stderr {
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [19]:
+<span></span>In [29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -388,7 +390,7 @@ div.nboutput div.output_area.stderr {
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [31]:
+<span></span>In [30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -425,7 +427,7 @@ class 責任
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[31]:
+<span></span>Out[30]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -433,7 +435,7 @@ class 責任
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -477,9 +479,17 @@ class 責任
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="持分会社の特徴">
+<h3>持分会社の特徴<a class="headerlink" href="#持分会社の特徴" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>所有と経営の一致を法律上要求する（業務執行は、社員が行わなければならない）</li>
+<li>社員全員で定款を作成し、定款変更には、原則として、社員全員の同意が必要</li>
+<li>社員全員の同意がない限り、持分の譲渡も、新社員の加入もできない</li>
+</ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -551,7 +561,7 @@ class 責任
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -600,7 +610,7 @@ class 責任
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -628,6 +638,84 @@ class 責任
 <span class="k">class</span> <span class="nc">労務</span><span class="p">(</span><span class="n">資本</span><span class="p">):</span>
     <span class="k">pass</span>
 
+<span class="k">class</span> <span class="nc">金銭</span><span class="p">(</span><span class="n">財産</span><span class="p">):</span>
+    <span class="n">_金額</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">_通貨</span> <span class="o">=</span> <span class="s1">&#39;円&#39;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">金額</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_金額</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">通貨</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">金額</span><span class="p">,</span> <span class="n">通貨</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_金額</span> <span class="o">=</span> <span class="n">金額</span>
+        <span class="k">if</span> <span class="n">通貨</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span> <span class="o">=</span> <span class="n">通貨</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_金額</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">金額</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">通貨</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_金額</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">金額</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">通貨</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">通貨</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MoneyException</span>
+        <span class="k">return</span> <span class="n">金銭</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_金額</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">金額</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">通貨</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MoneyException</span>
+        <span class="k">return</span> <span class="n">金銭</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_金額</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">金額</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">通貨</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MoneyException</span>
+        <span class="k">return</span> <span class="n">金銭</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_金額</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">金額</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">通貨</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MoneyException</span>
+        <span class="k">return</span> <span class="n">金銭</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_金額</span> <span class="o">/</span> <span class="n">other</span><span class="o">.</span><span class="n">金額</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">通貨</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MoneyException</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_金額</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">金額</span>
+
+    <span class="k">def</span> <span class="nf">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">通貨</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MoneyException</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_金額</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">金額</span>
+
+    <span class="k">def</span> <span class="nf">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">通貨</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MoneyException</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_金額</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">金額</span>
+
+    <span class="k">def</span> <span class="nf">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_通貨</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">通貨</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MoneyException</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_金額</span> <span class="o">&gt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">金額</span>
+
+
+<span class="k">class</span> <span class="nc">MoneyException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
@@ -652,7 +740,7 @@ class 責任
 </ol>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [24]:
+<span></span>In [43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -672,6 +760,7 @@ class 責任
         <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span> <span class="o">=</span> <span class="n">社員構成</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_法人格</span> <span class="o">=</span> <span class="kc">True</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_資本</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;財産&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">]</span>
         <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;信用&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">]</span>
         <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;労務&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">]</span>
@@ -758,7 +847,12 @@ class 責任
 </div>
 <div class="stderr output_area docutils container">
 <div class="highlight"><pre>
-...F..........
+/Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages/ipykernel_launcher.py:86: DeprecationWarning: Please use assertEqual instead.
+............................................
+----------------------------------------------------------------------
+Ran 44 tests in 0.029s
+
+OK
 </pre></div></div>
 </div>
 </div>
@@ -779,7 +873,7 @@ class 責任
 </ol>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [21]:
+<span></span>In [42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -805,6 +899,7 @@ class 責任
                 <span class="k">if</span> <span class="n">社員</span><span class="o">.</span><span class="n">資本</span><span class="p">[</span><span class="s1">&#39;財産&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;直接有限責任社員の出資は金銭等に限られる&#39;</span><span class="p">)</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_資本</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;財産&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">]</span>
         <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;信用&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">社員</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">()))]</span>
         <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;労務&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">社員</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">()))]</span>
@@ -879,7 +974,12 @@ class 責任
 </div>
 <div class="stderr output_area docutils container">
 <div class="highlight"><pre>
-...F...........
+/Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages/ipykernel_launcher.py:86: DeprecationWarning: Please use assertEqual instead.
+............................................
+----------------------------------------------------------------------
+Ran 44 tests in 0.032s
+
+OK
 </pre></div></div>
 </div>
 </div>
@@ -904,11 +1004,12 @@ class 責任
 </ol>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [25]:
+<span></span>In [41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
 
 <span class="k">class</span> <span class="nc">合同会社</span><span class="p">(</span><span class="n">持分会社</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">社員構成</span><span class="p">):</span>
@@ -917,55 +1018,95 @@ class 責任
         <span class="k">if</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">())</span> <span class="ow">in</span> <span class="n">社員構成</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;有限責任社員のみ&#39;</span><span class="p">)</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_資本</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="p">[</span><span class="n">社員</span><span class="o">.</span><span class="n">権利</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">業務執行権</span><span class="p">())</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="n">社員構成</span><span class="p">]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span> <span class="o">=</span> <span class="n">社員構成</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_法人格</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_定款認証</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_決算公告義務</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_存続期間</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">社員</span><span class="o">.</span><span class="n">資本</span><span class="p">[</span><span class="s1">&#39;財産&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;出資は金銭等に限られる&#39;</span><span class="p">)</span>
-
         <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;財産&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_資本金</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">配当</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>  <span class="c1"># 自由</span>
+
+    <span class="k">def</span> <span class="nf">納税</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>  <span class="c1"># 法人課税+所得税(二重課税)</span>
+
+    <span class="k">def</span> <span class="nf">組織変更</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">組織</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">組織</span><span class="p">)</span> <span class="ow">is</span> <span class="n">株式会社</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">組織</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;変更不可&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_資本金</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">資本金</span> <span class="o">=</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">資本</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">資本</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">資本金</span><span class="p">):</span>
+                <span class="n">資本金</span> <span class="o">+=</span> <span class="n">資本</span>
+        <span class="k">if</span> <span class="n">資本金</span> <span class="o">&lt;</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;資本金1円以上&#39;</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">合同会社テスト</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_会社</span> <span class="o">=</span> <span class="n">合同会社</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">])</span>
+
     <span class="k">def</span> <span class="nf">test_合同会社は持分会社</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">合同会社</span><span class="p">,</span> <span class="n">持分会社</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">test_合同会社は有限責任社員のみで構成される</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">())</span>
-        <span class="n">会社</span> <span class="o">=</span> <span class="n">合同会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">社員</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">])</span>
 
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
             <span class="n">合同会社</span><span class="p">([</span><span class="n">無限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">())])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;有限責任社員のみ&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">test_合同会社は所有と経営が一致している</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">)</span>
-        <span class="n">会社</span> <span class="o">=</span> <span class="n">合同会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">会社</span><span class="p">),</span> <span class="s1">&#39;所有と経営が一致&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="p">),</span> <span class="s1">&#39;所有と経営が一致&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">test_合同会社は法人格を持つ</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">)</span>
-        <span class="n">会社</span> <span class="o">=</span> <span class="n">合同会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">会社</span><span class="o">.</span><span class="n">法人格</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="o">.</span><span class="n">法人格</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">test_合同会社の社員は原則として業務執行権を有し義務を負う</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">)</span>
-        <span class="n">会社</span> <span class="o">=</span> <span class="n">合同会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">業務執行権</span><span class="p">(),</span> <span class="n">会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">権利</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">業務執行権</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">権利</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">test_合同会社の出資は金銭等に限られ信用労務による出資はできない</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">,{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">財産</span><span class="p">(),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
         <span class="n">会社</span> <span class="o">=</span> <span class="n">合同会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">財産</span><span class="p">(),</span> <span class="n">会社</span><span class="o">.</span><span class="n">資本</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">会社</span><span class="o">.</span><span class="n">資本</span><span class="p">)</span>
 
-        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">,{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="n">信用</span><span class="p">(),</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="n">労務</span><span class="p">()})</span>
+        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="n">信用</span><span class="p">(),</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="n">労務</span><span class="p">()})</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
             <span class="n">会社</span> <span class="o">=</span> <span class="n">合同会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;出資は金銭等に限られる&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;出資は金銭等に限られる&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_合同の資本金は1円以上</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="n">合同会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;資本金1円以上&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_合同会社は株式会社に組織変更できる</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">組織</span> <span class="o">=</span> <span class="n">株式会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="o">.</span><span class="n">組織変更</span><span class="p">(</span><span class="n">組織</span><span class="p">),</span> <span class="n">組織</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_合同会社は有限責任事業組合に組織変更できない</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">組織</span> <span class="o">=</span> <span class="n">有限責任事業組合</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">])</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="o">.</span><span class="n">組織変更</span><span class="p">(</span><span class="n">組織</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;変更不可&#39;</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
@@ -978,7 +1119,12 @@ class 責任
 </div>
 <div class="stderr output_area docutils container">
 <div class="highlight"><pre>
-...............
+/Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages/ipykernel_launcher.py:86: DeprecationWarning: Please use assertEqual instead.
+............................................
+----------------------------------------------------------------------
+Ran 44 tests in 0.030s
+
+OK
 </pre></div></div>
 </div>
 </div>
@@ -1003,33 +1149,70 @@ class 責任
 </ol>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [28]:
+<span></span>In [40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">unittest</span>
 
 <span class="k">class</span> <span class="nc">株式会社</span><span class="p">(</span><span class="n">物的会社</span><span class="p">):</span>
+    <span class="n">_社員</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">_資本</span> <span class="o">=</span> <span class="p">[]</span>
+
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">社員構成</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span> <span class="ow">in</span> <span class="n">社員構成</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;有限責任社員のみ&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__社員</span> <span class="o">=</span> <span class="n">社員構成</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__法人格</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span> <span class="o">=</span> <span class="n">社員構成</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_法人格</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_定款認証</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_決算公告義務</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_存続期間</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_資本</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;財産&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_資本金</span><span class="p">()</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">社員</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__社員</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">法人格</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__法人格</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_法人格</span>
 
-    <span class="k">def</span> <span class="nf">退社制度</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">社員</span><span class="p">):</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">資本</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_資本</span>
+
+    <span class="k">def</span> <span class="nf">退社制度</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">社員</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;退社制度は認められない&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">株式の譲渡</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">譲渡する社員</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__社員</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">譲渡する社員</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__社員</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">()))</span>
+
+    <span class="k">def</span> <span class="nf">配当</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>  <span class="c1"># 出資割合</span>
+
+    <span class="k">def</span> <span class="nf">納税</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>  <span class="c1"># 法人課税+所得税(二重課税)</span>
+
+    <span class="k">def</span> <span class="nf">組織変更</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">組織</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">組織</span><span class="p">)</span> <span class="ow">is</span> <span class="n">合同会社</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">組織</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;変更不可&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_資本金</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">資本金</span> <span class="o">=</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">資本</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">資本</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">資本金</span><span class="p">):</span>
+                <span class="n">資本金</span> <span class="o">+=</span> <span class="n">資本</span>
+        <span class="k">if</span> <span class="n">資本金</span> <span class="o">&lt;</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;資本金1円以上&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_資本金</span> <span class="o">=</span> <span class="n">資本金</span>
 
 
 <span class="k">class</span> <span class="nc">特例有限会社</span><span class="p">(</span><span class="n">株式会社</span><span class="p">):</span>
@@ -1038,6 +1221,10 @@ class 責任
 
 
 <span class="k">class</span> <span class="nc">株式会社テスト</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_会社</span> <span class="o">=</span> <span class="n">株式会社</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">])</span>
+
     <span class="k">def</span> <span class="nf">test_持分会社は会社</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">持分会社</span><span class="p">,</span> <span class="n">会社</span><span class="p">))</span>
 
@@ -1048,17 +1235,14 @@ class 責任
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">株式会社</span><span class="p">,</span> <span class="n">物的会社</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">test_株式会社は有限責任社員のみで構成される</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">())</span>
-        <span class="n">会社</span> <span class="o">=</span> <span class="n">株式会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">社員</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="o">.</span><span class="n">社員</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">])</span>
 
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
             <span class="n">株式会社</span><span class="p">([</span><span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;有限責任社員のみ&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">test_株式会社は所有と経営が分離</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">会社</span> <span class="o">=</span> <span class="n">株式会社</span><span class="p">([</span><span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">())])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">会社</span><span class="p">),</span> <span class="s1">&#39;所有と経営が分離&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="p">),</span> <span class="s1">&#39;所有と経営が分離&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">test_特例有限会社は株式会社</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">特例有限会社</span><span class="p">,</span> <span class="n">株式会社</span><span class="p">))</span>
@@ -1069,8 +1253,8 @@ class 責任
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;H18有限会社法廃止&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">test_株式会社の社員は退社制度が認められない</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">())</span>
-        <span class="n">社員2</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">())</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
         <span class="n">会社</span> <span class="o">=</span> <span class="n">株式会社</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">])</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
             <span class="n">会社</span><span class="o">.</span><span class="n">退社制度</span><span class="p">(</span><span class="n">社員2</span><span class="p">)</span>
@@ -1078,11 +1262,164 @@ class 責任
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">会社</span><span class="o">.</span><span class="n">社員</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">test_株式会社の社員は株式を譲渡して投下資本を回収できる</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">())</span>
-        <span class="n">社員2</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">())</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
         <span class="n">会社</span> <span class="o">=</span> <span class="n">株式会社</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">])</span>
-        <span class="n">会社</span><span class="o">.</span><span class="n">株式の譲渡</span><span class="p">(</span><span class="n">社員2</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">会社</span><span class="o">.</span><span class="n">社員</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_株式会社の資本金は1円以上</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="n">株式会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;資本金1円以上&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_株式会社は合同会社に組織変更できる</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">組織</span> <span class="o">=</span> <span class="n">合同会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="o">.</span><span class="n">組織変更</span><span class="p">(</span><span class="n">組織</span><span class="p">),</span> <span class="n">組織</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_株式会社は有限責任事業組合に組織変更できない</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">組織</span> <span class="o">=</span> <span class="n">有限責任事業組合</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">])</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="o">.</span><span class="n">組織変更</span><span class="p">(</span><span class="n">組織</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;変更不可&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+/Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages/ipykernel_launcher.py:86: DeprecationWarning: Please use assertEqual instead.
+............................................
+----------------------------------------------------------------------
+Ran 44 tests in 0.031s
+
+OK
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="有限責任事業組合">
+<h3>有限責任事業組合<a class="headerlink" href="#有限責任事業組合" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">定義</p>
+<ul class="simple">
+<li>構成員の全員が有限責任を負い、内部関係については組合的規律が適用される</li>
+<li>組合である以上、法人格は認められず、権利義務の帰属主体とはならない</li>
+</ul>
+</li>
+<li><p class="first">特質</p>
+<ul>
+<li><p class="first">構成員課税</p>
+<p>法人等の利益に対して課税されず、構成員の所得に対して課税する課税制度のことでパススルー課税とも呼ばれる</p>
+</li>
+</ul>
+</li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">有限責任事業組合</span><span class="p">(</span><span class="n">持分会社</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">社員構成</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">社員構成</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;構成員2名以上&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())</span> <span class="ow">in</span> <span class="n">社員構成</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;有限責任社員のみ&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">())</span> <span class="ow">in</span> <span class="n">社員構成</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;有限責任社員のみ&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span> <span class="o">=</span> <span class="n">社員構成</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_法人格</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_定款認証</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_決算公告義務</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_存続期間</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_資本</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">社員</span><span class="o">.</span><span class="n">出資</span><span class="p">(</span><span class="s1">&#39;財産&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">社員</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_資本金</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_資本金</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">資本金</span> <span class="o">=</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">資本</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_資本</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">資本</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">資本金</span><span class="p">):</span>
+                <span class="n">資本金</span> <span class="o">+=</span> <span class="n">資本</span>
+        <span class="k">if</span> <span class="n">資本金</span> <span class="o">&lt;</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;資本金2円以上&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_資本金</span> <span class="o">=</span> <span class="n">資本金</span>
+
+    <span class="k">def</span> <span class="nf">配当</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>  <span class="c1"># 自由</span>
+
+    <span class="k">def</span> <span class="nf">納税</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>  <span class="c1"># 構成員課税</span>
+
+    <span class="k">def</span> <span class="nf">組織変更</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">組織</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;変更不可&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">有限責任事業組合テスト</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_社員2</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_会社</span> <span class="o">=</span> <span class="n">有限責任事業組合</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_社員1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_社員2</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_有限責任事業組合は持分会社</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">有限責任事業組合</span><span class="p">,</span> <span class="n">持分会社</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">test_有限責任事業組合は所有と経営が一致している</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="p">),</span> <span class="s1">&#39;所有と経営が一致&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_有限責任事業組合は有限責任社員2名以上で構成される</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="o">.</span><span class="n">社員</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="n">有限責任事業組合</span><span class="p">([</span><span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">())])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;構成員2名以上&#39;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="n">有限責任事業組合</span><span class="p">([</span><span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">()),</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">直接責任</span><span class="p">())])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;有限責任社員のみ&#39;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="n">有限責任事業組合</span><span class="p">([</span><span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">()),</span> <span class="n">無限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">())])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;有限責任社員のみ&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_有限責任事業組合は法人格を持たない</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="o">.</span><span class="n">法人格</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_有限責任事業組合の資本金は2円以上</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="n">有限責任事業組合</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;資本金2円以上&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_有限責任事業組合は株式会社に組織変更できない</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">組織</span> <span class="o">=</span> <span class="n">株式会社</span><span class="p">([</span><span class="n">社員</span><span class="p">])</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="o">.</span><span class="n">組織変更</span><span class="p">(</span><span class="n">組織</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;変更不可&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_有限責任事業組合は合同会社に組織変更できない</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">社員1</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">社員2</span> <span class="o">=</span> <span class="n">有限責任社員</span><span class="p">(</span><span class="n">間接責任</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;財産&#39;</span><span class="p">:</span> <span class="n">金銭</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;信用&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;労務&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">組織</span> <span class="o">=</span> <span class="n">合同会社</span><span class="p">([</span><span class="n">社員1</span><span class="p">,</span> <span class="n">社員2</span><span class="p">])</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_会社</span><span class="o">.</span><span class="n">組織変更</span><span class="p">(</span><span class="n">組織</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;変更不可&#39;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1094,7 +1431,12 @@ class 責任
 </div>
 <div class="stderr output_area docutils container">
 <div class="highlight"><pre>
-...................F.
+/Users/k2works/.pyenv/versions/3.7.0/lib/python3.7/site-packages/ipykernel_launcher.py:86: DeprecationWarning: Please use assertEqual instead.
+............................................
+----------------------------------------------------------------------
+Ran 44 tests in 0.036s
+
+OK
 </pre></div></div>
 </div>
 </div>
