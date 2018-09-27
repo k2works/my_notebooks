@@ -112,8 +112,17 @@ class 合同会社(持分会社):
             raise Exception('有限責任社員のみ')
         if 無限責任社員(間接責任()) in 社員構成:
             raise Exception('有限責任社員のみ')
+
+        [社員.権利.append(業務執行権()) for 社員 in 社員構成]
+
         self._社員 = 社員構成
         self._法人格 = True
+
+        for 社員 in self._社員:
+            if 社員.資本['財産'] is None:
+                raise Exception('出資は金銭等に限られる')
+
+        [self._資本.append(社員.出資('財産')) for 社員 in self._社員]
 
 
 class 特例有限会社(株式会社):

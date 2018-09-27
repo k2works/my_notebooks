@@ -118,13 +118,7 @@ class 合資会社テスト(unittest.TestCase):
         self.assertIn(労務(), 会社.資本)
 
 
-class 会社テスト(unittest.TestCase):
-    def test_持分会社は会社(self):
-        self.assertTrue(issubclass(持分会社, 会社))
-
-    def test_株式会社は会社(self):
-        self.assertTrue(issubclass(株式会社, 会社))
-
+class 合同会社テスト(unittest.TestCase):
     def test_合同会社は持分会社(self):
         self.assertTrue(issubclass(合同会社, 持分会社))
 
@@ -146,6 +140,29 @@ class 会社テスト(unittest.TestCase):
         社員 = 有限責任社員(間接責任)
         会社 = 合同会社([社員])
         self.assertTrue(会社.法人格)
+
+    def test_合同会社の社員は原則として業務執行権を有し義務を負う(self):
+        社員 = 有限責任社員(間接責任)
+        会社 = 合同会社([社員])
+        self.assertIn(業務執行権(), 会社.社員[0].権利)
+
+    def test_合同会社の出資は金銭等に限られ信用労務による出資はできない(self):
+        社員 = 有限責任社員(間接責任,{'財産': 財産(), '信用': None, '労務': None})
+        会社 = 合同会社([社員])
+        self.assertIn(財産(), 会社.資本)
+
+        社員 = 有限責任社員(間接責任,{'財産': None, '信用': 信用(), '労務': 労務()})
+        with self.assertRaises(Exception) as cm:
+            会社 = 合同会社([社員])
+        self.assertEqual(cm.exception.args[0],'出資は金銭等に限られる')
+
+
+class 会社テスト(unittest.TestCase):
+    def test_持分会社は会社(self):
+        self.assertTrue(issubclass(持分会社, 会社))
+
+    def test_株式会社は会社(self):
+        self.assertTrue(issubclass(株式会社, 会社))
 
     def test_株式会社は物的会社(self):
         self.assertTrue(issubclass(株式会社, 物的会社))
