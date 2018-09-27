@@ -13,6 +13,7 @@ Welcome to My Notebooks's documentation!
    /study_for_math/01
    /study_for_math/02
    /study_for_math/03
+   /study_for_math/04
 
 .. toctree::
    :maxdepth: 2
