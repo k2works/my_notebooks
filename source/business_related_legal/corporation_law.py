@@ -230,7 +230,7 @@ class 有限責任事業組合(持分会社):
         self._資本金 = 資本金
 
     def 配当(self):
-        pass  # 出資割合
+        pass  # 自由
 
     def 納税(self):
         pass  # 構成員課税
