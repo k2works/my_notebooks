@@ -296,6 +296,20 @@ class 会社テスト(unittest.TestCase):
     pass
 
 
+class 会社設立テスト(unittest.TestCase):
+    def test_発起設立では発起人が設立時に発行するすべての株式を引き受ける(self):
+        _発起人 = 有限責任社員(間接責任(), {'財産': 金銭(1), '信用': None, '労務': None})
+        _株式会社 = 株式会社([_発起人])
+        _会社 = 発起設立(_株式会社).実施()
+        self.assertEquals(len(_会社.社員), 1)
+
+    def test_募集摂理では発起人が設立に発行するすべての株式を引き受けない(self):
+        _発起人 = 有限責任社員(間接責任(), {'財産': 金銭(1), '信用': None, '労務': None})
+        _株式会社 = 株式会社([_発起人])
+        _会社 = 募集設立(_株式会社).実施()
+        self.assertNotEquals(len(_会社.社員), 1)
+
+
 class 社員テスト(unittest.TestCase):
     def test_無限責任社員(self):
         self.assertTrue(issubclass(無限責任社員, 社員))

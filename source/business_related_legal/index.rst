@@ -5,5 +5,5 @@
    :maxdepth: 1
    :caption: 会社法:
 
-   ./corporation_law/1-1
-   ./corporation_law/1-2
+   ./corporation_law/chap1_1
+   ./corporation_law/chap1_2

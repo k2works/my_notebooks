@@ -85,7 +85,6 @@ class 株式会社(物的会社):
         else:
             raise Exception('変更不可')
 
-
     def _資本金(self):
         資本金 = 金銭(0)
         for 資本 in self._資本:
@@ -190,7 +189,6 @@ class 合同会社(持分会社):
             return 組織
         else:
             raise Exception('変更不可')
-
 
     def _資本金(self):
         資本金 = 金銭(0)
@@ -415,9 +413,7 @@ class 社員:
         self._資本 = 資本
 
     def 出資(self, 資本):
-        出資 = self._資本[資本]
-        del self._資本[資本]
-        return 出資
+        return self._資本[資本]
 
     def 承認(self, 社員):
         return False
@@ -444,3 +440,72 @@ class 無限責任社員(社員):
 
 class 有限責任社員(社員):
     pass
+
+
+from abc import ABC
+from abc import abstractmethod
+
+
+class 会社設立(ABC):
+    def __init__(self, 会社):
+        self._会社 = 会社
+        self._出資者 = []
+        for 出資者 in self._会社.社員:
+            self._出資者.append(出資者)
+
+    @abstractmethod
+    def 実施(self):
+        pass
+
+    def __定款の作成(self):
+        pass
+
+    def __出資の履行(self):
+        pass
+
+    def __機関の設置(self):
+        pass
+
+
+class 発起設立(会社設立):
+    def 実施(self):
+        self.__定款の作成()
+        self.__出資の履行()
+        self.__機関の設置()
+        return 株式会社(self._出資者)
+
+    def __定款の作成(self):
+        print('公証人による定款認証')
+
+    def __出資の履行(self):
+        print('出資の払込')
+
+    def __機関の設置(self):
+        print('取締役の選任')
+        print('検査役の調査等')
+        print('設立登記')
+
+
+class 募集設立(会社設立):
+    def 実施(self):
+        self.__定款の作成()
+        self.__出資の履行()
+        self.__機関の設置()
+        return 株式会社(self._出資者)
+
+    def __定款の作成(self):
+        print('公証人による定款認証')
+
+    def __出資の履行(self):
+        self.__株主の募集()
+        print('出資の払込')
+        print('設立総会')
+
+    def __機関の設置(self):
+        print('取締役の選任')
+        print('検査役の調査等')
+        print('設立登記')
+
+    def __株主の募集(self):
+        print('株主の募集')
+        self._出資者.append(有限責任社員(間接責任(), {'財産': 金銭(1), '信用': None, '労務': None}))
