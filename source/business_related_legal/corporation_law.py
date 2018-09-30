@@ -40,7 +40,7 @@ class 株式会社(物的会社):
     _社員 = []
     _資本 = []
 
-    def __init__(self, 社員構成):
+    def __init__(self, 社員構成, 払込金保管証明=False, 創立総会=False, 設立登記=None):
         if 無限責任社員(直接責任()) in 社員構成:
             raise Exception('有限責任社員のみ')
 
@@ -49,6 +49,9 @@ class 株式会社(物的会社):
         self._定款認証 = True
         self._決算公告義務 = True
         self._存続期間 = False
+        self._払込金保管証明 = 払込金保管証明
+        self._創立総会 = 創立総会
+        self._設立登記 = 設立登記
 
         self._資本 = []
         [self._資本.append(社員.出資('財産')) for 社員 in self._社員]
@@ -65,6 +68,18 @@ class 株式会社(物的会社):
     @property
     def 資本(self):
         return self._資本
+
+    @property
+    def 払込金保管証明(self):
+        return self._払込金保管証明
+
+    @property
+    def 創立総会(self):
+        return self._創立総会
+
+    @property
+    def 設立登記(self):
+        return self._設立登記
 
     def 退社制度(self, 社員):
         raise Exception('退社制度は認められない')
@@ -472,7 +487,9 @@ class 発起設立(会社設立):
         self.__定款の作成()
         self.__出資の履行()
         self.__機関の設置()
-        return 株式会社(self._出資者)
+        return 株式会社(self._出資者,
+                    設立登記=self._設立登記
+                    )
 
     def __定款の作成(self):
         print('公証人による定款認証')
@@ -483,7 +500,11 @@ class 発起設立(会社設立):
     def __機関の設置(self):
         print('取締役の選任')
         print('検査役の調査等')
+        self.__設立登記()
+
+    def __設立登記(self):
         print('設立登記')
+        self._設立登記 = '発起人が定めた日から2週間以内'
 
 
 class 募集設立(会社設立):
@@ -491,7 +512,11 @@ class 募集設立(会社設立):
         self.__定款の作成()
         self.__出資の履行()
         self.__機関の設置()
-        return 株式会社(self._出資者)
+        return 株式会社(self._出資者,
+                    払込金保管証明=True,
+                    創立総会=True,
+                    設立登記=self._設立登記
+                    )
 
     def __定款の作成(self):
         print('公証人による定款認証')
@@ -504,8 +529,12 @@ class 募集設立(会社設立):
     def __機関の設置(self):
         print('取締役の選任')
         print('検査役の調査等')
-        print('設立登記')
+        self.__設立登記()
 
     def __株主の募集(self):
         print('株主の募集')
         self._出資者.append(有限責任社員(間接責任(), {'財産': 金銭(1), '信用': None, '労務': None}))
+
+    def __設立登記(self):
+        print('設立登記')
+        self._設立登記 = '創立総会の終結の日の翌日から2週間以内'
