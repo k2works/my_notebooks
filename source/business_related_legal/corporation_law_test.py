@@ -296,6 +296,44 @@ class 会社テスト(unittest.TestCase):
     pass
 
 
+class 会社設立テスト(unittest.TestCase):
+    def setUp(self):
+        _発起人 = 有限責任社員(間接責任(), {'財産': 金銭(1), '信用': None, '労務': None})
+        self._株式会社 = 株式会社([_発起人])
+
+    def test_発起設立では発起人が設立時に発行するすべての株式を引き受ける(self):
+        _会社 = 発起設立(self._株式会社).実施()
+        self.assertEquals(len(_会社.社員), 1)
+
+    def test_発起設立では払込保証証明は不要(self):
+        _会社 = 発起設立(self._株式会社).実施()
+        self.assertFalse(_会社.払込金保管証明)
+
+    def test_発起設立では創立総会は不要(self):
+        _会社 = 発起設立(self._株式会社).実施()
+        self.assertFalse(_会社.創立総会)
+
+    def test_発起設立の設立登記は一定の日から2週間以内に行わなければならない(self):
+        _会社 = 発起設立(self._株式会社).実施()
+        self.assertEquals(_会社.設立登記, '発起人が定めた日から2週間以内')
+
+    def test_募集摂理では発起人が設立に発行するすべての株式を引き受けない(self):
+        _会社 = 募集設立(self._株式会社).実施()
+        self.assertNotEquals(len(_会社.社員), 1)
+
+    def test_募集設立では払込保証証明は必要(self):
+        _会社 = 募集設立(self._株式会社).実施()
+        self.assertTrue(_会社.払込金保管証明)
+
+    def test_募集設立では創立総会は必要(self):
+        _会社 = 募集設立(self._株式会社).実施()
+        self.assertTrue(_会社.創立総会)
+
+    def test_募集設立の設立登記は一定の日から2週間以内に行わなければならない(self):
+        _会社 = 募集設立(self._株式会社).実施()
+        self.assertEquals(_会社.設立登記, '創立総会の終結の日の翌日から2週間以内')
+
+
 class 社員テスト(unittest.TestCase):
     def test_無限責任社員(self):
         self.assertTrue(issubclass(無限責任社員, 社員))
