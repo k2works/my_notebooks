@@ -1,9 +1,9 @@
-経営法務
+会社法
 ######
 
 .. toctree::
    :maxdepth: 1
-   :caption: 経営法務ノートブック:
+   :caption: 会社法:
 
-   ./corporation_law
-
+   ./corporation_law/chap1_1
+   ./corporation_law/chap1_2
