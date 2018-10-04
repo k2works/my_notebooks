@@ -37,3 +37,8 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+Reference
+==================
+
+* `Doing Math with Python <https://github.com/doingmathwithpython/code>`_
