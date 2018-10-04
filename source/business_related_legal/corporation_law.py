@@ -538,3 +538,34 @@ class 募集設立(会社設立):
     def __設立登記(self):
         print('設立登記')
         self._設立登記 = '創立総会の終結の日の翌日から2週間以内'
+
+
+class 定款():
+    def __init__(self):
+        self.__絶対的記載事項 = 絶対的記載事項()
+        self.__相対的記載事項 = 相対的記載事項()
+        self.__任意的記載事項 = 任意的記載事項()
+
+    @property
+    def 絶対的記載事項(self):
+        return self.__絶対的記載事項
+
+    @property
+    def 相対的記載事項(self):
+        return self.__相対的記載事項
+
+    @property
+    def 任意的記載事項(self):
+        return self.__任意的記載事項
+
+
+class 絶対的記載事項():
+    pass
+
+
+class 相対的記載事項():
+    pass
+
+
+class 任意的記載事項():
+    pass

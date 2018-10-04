@@ -358,5 +358,19 @@ class 社員テスト(unittest.TestCase):
         self.assertEqual(type(社員.責任), 間接責任)
 
 
+class 定款テスト(unittest.TestCase):
+    def setUp(self):
+        self._定款 = 定款()
+
+    def test_定款は絶対的記載事項を持つ(self):
+        self.assertEqual(type(self._定款.絶対的記載事項), 絶対的記載事項)
+
+    def test_定款は相対的記載事項を持つ(self):
+        self.assertEqual(type(self._定款.相対的記載事項), 相対的記載事項)
+
+    def test_定款は任意的記載事項を持つ(self):
+        self.assertEqual(type(self._定款.任意的記載事項), 任意的記載事項)
+
+
 if __name__ == '__main__':
     unittest.main()
