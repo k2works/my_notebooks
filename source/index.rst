@@ -15,6 +15,7 @@ Welcome to My Notebooks's documentation!
    /study_for_math/03
    /study_for_math/04
    /study_for_math/05
+   /study_for_math/06
 
 .. toctree::
    :maxdepth: 2
@@ -36,3 +37,8 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+Reference
+==================
+
+* `Doing Math with Python <https://github.com/doingmathwithpython/code>`_
