@@ -40,7 +40,7 @@ class 株式会社(物的会社):
     _社員 = []
     _資本 = []
 
-    def __init__(self, 社員構成, 払込金保管証明=False, 創立総会=False, 設立登記=None):
+    def __init__(self, 社員構成, 払込金保管証明=False, 創立総会=False, 設立登記=None, 定款=None):
         if 無限責任社員(直接責任()) in 社員構成:
             raise Exception('有限責任社員のみ')
 
@@ -52,9 +52,17 @@ class 株式会社(物的会社):
         self._払込金保管証明 = 払込金保管証明
         self._創立総会 = 創立総会
         self._設立登記 = 設立登記
+        self._定款 = 定款
 
         self._資本 = []
-        [self._資本.append(社員.出資('財産')) for 社員 in self._社員]
+
+        for 社員 in self._社員:
+            _出資 = 社員.出資('財産')
+            if type(_出資) is list:
+                for 資本 in _出資:
+                    self._資本.append(資本)
+            else:
+                self._資本.append(_出資)
         self._資本金()
 
     @property
@@ -81,6 +89,10 @@ class 株式会社(物的会社):
     def 設立登記(self):
         return self._設立登記
 
+    @property
+    def 定款(self):
+        return self._定款
+
     def 退社制度(self, 社員):
         raise Exception('退社制度は認められない')
 
@@ -105,6 +117,10 @@ class 株式会社(物的会社):
         for 資本 in self._資本:
             if type(資本) is type(資本金):
                 資本金 += 資本
+            elif type(資本) is 不動産:
+                _金銭 = 資本.価値
+                資本金 += _金銭
+
         if 資本金 < 金銭(1):
             raise Exception('資本金1円以上')
         self._資本金 = 資本金
@@ -396,16 +412,64 @@ class MoneyException(Exception):
     pass
 
 
+class 不動産(財産):
+    @property
+    def 価値(self):
+        return self._価値
+
+    def __init__(self, 価値):
+        self._価値 = 価値
+
+    def __eq__(self, other):
+        if not isinstance(other, self.__class__):
+            return False
+        if not self._価値 == other.価値:
+            return False
+        return type(self) == type(other)
+
+    def __ne__(self, other):
+        if not isinstance(other, self.__class__):
+            return True
+        if not self._価値 == other.価値:
+            return True
+        return type(self) != type(other)
+
+    def __add__(self, other):
+        return 不動産(self._価値 + other.価値)
+
+    def __sub__(self, other):
+        return 不動産(self._価値 - other.価値)
+
+    def __mul__(self, other):
+        return 不動産(self._価値 * other.価値)
+
+    def __truediv__(self, other):
+        return 不動産(self.価値 / other.価値)
+
+    def __lt__(self, other):
+        return self._価値 < other.価値
+
+    def __le__(self, other):
+        return self._価値 <= other.価値
+
+    def __gt__(self, other):
+        return self._価値 > other.価値
+
+    def __ge__(self, other):
+        return self._価値 >= other.価値
+
+
 class 社員:
     _責任 = 責任()
     _権利 = []
     _資本 = {}
 
-    def __init__(self, 責任, 資本=None):
+    def __init__(self, 責任, 資本=None,発起人=True):
         if 資本 is None:
-            資本 = {'財産': 財産(), '信用': 信用(), '労務': 労務()}
+            資本 = {'財産': [財産()], '信用': [信用()], '労務': [労務()]}
         self._責任 = 責任
         self._資本 = 資本
+        self._発起人 = 発起人
 
     @property
     def 責任(self):
@@ -427,8 +491,19 @@ class 社員:
     def 資本(self, 資本):
         self._資本 = 資本
 
+    @property
+    def 発起人(self):
+        return self._発起人
+
     def 出資(self, 資本):
-        return self._資本[資本]
+        _資本 = self._資本[資本]
+        if self._発起人 == True:
+            return _資本
+        else:
+            if type(_資本) is not 金銭:
+                raise Exception('現物出資できるのは発起人に限られる')
+            else:
+                return _資本
 
     def 承認(self, 社員):
         return False
@@ -466,7 +541,8 @@ class 会社設立(ABC):
         self._会社 = 会社
         self._出資者 = []
         for 出資者 in self._会社.社員:
-            self._出資者.append(出資者)
+            if 出資者.発起人 == True:
+                self._出資者.append(出資者)
 
     @abstractmethod
     def 実施(self):
@@ -488,11 +564,13 @@ class 発起設立(会社設立):
         self.__出資の履行()
         self.__機関の設置()
         return 株式会社(self._出資者,
-                    設立登記=self._設立登記
+                    設立登記=self._設立登記,
+                    定款=self._定款
                     )
 
     def __定款の作成(self):
         print('公証人による定款認証')
+        self._定款 = 定款()
 
     def __出資の履行(self):
         print('出資の払込')
@@ -515,11 +593,13 @@ class 募集設立(会社設立):
         return 株式会社(self._出資者,
                     払込金保管証明=True,
                     創立総会=True,
-                    設立登記=self._設立登記
+                    設立登記=self._設立登記,
+                    定款=self._定款
                     )
 
     def __定款の作成(self):
         print('公証人による定款認証')
+        self._定款 = 定款()
 
     def __出資の履行(self):
         self.__株主の募集()
@@ -533,7 +613,9 @@ class 募集設立(会社設立):
 
     def __株主の募集(self):
         print('株主の募集')
-        self._出資者.append(有限責任社員(間接責任(), {'財産': 金銭(1), '信用': None, '労務': None}))
+        for _出資者 in self._会社.社員:
+            if _出資者.発起人 == False:
+                self._出資者.append(_出資者)
 
     def __設立登記(self):
         print('設立登記')
@@ -560,11 +642,65 @@ class 定款():
 
 
 class 絶対的記載事項():
-    pass
+    __会社の目的 = '会社の事業目的を記載する'
+    __商号 = '会社が自己を表すために用いる名称'
+    __本店の所在地 = '最小行政区画（市町村／東京特別区）により記載'
+    __設立に際して出資される財産の価格またはその最低額 = 'これに記載された額以上の財産が現実に出資されなければならない'
+    __発起人の氏名または名称および住所 = 'これに記載されたものが発起人となる'
+    __発行可能株式総数 = '株主総会の決議によらず、取締役会の決議だけで発行することが株式数で、この上限の範囲内であれば、取締役会で自由に株式を発行できる'
+    
+    @property
+    def 会社の目的(self):
+        return self.__会社の目的
 
+    @property
+    def 商号(self):
+        return self.__商号
+
+    @property
+    def 本店の所在地(self):
+        return self.__本店の所在地
+
+    @property
+    def 設立に際して出資される財産の価格またはその最低額(self):
+        return self.__設立に際して出資される財産の価格またはその最低額
+
+    @property
+    def 発起人の氏名または名称および住所(self):
+        return self.__発起人の氏名または名称および住所
+
+    @property
+    def 発行可能株式総数(self):
+        return self.__発行可能株式総数
+
+class 変態設立事項():
+    __現物出資 = '金銭以外の財産をもってする出資'
+    __財産引受け = '会社のために会社の成立を条件として特定の財産を譲り受けることを約する契約'
+    __発起人の報酬その他の特別の利益 = '設立中の会社の機関として行った労務に対する報酬その他の利益'
+    __設立費用 = '会社設立に必要な取引行為から生じる費用のうち、会社が負担すべきもの'
+    
+    @property
+    def 現物出資(self):
+        return self.__現物出資
+
+    @property
+    def 財産引受け(self):
+        return self.__財産引受け
+
+    @property
+    def 発起人の報酬その他の特別の利益(self):
+        return self.__発起人の報酬その他の特別の利益
+
+    @property
+    def 設立費用(self):
+        return self.__設立費用
 
 class 相対的記載事項():
-    pass
+    __変態設立事項 = 変態設立事項()
+
+    @property
+    def 変態設立事項(self):
+        return self.__変態設立事項
 
 
 class 任意的記載事項():
