@@ -4,6 +4,7 @@ from 社員.責任 import 直接責任
 from 社員.責任 import 間接責任
 from 資本.資本 import 金銭
 from 資本.資本 import 不動産
+from 会社.合同会社 import 合同会社
 
 
 class 株式会社(物的会社):

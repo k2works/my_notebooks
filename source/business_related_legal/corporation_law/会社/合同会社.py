@@ -1,5 +1,5 @@
+from 会社.会社 import 会社
 from 会社.持分会社 import 持分会社
-from 会社.株式会社 import 株式会社
 from 社員.社員 import 無限責任社員
 from 社員.責任 import 間接責任
 from 社員.責任 import 直接責任

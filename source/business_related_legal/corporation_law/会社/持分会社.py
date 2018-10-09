@@ -1,4 +1,4 @@
-from 会社.人的会社 import 人的会社
+from 会社.会社 import 人的会社
 
 class 持分会社(人的会社):
     _社員 = []

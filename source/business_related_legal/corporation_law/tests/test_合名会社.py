@@ -70,7 +70,3 @@ class 合名会社テスト(unittest.TestCase):
         with self.assertRaises(Exception) as cm:
             会社.持分の譲渡(社員1)
         self.assertEqual(cm.exception.args[0], '持分の譲渡はできない')
-
-
-if __name__ == '__main__':
-    unittest.main()
