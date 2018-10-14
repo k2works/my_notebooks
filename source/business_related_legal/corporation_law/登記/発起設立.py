@@ -14,17 +14,28 @@ class 発起設立(会社設立):
                     )
 
     def __定款の作成(self):
-        print('公証人による定款認証')
         self._定款 = 定款()
+        self.__公証人による定款認証()
 
     def __出資の履行(self):
-        print('出資の払込')
+        self.__出資の払込()
 
     def __機関の設置(self):
-        print('取締役の選任')
-        print('検査役の調査等')
+        self.__取締役の選任()
+        self.__検査役の調査等()
         self.__設立登記()
 
+    def __公証人による定款認証(self):
+        pass
+
+    def __出資の払込(self):
+        pass
+
+    def __取締役の選任(self):
+        pass
+
+    def __検査役の調査等(self):
+        pass
+
     def __設立登記(self):
-        print('設立登記')
         self._設立登記 = '発起人が定めた日から2週間以内'
