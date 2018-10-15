@@ -9,8 +9,9 @@ class 社員:
     _責任 = 責任()
     _権利 = []
     _資本 = {}
+    _株式 = []
 
-    def __init__(self, 責任, 資本=None,発起人=True):
+    def __init__(self, 責任, 資本=None, 発起人=True):
         if 資本 is None:
             資本 = {'財産': [財産()], '信用': [信用()], '労務': [労務()]}
         self._責任 = 責任
@@ -36,6 +37,14 @@ class 社員:
     @資本.setter
     def 資本(self, 資本):
         self._資本 = 資本
+
+    @property
+    def 株式(self):
+        return self._株式
+
+    @株式.setter
+    def 株式(self, 株式):
+        self._株式.append(株式)
 
     @property
     def 発起人(self):
@@ -76,4 +85,3 @@ class 無限責任社員(社員):
 
 class 有限責任社員(社員):
     pass
-
