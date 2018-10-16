@@ -88,17 +88,21 @@ class 種類株式テスト(unittest.TestCase):
 
 
 class 株式の譲渡テスト(unittest.TestCase):
-    def setUp(self):
-        発起人 = 有限責任社員(間接責任(), {'財産': 金銭(1), '信用': None, '労務': None})
-        self.__株式会社 = 株式会社([発起人])
-
     def test_非公開会社は発行株式の全部に譲渡制限を定めている(self):
-        self.__会社 = 発起設立(self.__株式会社).実施(種類株式=議決権制限株式)
-        社員 = self.__会社.社員
+        発起人 = 有限責任社員(間接責任(), {'財産': 金銭(1), '信用': None, '労務': None})
+        会社 = 発起設立(株式会社([発起人])).実施(種類株式=議決権制限株式)
+        社員 = 会社.社員
         self.assertEqual(type(社員[0].株式[0]), 議決権制限株式)
+        self.assertTrue(会社.is非公開会社())
+        self.assertFalse(会社.is公開会社())
 
     def test_公開会社は発行株式の全部に譲渡制限を定めていない(self):
-        pass
+        発起人 = 有限責任社員(間接責任(), {'財産': 金銭(1), '信用': None, '労務': None})
+        会社 = 発起設立(株式会社([発起人])).実施(種類株式=優先株)
+        社員 = 会社.社員
+        self.assertEqual(type(社員[0].株式[0]), 優先株)
+        self.assertTrue(会社.is公開会社())
+        self.assertFalse(会社.is非公開会社())
 
     def test_公開会社は発行株式の一部に譲渡制限を定めている(self):
         pass

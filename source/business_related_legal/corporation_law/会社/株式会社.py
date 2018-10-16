@@ -6,8 +6,11 @@ from 資本.資本 import 金銭
 from 資本.資本 import 不動産
 from 会社.合同会社 import 合同会社
 
+from 会社.会社 import 非公開会社, 公開会社
+from 資本.種類株式 import 議決権制限株式
 
-class 株式会社(物的会社):
+
+class 株式会社(物的会社, 非公開会社, 公開会社):
     _社員 = []
     _資本 = []
 
@@ -95,6 +98,26 @@ class 株式会社(物的会社):
         if 資本金 < 金銭(1):
             raise Exception('資本金1円以上')
         self._資本金 = 資本金
+
+    def is非公開会社(self):
+        複数種類株式 = []
+        check = False
+
+        for 社員 in self.社員:
+            [複数種類株式.append(株式) for 株式 in 社員.株式]
+            for 株式 in 複数種類株式:
+                check = True if type(株式) is 議決権制限株式 else False
+
+        return check
+
+    def is公開会社(self):
+        複数種類株式 = []
+
+        for 社員 in self.社員:
+            [複数種類株式.append(株式) for 株式 in 社員.株式]
+            for 株式 in 複数種類株式:
+                if type(株式) is not 議決権制限株式:
+                    return True
 
 
 class 特例有限会社(株式会社):

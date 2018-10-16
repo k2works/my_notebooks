@@ -17,6 +17,7 @@ class 社員:
         self._責任 = 責任
         self._資本 = 資本
         self._発起人 = 発起人
+        self._株式 = []
 
     @property
     def 責任(self):
