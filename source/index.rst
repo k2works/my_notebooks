@@ -7,6 +7,12 @@ Welcome to My Notebooks's documentation!
 ========================================
 
 .. toctree::
+   :maxdepth: 2
+   :caption: Programing Exercises
+
+   /programing_exercises/index
+
+.. toctree::
    :maxdepth: 1
    :caption: Pythonからはじめる数学入門:
 
