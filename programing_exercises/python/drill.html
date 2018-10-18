@@ -1,0 +1,594 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python &mdash; My Notebooks 1.0.0 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="Node.js" href="../nodejs/drill.html" />
+    <link rel="prev" title="Ruby" href="../ruby/drill.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> My Notebooks
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Programing Exercises</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programing Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ruby/drill.html">Ruby</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#FizzBuzz">FizzBuzz</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#仕様">仕様</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#設計">設計</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#開発">開発</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#イテレーション1">イテレーション1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ふりかえり">ふりかえり</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#参照">参照</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../nodejs/drill.html">Node.js</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Pythonからはじめる数学入門:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../study_for_math/01.html">数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../study_for_math/02.html">データをグラフで視覚化する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../study_for_math/03.html">データを統計量で記述する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../study_for_math/04.html">SymPyで代数と式を計算する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../study_for_math/05.html">集合と確率を操作する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../study_for_math/06.html">幾何図形とフラクタルを描画する</a></li>
+</ul>
+<p class="caption"><span class="caption-text">経営法務:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../business_related_legal/index.html">会社法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">サンプル</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../sample.html">1. UML</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">My Notebooks</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Programing Exercises</a> &raquo;</li>
+        
+      <li>Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/programing_exercises/python/drill.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Python">
+<h1>Python<a class="headerlink" href="#Python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="FizzBuzz">
+<h2>FizzBuzz<a class="headerlink" href="#FizzBuzz" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="仕様">
+<h3>仕様<a class="headerlink" href="#仕様" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>3で割り切れる場合はFizzを出力する</li>
+<li>5で割り切れる場合はBuzzを出力する</li>
+<li>両方で割り切れる場合はFizzBuzzを出力する</li>
+<li>上記以外の場合は数字を返す</li>
+<li>指定された回数だけ繰り返し実行する</li>
+</ul>
+</div>
+<div class="section" id="設計">
+<h3>設計<a class="headerlink" href="#設計" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="TODOリスト">
+<h4>TODOリスト<a class="headerlink" href="#TODOリスト" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ul class="simple">
+<li>[STRIKEOUT:Fizzを出力できるようにする]</li>
+<li>[STRIKEOUT:Buzzを出力できるようにする]</li>
+<li>[STRIKEOUT:FizzBuzzを出力できるようにする]</li>
+<li>[STRIKEOUT:数字を出力できるようにする]</li>
+<li>[STRIKEOUT:繰り返し実行できるようにする]</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">FizzBuzz</span><span class="p">():</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">count</span>
+
+        <span class="k">if</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;FizzBuzz&#39;</span>
+        <span class="k">elif</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;Fizz&#39;</span>
+        <span class="k">elif</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;Buzz&#39;</span>
+
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">iterate</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+        <span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+            <span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">array</span>
+
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+
+<span class="k">class</span> <span class="nc">FizzBuzzTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_3ならばFizzを返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;Fizz&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_6ならばFizzを返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="s1">&#39;Fizz&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_5ならばBuzzを返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="s1">&#39;Buzz&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_10ならばBuzzを返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;Buzz&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_50ならばBuzzを返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="s1">&#39;Buzz&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_15ならばFizzBuzzを返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span> <span class="s1">&#39;FizzBuzz&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_30ならばFizzBuzzを返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="s1">&#39;FizzBuzz&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_1ならば1を返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_101ならば101を返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">101</span><span class="p">),</span> <span class="mi">101</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_5回実行されたならば配列を返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="o">.</span><span class="n">iterate</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Fizz&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Buzz&#39;</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_10回実行されたならば配列を返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="o">.</span><span class="n">iterate</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Fizz&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Buzz&#39;</span><span class="p">,</span> <span class="s1">&#39;Fizz&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;Fizz&#39;</span><span class="p">,</span> <span class="s1">&#39;Buzz&#39;</span><span class="p">])</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;none&#39;</span><span class="p">],</span> <span class="nb">exit</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+.........
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="開発">
+<h3>開発<a class="headerlink" href="#開発" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="イテレーション1">
+<h3>イテレーション1<a class="headerlink" href="#イテレーション1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>仕様を満たすアプリケーションを<strong>できるだけ早く試作する</strong>ために<strong>テストファーストプログラミング</strong>を実施する。実施にあたってまず<strong>TODOリスト</strong>を作成する。</p>
+<p><strong>TODOリスト</strong>を作成したら<strong>インクリメンタルな設計</strong>を実施する。実施するにあたってまず<strong>単一責任の原則</strong>に従い関心事を表すクラスを定義する。ここではFizzBuzzそのものを関心事として扱うことにする。</p>
+<p><strong>テストファースト</strong>でFizzBuzzとテストの<strong>クラスの定義式</strong>を作成する。</p>
+<p>クラスを定義したので<strong>テストメソッド</strong>を作成に入る。まず<strong>TODOリスト</strong>を元にアウトラインを作成する。</p>
+<p>アウトラインをを作成したら<strong>一歩を示すテスト</strong>に取り掛かる、<strong>TODOリスト</strong>から失敗する<strong>はじめのテスト</strong>を作成する。テストコードは<strong>アサートファースト</strong>でレッドになることを確認したら仮実装でグリーンにする。<strong>一つのプログラムには一つのことをうまくやらせる</strong>ことを心がける。<strong>アサーション</strong>は期待値を先に書く。</p>
+<p>グリーンの状態になったら<strong>仮実装を経て本実装へ</strong>入る。<strong>明白な実装</strong>を行って最初の<strong>TODOリスト</strong>を片付ける。<strong>条件分岐</strong>と<strong>演算子</strong>を使って本実装を行う。<strong>YAGNI</strong>に従い今必要な機能だけを実装する。</p>
+<p>引き続き<strong>TODOリスト</strong>の２つ目に取り掛かる。<strong>はじめのテスト</strong>を失敗させる。失敗することを確認したら<strong>明白な実装</strong>によりテスト結果をグリーンにする。最初のコードに追記するだけでは意図した結果にならなかったので<strong>式</strong>を変更して結果をグリーンにした。<strong>TODOリスト</strong>の２つ目を完了にする。</p>
+<p>続いて、<strong>TODOリスト</strong>の３つ目に着手する。今回は複数の条件なので新たな<strong>演算子</strong>を使って実装する。実装に際してロジックの順番の間違いと判断条件の間違いとコピペによる間違いを犯していたが全てテストで気づくことができた。</p>
+<p><strong>TODOリスト</strong>の割り算機能の最後のタスクに取り掛かる。今回のテストは前回のテストの派生系なので<strong>三角測量</strong>で実装する。まずは失敗するテストを追加する。<strong>明白な実装</strong>によりテストをグリーンにして<strong>TODOリスト</strong>の割り算機能のタスクを片付ける。テストのアウトラインがなくても意図は読み取れるようになったので<strong>コメント</strong>は削除する。</p>
+<p>続いて、<strong>TODOリスト</strong>の残りの実行機能に取り組む。まず<strong>インクリメンタルな設計</strong>によりクラスのインタフェースを設計する。<strong>一つのプログラムには一つのことをうまくやらせる</strong>ことを意識する。</p>
+<p>実行機能はまだ正しい実装が見えてこないので<strong>仮実装を経て本実装へ</strong>の前に<strong>三角測量</strong>を実施する。<strong>ローカル変数</strong>を初期化して<strong>繰り返し</strong>の制御構文で実行された最後の結果を返す実装をしたがテストにはまだパスしない。テストから<strong>演算子</strong>の間違いを発見しさらに仮実装の間違いがあることが判明したのでテストを修正してグリーンにする。</p>
+<p>仕様を確認したところ間違いがあったので修正してテストも修正してグリーンになることを確認した。また、仕様に明記されていない条件が判明したので<strong>TODOリスト</strong>に追加する。</p>
+<p>最初のイテレーションを完了させるにあたって<strong>ふりかえり</strong>を実施する。</p>
+</div>
+<div class="section" id="ふりかえり">
+<h3>ふりかえり<a class="headerlink" href="#ふりかえり" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="Keep">
+<h4>Keep<a class="headerlink" href="#Keep" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ul class="simple">
+<li><strong>一つのプログラムには一つのことをうまくやらせる</strong>基本定理に従い<strong>単一責任の原則</strong>に沿ったクラス設計をを実施した。</li>
+<li><strong>できるだけ早く試作する</strong>ために<strong>インクリメンタルな設計</strong>を<strong>テストファーストプログラミング</strong>と取り組むための<strong>TODOリスト</strong>を作成した。</li>
+<li>仕様に明記されていない項目を<strong>TODOリスト</strong>に反映した。</li>
+<li><strong>TODOリスト</strong>に従い<strong>テストファースト</strong>で<strong>一歩を示すテスト</strong>を作成した</li>
+<li>まず<strong>はじめのテスト</strong>を<strong>アサートファースト</strong>で取り掛かり<strong>ベイビーステップ</strong>ですすめて行った。</li>
+<li>何を書くべきかわかっているときは、<strong>明白な実装</strong>を行い、わからないときには<strong>仮実装</strong>を行い、まだ正しい実装が見えてこないときには<strong>三角測量</strong>を行いながら<strong>仮実装を経て本実装へ</strong>と進めた。</li>
+</ul>
+</div>
+<div class="section" id="Problem">
+<h4>Problem<a class="headerlink" href="#Problem" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ul class="simple">
+<li>Pythonのモジュール読み込みの仕組みにはまる</li>
+</ul>
+</div>
+<div class="section" id="Try">
+<h4>Try<a class="headerlink" href="#Try" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ul class="simple">
+<li>Unittestを理解する</li>
+</ul>
+</div>
+</div>
+<div class="section" id="参照">
+<h3>参照<a class="headerlink" href="#参照" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://qiita.com/takus69/items/cde279266b46daf9972d">Pythonでunittestを実行する（初心者用）</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../nodejs/drill.html" class="btn btn-neutral float-right" title="Node.js" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ruby/drill.html" class="btn btn-neutral" title="Ruby" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, k2works.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0.0',
+            LANGUAGE:'ja',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

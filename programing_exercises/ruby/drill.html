@@ -1,0 +1,549 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ruby &mdash; My Notebooks 1.0.0 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="Python" href="../python/drill.html" />
+    <link rel="prev" title="Programing Exercises" href="../index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> My Notebooks
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Programing Exercises</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programing Exercises</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ruby</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#FizzBuzz">FizzBuzz</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#仕様">仕様</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#設計">設計</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#開発">開発</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python/drill.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nodejs/drill.html">Node.js</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Pythonからはじめる数学入門:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../study_for_math/01.html">数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../study_for_math/02.html">データをグラフで視覚化する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../study_for_math/03.html">データを統計量で記述する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../study_for_math/04.html">SymPyで代数と式を計算する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../study_for_math/05.html">集合と確率を操作する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../study_for_math/06.html">幾何図形とフラクタルを描画する</a></li>
+</ul>
+<p class="caption"><span class="caption-text">経営法務:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../business_related_legal/index.html">会社法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">サンプル</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../sample.html">1. UML</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">My Notebooks</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Programing Exercises</a> &raquo;</li>
+        
+      <li>Ruby</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/programing_exercises/ruby/drill.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Ruby">
+<h1>Ruby<a class="headerlink" href="#Ruby" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="FizzBuzz">
+<h2>FizzBuzz<a class="headerlink" href="#FizzBuzz" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="仕様">
+<h3>仕様<a class="headerlink" href="#仕様" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>３で割り切れる場合は「Fizz」を出力する。</li>
+<li>５で割り切れる場合は「Buzz」を出力する。</li>
+<li>両者で割り切れる場合は「FizzBuzz」を出力する。</li>
+<li>上記以外の場合は数値を返す。</li>
+<li>指定された回数だけ繰り返し実行する。</li>
+</ul>
+</div>
+<div class="section" id="設計">
+<h3>設計<a class="headerlink" href="#設計" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="Todo">
+<h4>Todo<a class="headerlink" href="#Todo" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ul class="simple">
+<li>[STRIKEOUT:Fizzを出力できるようにする]</li>
+<li>[STRIKEOUT:Buzzを出力できるようにする]</li>
+<li>[STRIKEOUT:FizzBuzzを出力できるようにする]</li>
+<li>[STRIKEOUT:繰り返し実行できるようにする]</li>
+</ul>
+</div>
+</div>
+<div class="section" id="開発">
+<h3>開発<a class="headerlink" href="#開発" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ruby notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">FizzBuzz</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">number</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;FizzBuzz&#39;</span>
+    <span class="k">elsif</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span>
+      <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;Fizz&#39;</span>
+    <span class="k">elsif</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span>
+      <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;Buzz&#39;</span>
+    <span class="k">end</span>
+
+    <span class="n">value</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">iterate</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="o">[]</span>
+    <span class="n">count</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span>
+      <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="n">array</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="no">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">end</span>
+    <span class="n">array</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nb">require</span> <span class="s1">&#39;minitest/autorun&#39;</span>
+<span class="k">class</span> <span class="nc">FizzBuzzSpec</span> <span class="o">&lt;</span> <span class="no">Minitest</span><span class="o">::</span><span class="no">Spec</span>
+  <span class="n">describe</span> <span class="no">FizzBuzz</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">&#39;3ならばFizzを返す&#39;</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="no">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">must_equal</span> <span class="s1">&#39;Fizz&#39;</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">&#39;9ならばFizzを返す&#39;</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="no">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span><span class="o">.</span><span class="n">must_equal</span> <span class="s1">&#39;Fizz&#39;</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">&#39;5ならばBuzzを返す&#39;</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="no">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="o">.</span><span class="n">must_equal</span> <span class="s1">&#39;Buzz&#39;</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">&#39;10ならばBuzzを返す&#39;</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="no">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">must_equal</span> <span class="s1">&#39;Buzz&#39;</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">&#39;50ならばBuzzを返す&#39;</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="no">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span><span class="o">.</span><span class="n">must_equal</span> <span class="s1">&#39;Buzz&#39;</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">&#39;15ならばFizzBuzzを返す&#39;</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="no">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span><span class="o">.</span><span class="n">must_equal</span> <span class="s1">&#39;FizzBuzz&#39;</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">&#39;30ならばFizzBuzzを返す&#39;</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="no">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span><span class="o">.</span><span class="n">must_equal</span> <span class="s1">&#39;FizzBuzz&#39;</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">&#39;5回実行されたならば配列を返す&#39;</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="no">FizzBuzz</span><span class="o">.</span><span class="n">iterate</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="o">.</span><span class="n">must_equal</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Fizz&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Buzz&#39;</span><span class="o">]</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">&#39;10回実行されたならば配列を返す&#39;</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="no">FizzBuzz</span><span class="o">.</span><span class="n">iterate</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">must_equal</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Fizz&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Buzz&#39;</span><span class="p">,</span> <span class="s1">&#39;Fizz&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;Fizz&#39;</span><span class="p">,</span> <span class="s1">&#39;Buzz&#39;</span><span class="o">]</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-2-ce17789aca0e&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    class FizzBuzz</span>
+                  ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../python/drill.html" class="btn btn-neutral float-right" title="Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Programing Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, k2works.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0.0',
+            LANGUAGE:'ja',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
