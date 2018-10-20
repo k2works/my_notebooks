@@ -225,3 +225,5 @@ build
 .ipynb_checkpoints
 .doctrees
 .project
+
+node_modules
