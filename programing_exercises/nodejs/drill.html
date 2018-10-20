@@ -83,7 +83,20 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programing Exercises</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../ruby/drill.html">Ruby</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/drill.html">Python</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Node.js</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Node.js</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#FizzBuzz">FizzBuzz</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#仕様">仕様</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#設計">設計</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#開発">開発</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#イテレーション1">イテレーション1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ふりかえり">ふりかえり</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#参照">参照</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -171,6 +184,170 @@
             
   
 <style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -190,6 +367,165 @@
 </style>
 <div class="section" id="Node.js">
 <h1>Node.js<a class="headerlink" href="#Node.js" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="FizzBuzz">
+<h2>FizzBuzz<a class="headerlink" href="#FizzBuzz" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="仕様">
+<h3>仕様<a class="headerlink" href="#仕様" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>3で割り切れる場合はFizzを出力する</li>
+<li>5で割り切れる場合はBuzzを出力する</li>
+<li>両方で割り切れる場合はFizzBuzzを出力する</li>
+<li>指定された回数だけ繰り返し実行できるようにする</li>
+</ul>
+</div>
+<div class="section" id="設計">
+<h3>設計<a class="headerlink" href="#設計" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="TODOリスト">
+<h4>TODOリスト<a class="headerlink" href="#TODOリスト" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ul class="simple">
+<li>[STRIKEOUT:3ならばFizzを返すようにする]</li>
+<li>[STRIKEOUT:5ならばBuzzを返すようにする]</li>
+<li>[STRIKEOUT:15ならばFizzBuzzを返すようにする]</li>
+<li>[STRIKEOUT:指定された回数だけだけ実行できるようにする]</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-javascript notranslate"><div class="highlight"><pre>
+<span></span><span class="kr">const</span> <span class="nx">fizzBuzz</span> <span class="o">=</span> <span class="kr">class</span> <span class="nx">FizzBuzz</span> <span class="p">{</span>
+    <span class="kr">static</span> <span class="nx">generate</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">number</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">value</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;FizzBuzz&#39;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;Fizz&#39;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;Buzz&#39;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nx">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">static</span> <span class="nx">iterate</span><span class="p">(</span><span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">FizzBuzz</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">array</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;TestFizzBuzz&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;3ならばFizzを返すようにする&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">fizzBuzz</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Fizz&#39;</span><span class="p">)</span>
+    <span class="p">});</span>
+
+    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;5ならばBuzzを返すようにする&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">fizzBuzz</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Buzz&#39;</span><span class="p">)</span>
+    <span class="p">});</span>
+
+    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;15ならばFizzBuzzを返すようにする&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">fizzBuzz</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;FizzBuzz&#39;</span><span class="p">)</span>
+    <span class="p">});</span>
+
+    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;指定された回数だけ実行できるようにする&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">fizzBuzz</span><span class="p">.</span><span class="nx">iterate</span><span class="p">(</span><span class="mi">5</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Fizz&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Buzz&#39;</span><span class="p">])</span>
+    <span class="p">})</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+evalmachine.&lt;anonymous&gt;:27
+describe(&#39;TestFizzBuzz&#39;, function () {
+^
+
+ReferenceError: describe is not defined
+    at evalmachine.&lt;anonymous&gt;:27:1
+    at ContextifyScript.Script.runInThisContext (vm.js:50:33)
+    at Object.runInThisContext (vm.js:139:38)
+    at run ([eval]:1002:15)
+    at onRunRequest ([eval]:829:18)
+    at onMessage ([eval]:789:13)
+    at emitTwo (events.js:126:13)
+    at process.emit (events.js:214:7)
+    at emit (internal/child_process.js:772:12)
+    at _combinedTickCallback (internal/process/next_tick.js:141:11)
+</pre></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="開発">
+<h2>開発<a class="headerlink" href="#開発" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="イテレーション1">
+<h3>イテレーション1<a class="headerlink" href="#イテレーション1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>仕様を満たすアプリケーションを<strong>できるだけ早く試作する</strong>ために<strong>テストファーストプログラミング</strong>を実施する。実施にあたってまず<strong>TODOリスト</strong>を作成する。</p>
+<p><strong>TODOリスト</strong>を作成したら<strong>インクリメンタルな設計</strong>を実施する。実施するにあたってまず<strong>単一責任の原則</strong>に従い関心事を表すクラスを定義する。ここではFizzBuzzそのものを関心事として扱うことにする。</p>
+<p><strong>テストファースト</strong>でFizzBuzzとテストの関数を作成する。</p>
+<p>クラスを定義したので<strong>テストメソッド</strong>を作成に入る。まず<strong>TODOリスト</strong>を元にアウトラインを作成する。</p>
+<p>アウトラインをを作成したら<strong>一歩を示すテスト</strong>に取り掛かる、<strong>TODOリスト</strong>から失敗する<strong>はじめのテスト</strong>を作成する。テストコードは<strong>アサートファースト</strong>でレッドになることを確認したら仮実装でグリーンにする。<strong>一つのプログラムには一つのことをうまくやらせる</strong>ことを心がける。<strong>アサーション</strong>は期待値を後に書く。</p>
+<p>グリーンの状態になったら<strong>仮実装を経て本実装へ</strong>入る。<strong>明白な実装</strong>を行って最初の<strong>TODOリスト</strong>を片付ける。<strong>条件分岐</strong>と<strong>演算子</strong>を使って本実装を行う。<strong>YAGNI</strong>に従い今必要な機能だけを実装する。</p>
+<p>引き続き<strong>TODOリスト</strong>の２つ目に取り掛かる。<strong>はじめのテスト</strong>を失敗させる。失敗することを確認したら<strong>明白な実装</strong>によりテスト結果をグリーンにする。最初のコードに追記するだけでは意図した結果にならなかったので<strong>式</strong>を変更して結果をグリーンにした。<strong>TODOリスト</strong>の２つ目を完了にする。</p>
+<p>続いて、<strong>TODOリスト</strong>の３つ目に着手する。今回は複数の条件なので新たな<strong>演算子</strong>を使って実装する。実装に際してロジックの順番の間違いと判断条件の間違いとコピペによる間違いを犯していたが全てテストで気づくことができた。</p>
+<p><strong>TODOリスト</strong>の割り算機能の最後のタスクに取り掛かる。今回のテストは前回のテストの派生系なので<strong>三角測量</strong>で実装する。まずは失敗するテストを追加する。<strong>明白な実装</strong>によりテストをグリーンにして<strong>TODOリスト</strong>の割り算機能のタスクを片付ける。テストのアウトラインがなくても意図は読み取れるようになったので<strong>コメント</strong>は削除する。</p>
+<p>続いて、<strong>TODOリスト</strong>の残りの実行機能に取り組む。まず<strong>インクリメンタルな設計</strong>によりクラスのインタフェースを設計する。<strong>一つのプログラムには一つのことをうまくやらせる</strong>ことを意識する。</p>
+<p>実行機能はまだ正しい実装が見えてこないので<strong>仮実装を経て本実装へ</strong>の前に<strong>三角測量</strong>を実施する。<strong>ローカル変数</strong>を初期化して<strong>繰り返し</strong>の制御構文で実行された最後の結果を返す実装をしたがテストにはまだパスしない。テストから<strong>演算子</strong>の間違いを発見しさらに仮実装の間違いがあることが判明したのでテストを修正してグリーンにする。</p>
+<p>仕様を確認したところ間違いがあったので修正してテストも修正してグリーンになることを確認した。また、仕様に明記されていない条件が判明したので<strong>TODOリスト</strong>に追加する。</p>
+<p>最初のイテレーションを完了させるにあたって<strong>ふりかえり</strong>を実施する。</p>
+</div>
+<div class="section" id="ふりかえり">
+<h3>ふりかえり<a class="headerlink" href="#ふりかえり" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="Keep">
+<h4>Keep<a class="headerlink" href="#Keep" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ul class="simple">
+<li><strong>一つのプログラムには一つのことをうまくやらせる</strong>基本定理に従い<strong>単一責任の原則</strong>に沿ったクラス設計をを実施した。</li>
+<li><strong>できるだけ早く試作する</strong>ために<strong>インクリメンタルな設計</strong>を<strong>テストファーストプログラミング</strong>と取り組むための<strong>TODOリスト</strong>を作成した。</li>
+<li>仕様に明記されていない項目を<strong>TODOリスト</strong>に反映した。</li>
+<li><strong>TODOリスト</strong>に従い<strong>テストファースト</strong>で<strong>一歩を示すテスト</strong>を作成した</li>
+<li>まず<strong>はじめのテスト</strong>を<strong>アサートファースト</strong>で取り掛かり<strong>ベイビーステップ</strong>ですすめて行った。</li>
+<li>何を書くべきかわかっているときは、<strong>明白な実装</strong>を行い、わからないときには<strong>仮実装</strong>を行い、まだ正しい実装が見えてこないときには<strong>三角測量</strong>を行いながら<strong>仮実装を経て本実装へ</strong>と進めた。</li>
+</ul>
+</div>
+<div class="section" id="Problem">
+<h4>Problem<a class="headerlink" href="#Problem" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ul class="simple">
+<li>Nodejsのスタティックメソッドの定義にはまる</li>
+</ul>
+</div>
+<div class="section" id="Try">
+<h4>Try<a class="headerlink" href="#Try" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ul class="simple">
+<li>Jestを理解する</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="参照">
+<h2>参照<a class="headerlink" href="#参照" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://jestjs.io/ja/">Jest</a></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-javascript notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
