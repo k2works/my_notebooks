@@ -24,7 +24,7 @@ livehtml:
 
 gh-pages:
 	git checkout gh-pages
-	rm -rf build _sources _static _images study_for_math business_related_legal
+	rm -rf build _sources _static _images study_for_math business_related_legal programing_exercises
 	git checkout master $(GH_PAGES_SOURCES)
 	git reset HEAD
 	make html
