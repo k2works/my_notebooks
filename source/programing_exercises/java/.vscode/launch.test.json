@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "java",
+                "projectName": "java",
+                "workingDirectory": "/Users/k2works/GoogleDrive/Repository/my_notebooks/source/programing_exercises/java",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "java",
+                "projectName": "java",
+                "workingDirectory": "/Users/k2works/GoogleDrive/Repository/my_notebooks/source/programing_exercises/java",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
