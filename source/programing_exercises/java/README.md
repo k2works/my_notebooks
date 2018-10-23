@@ -7,18 +7,20 @@
 
 ## 設計
 ### TODOリスト
-+ 3ならばFizzを返すようにする
-+ 5ならばBuzzを返すようにする
-+ 15ならばFizzBuzzを返すようにする
++ ~~3ならばFizzを返すようにする~~
++ ~~5ならばBuzzを返すようにする~~
++ ~~15ならばFizzBuzzを返すようにする~~
 
 ## 開発
 ### ふりかえり
 #### KEEP
 #### PROBLEM
 + Javaのプロジェクト構成のセットアップにはまる
++ パッケージスコープではまる
 
 #### TRY
 + Gradleを理解する
++ Javaのスコープを理解する
 
 ## 参照
 + [Gradle 覚書](https://qiita.com/summer/items/ba5393e703f3d5a74e8a)
