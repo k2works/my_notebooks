@@ -1,3 +1,4 @@
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -23,4 +24,17 @@ class FizzBuzzTest {
     public void test101ならば101を返す() {
         assertEquals("101", FizzBuzz.generate(101));
     }
+    @Test
+    public void test5回繰り返し実行したならば配列を返す() {
+        String[] expected = {"1","2","Fizz","4","Buzz"};
+        String[] actual = FizzBuzz.iterate(5);
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void test10回繰り返し実行したならば配列を返す() {
+        String[] expected = {"1","2","Fizz","4","Buzz", "Fizz", "7", "8", "Fizz", "Buzz"};
+        String[] actual = FizzBuzz.iterate(10);
+        assertArrayEquals(expected, actual);
+    }    
 }

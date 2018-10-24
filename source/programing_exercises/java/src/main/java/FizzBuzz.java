@@ -12,4 +12,14 @@ class FizzBuzz {
 
         return value;
     }
+
+	public static String[] iterate(int count) {
+        String array[] = new String[count];
+
+        for(int i = 0; i < count; i = i + 1) {
+            array[i] = FizzBuzz.generate(i + 1);
+        }
+        
+        return array;
+	}
 }
