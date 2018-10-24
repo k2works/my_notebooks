@@ -12,7 +12,15 @@ class FizzBuzzTest {
         assertEquals("Buzz", FizzBuzz.generate(5));
     }    
     @Test
-    public void test15ならばFizzBuzzか返す() {
+    public void test15ならばFizzBuzzを返す() {
         assertEquals("FizzBuzz", FizzBuzz.generate(15));
+    }
+    @Test
+    public void test1ならば1を返す() {
+        assertEquals("1", FizzBuzz.generate(1));
+    }
+    @Test
+    public void test101ならば101を返す() {
+        assertEquals("101", FizzBuzz.generate(101));
     }
 }
