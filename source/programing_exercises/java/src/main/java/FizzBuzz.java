@@ -1,3 +1,24 @@
+class FizzBuzzData {
+    private String _value;
+    private String _values[];
+
+    public String getValue(){
+        return this._value;
+    }
+
+    public void setValue(String _value) {
+        this._value = _value;
+    }
+
+    public String[] getValues() {
+        return this._values;
+    }
+
+    public void setValues(String[] _values) {
+        this._values = _values;
+    }
+}
+
 class FizzBuzz {
     public static String generate(int number) {
         String value = Integer.toString(number);
