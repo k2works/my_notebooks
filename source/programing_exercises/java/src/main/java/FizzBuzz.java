@@ -34,6 +34,50 @@ class FizzBuzz {
         return value;
     }
 
+    public static String generate(int number, int flg) {
+        String value = Integer.toString(number);
+
+        switch(flg) {
+            case 1:            
+                break;    
+            case 2:
+                value = "Fizz";
+                break;
+            case 3:
+                value = "FizzBuzz";
+                break;
+            case 4:
+                        if (number % 3 == 0 && number % 5 == 0) {
+                            value = "FIZZBUZZ";    
+                        } else if (number % 3 == 0) {
+                            value = "FIZZ";
+                        } else if (number % 5 == 0) {
+                            value = "BUZZ";
+                        }
+                        break;
+            case 5:
+                        if (number % 2 == 0 && number % 3 == 0) {
+                            value = "FIZZBUZZ";    
+                        } else if (number % 2 == 0) {
+                            value = "Fizz";
+                        } else if (number % 3 == 0) {
+                            value = "Buzz";
+                        }
+                        break;
+            default:
+                        if (number % 3 == 0 && number % 5 == 0) {
+                            value = "FizzBuzz";    
+                        } else if (number % 3 == 0) {
+                            value = "Fizz";
+                        } else if (number % 5 == 0) {
+                            value = "Buzz";
+                        }                        
+                        break;
+        }    
+
+        return value;    
+    }    
+
 	public static String[] iterate(int count) {
         String array[] = new String[count];
 
