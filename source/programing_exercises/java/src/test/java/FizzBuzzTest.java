@@ -51,22 +51,22 @@ class FizzBuzzTest {
         assertArrayEquals(expected, _fizzBuzzData.getValues());
     }    
     @Test
-    public void 月曜日は数を返す() {
+    public void タイプ１は数を返す() {
         _fizzBuzzData.setValue(FizzBuzz.generate(3,1));
         assertEquals("3", _fizzBuzzData.getValue());
     }
     @Test
-    public void 火曜日はFizzを返す() {
+    public void タイプ２はFizzを返す() {
         _fizzBuzzData.setValue(FizzBuzz.generate(5,2));
         assertEquals("Fizz", _fizzBuzzData.getValue());
     }
     @Test
-    public void 水曜日はFizzBuzzを返す() {
+    public void タイプ３はBuzzを返す() {
         _fizzBuzzData.setValue(FizzBuzz.generate(3,3));
-        assertEquals("FizzBuzz", _fizzBuzzData.getValue());
+        assertEquals("Buzz", _fizzBuzzData.getValue());
     }    
     @Test
-    public void 木曜日は大文字の値を返す() {
+    public void タイプ４は大文字の値を返す() {
         _fizzBuzzData.setValue(FizzBuzz.generate(3,4));
         assertEquals("FIZZ", _fizzBuzzData.getValue());
         _fizzBuzzData.setValue(FizzBuzz.generate(5,4));
@@ -75,7 +75,7 @@ class FizzBuzzTest {
         assertEquals("FIZZBUZZ", _fizzBuzzData.getValue());        
     } 
     @Test
-    public void 金曜日は２で割り切れたらFizz３で割り切れたらBuzz２と３で割り切れたならFIZZBUZZを返す() {
+    public void タイプ５は２で割り切れたらFizz３で割り切れたらBuzz２と３で割り切れたならFIZZBUZZを返す() {
         _fizzBuzzData.setValue(FizzBuzz.generate(2,5));
         assertEquals("Fizz", _fizzBuzzData.getValue());
         _fizzBuzzData.setValue(FizzBuzz.generate(3,5));

@@ -44,7 +44,7 @@ class FizzBuzz {
                 value = "Fizz";
                 break;
             case 3:
-                value = "FizzBuzz";
+                value = "Buzz";
                 break;
             case 4:
                         if (number % 3 == 0 && number % 5 == 0) {
