@@ -5,91 +5,70 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class FizzBuzzTest {
-    private FizzBuzzData _fizzBuzzData;
+    private FizzBuzz _fizzBuzz;
     @BeforeEach
     void init() {
-        _fizzBuzzData = new FizzBuzzData();
+        _fizzBuzz = new FizzBuzz();
     }    
     @Test
     public void 数が3ならばFizzを返す() {    
-        _fizzBuzzData.setValue(FizzBuzz.generate(3));
-        assertEquals("Fizz", _fizzBuzzData.getValue());
+        assertEquals("Fizz", _fizzBuzz.generate(3));
     }
     @Test
     public void 数が5ならばBuzzをかえす() {
-        _fizzBuzzData.setValue(FizzBuzz.generate(5));
-        assertEquals("Buzz", _fizzBuzzData.getValue());
+        assertEquals("Buzz", _fizzBuzz.generate(5));
     }    
     @Test
     public void 数が15ならばFizzBuzzを返す() {
-        _fizzBuzzData.setValue(FizzBuzz.generate(15));
-        assertEquals("FizzBuzz", _fizzBuzzData.getValue());
+        assertEquals("FizzBuzz", _fizzBuzz.generate(15));
     }
     @Test
     public void 数が1ならば1を返す() {
-        _fizzBuzzData.setValue(FizzBuzz.generate(1));
-        assertEquals("1", _fizzBuzzData.getValue());
+        assertEquals("1", _fizzBuzz.generate(1));
     }
     @Test
     public void 数が101ならば101を返す() {
-        _fizzBuzzData.setValue(FizzBuzz.generate(101));
-        assertEquals("101", _fizzBuzzData.getValue());
+        assertEquals("101", _fizzBuzz.generate(101));
     }
     @Test
     public void 回数を5回繰り返し実行したならば配列を返す() {
         String[] expected = {"1","2","Fizz","4","Buzz"};
-        String[] actual = FizzBuzz.iterate(5);
-        _fizzBuzzData.setValues(actual);
-        assertArrayEquals(expected, _fizzBuzzData.getValues());
+        assertArrayEquals(expected, _fizzBuzz.iterate(5));
     }
 
     @Test
     public void 回数を10回繰り返し実行したならば配列を返す() {
         String[] expected = {"1","2","Fizz","4","Buzz", "Fizz", "7", "8", "Fizz", "Buzz"};
-        String[] actual = FizzBuzz.iterate(10);
-        _fizzBuzzData.setValues(actual);
-        assertArrayEquals(expected, _fizzBuzzData.getValues());
+        assertArrayEquals(expected, _fizzBuzz.iterate(10));
     }    
     @Test
-    public void タイプ１は数を返す() {
-        _fizzBuzzData.setValue(FizzBuzz.generate(3,1));
-        assertEquals("3", _fizzBuzzData.getValue());
+    public void タイプ１は数を返す() {        
+        assertEquals("3", _fizzBuzz.generate(3, 1));
     }
     @Test
-    public void タイプ２はFizzを返す() {
-        _fizzBuzzData.setValue(FizzBuzz.generate(5,2));
-        assertEquals("Fizz", _fizzBuzzData.getValue());
+    public void タイプ２はFizzを返す() {        
+        assertEquals("Fizz", _fizzBuzz.generate(5, 2));
     }
     @Test
-    public void タイプ３はBuzzを返す() {
-        _fizzBuzzData.setValue(FizzBuzz.generate(3,3));
-        assertEquals("Buzz", _fizzBuzzData.getValue());
+    public void タイプ３はBuzzを返す() {        
+        assertEquals("Buzz", _fizzBuzz.generate(3, 3));
     }    
     @Test
-    public void タイプ４は大文字の値を返す() {
-        _fizzBuzzData.setValue(FizzBuzz.generate(3,4));
-        assertEquals("FIZZ", _fizzBuzzData.getValue());
-        _fizzBuzzData.setValue(FizzBuzz.generate(5,4));
-        assertEquals("BUZZ", _fizzBuzzData.getValue());        
-        _fizzBuzzData.setValue(FizzBuzz.generate(15,4));
-        assertEquals("FIZZBUZZ", _fizzBuzzData.getValue());        
+    public void タイプ４は大文字の値を返す() {        
+        assertEquals("FIZZ", _fizzBuzz.generate(3, 4));        
+        assertEquals("BUZZ", _fizzBuzz.generate(5, 4));
+        assertEquals("FIZZBUZZ", _fizzBuzz.generate(15, 4));        
     } 
     @Test
-    public void タイプ５は２で割り切れたらFizz３で割り切れたらBuzz２と３で割り切れたならFIZZBUZZを返す() {
-        _fizzBuzzData.setValue(FizzBuzz.generate(2,5));
-        assertEquals("Fizz", _fizzBuzzData.getValue());
-        _fizzBuzzData.setValue(FizzBuzz.generate(3,5));
-        assertEquals("Buzz", _fizzBuzzData.getValue());        
-        _fizzBuzzData.setValue(FizzBuzz.generate(6,5));
-        assertEquals("FIZZBUZZ", _fizzBuzzData.getValue());        
+    public void タイプ５は２で割り切れたらFizz３で割り切れたらBuzz２と３で割り切れたならFIZZBUZZを返す() {        
+        assertEquals("Fizz", _fizzBuzz.generate(2, 5));
+        assertEquals("Buzz", _fizzBuzz.generate(3, 5));                
+        assertEquals("FIZZBUZZ", _fizzBuzz.generate(6, 5));        
     } 
     @Test
-    public void 上記以外のは通常のFizzBuzzパターンを返す() {
-        _fizzBuzzData.setValue(FizzBuzz.generate(3,6));
-        assertEquals("Fizz", _fizzBuzzData.getValue());
-        _fizzBuzzData.setValue(FizzBuzz.generate(5,6));
-        assertEquals("Buzz", _fizzBuzzData.getValue());        
-        _fizzBuzzData.setValue(FizzBuzz.generate(15,6));
-        assertEquals("FizzBuzz", _fizzBuzzData.getValue());        
+    public void 上記以外のは通常のFizzBuzzパターンを返す() {        
+        assertEquals("Fizz", _fizzBuzz.generate(3, 6));        
+        assertEquals("Buzz", _fizzBuzz.generate(5, 6));                
+        assertEquals("FizzBuzz", _fizzBuzz.generate(15, 6));        
     }    
 }
