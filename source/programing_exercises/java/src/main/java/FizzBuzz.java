@@ -1,7 +1,7 @@
 class Type01 {
     private String _number;
 
-    Type01(int number){
+    Type01(int number) {
         this._number = Integer.toString(number);
     }
 
@@ -10,11 +10,80 @@ class Type01 {
     }
 }
 
+class Type02 {
+    public String generate() {
+        return "Fizz";
+    }
+}
+
+class Type03 {
+    public String generate() {
+        return "Buzz";
+    }
+}
+
+class Type04 {
+    private Integer _number;
+
+    Type04(int number) {
+        this._number = number;
+    }
+
+    public String generate() {
+        if (this._number % 3 == 0 && this._number % 5 == 0) {
+            return "FIZZBUZZ";
+        } else if (this._number % 3 == 0) {
+            return "FIZZ";
+        } else if (this._number % 5 == 0) {
+            return "BUZZ";
+        }
+        return Integer.toString(this._number);
+    }
+}
+
+class Type05 {
+    private Integer _number;
+
+    Type05(int number) {
+        this._number = number;
+    }
+
+    public String generate() {
+        if (this._number % 2 == 0 && this._number % 3 == 0) {
+            return "FIZZBUZZ";
+        } else if (this._number % 2 == 0) {
+            return "Fizz";
+        } else if (this._number % 3 == 0) {
+            return "Buzz";
+        }
+        return Integer.toString(this._number);
+    }
+}
+
+class TypeNormal {
+    private Integer _number;
+
+    TypeNormal(int number) {
+        this._number = number;
+    }
+
+    public String generate() {
+        if (this._number % 3 == 0 && this._number % 5 == 0) {
+            return "FizzBuzz";
+        } else if (this._number % 3 == 0) {
+            return "Fizz";
+        } else if (this._number % 5 == 0) {
+            return "Buzz";
+        }
+        return Integer.toString(this._number);
+    }
+}
+
 class FizzBuzz {
     private String _value;
     private String _values[];
 
-    public String getValue(){
+    public String getValue() {
         return this._value;
     }
 
@@ -26,7 +95,7 @@ class FizzBuzz {
         this._value = Integer.toString(number);
 
         if (number % 3 == 0 && number % 5 == 0) {
-            this._value = "FizzBuzz";    
+            this._value = "FizzBuzz";
         } else if (number % 3 == 0) {
             this._value = "Fizz";
         } else if (number % 5 == 0) {
@@ -39,59 +108,80 @@ class FizzBuzz {
     public String generate(int number, int flg) {
         this._value = Integer.toString(number);
 
-        switch(flg) {
-            case 1:            
-                break;    
-            case 2:
+        switch (flg) {
+        case 1:
+            break;
+        case 2:
+            this._value = "Fizz";
+            break;
+        case 3:
+            this._value = "Buzz";
+            break;
+        case 4:
+            if (number % 3 == 0 && number % 5 == 0) {
+                this._value = "FIZZBUZZ";
+            } else if (number % 3 == 0) {
+                this._value = "FIZZ";
+            } else if (number % 5 == 0) {
+                this._value = "BUZZ";
+            }
+            break;
+        case 5:
+            if (number % 2 == 0 && number % 3 == 0) {
+                this._value = "FIZZBUZZ";
+            } else if (number % 2 == 0) {
                 this._value = "Fizz";
-                break;
-            case 3:
+            } else if (number % 3 == 0) {
                 this._value = "Buzz";
-                break;
-            case 4:
-                        if (number % 3 == 0 && number % 5 == 0) {
-                            this._value = "FIZZBUZZ";    
-                        } else if (number % 3 == 0) {
-                            this._value = "FIZZ";
-                        } else if (number % 5 == 0) {
-                            this._value = "BUZZ";
-                        }
-                        break;
-            case 5:
-                        if (number % 2 == 0 && number % 3 == 0) {
-                            this._value = "FIZZBUZZ";    
-                        } else if (number % 2 == 0) {
-                            this._value = "Fizz";
-                        } else if (number % 3 == 0) {
-                            this._value = "Buzz";
-                        }
-                        break;
-            default:
-                        if (number % 3 == 0 && number % 5 == 0) {
-                            this._value = "FizzBuzz";    
-                        } else if (number % 3 == 0) {
-                            this._value = "Fizz";
-                        } else if (number % 5 == 0) {
-                            this._value = "Buzz";
-                        }                        
-                        break;
-        }    
+            }
+            break;
+        default:
+            if (number % 3 == 0 && number % 5 == 0) {
+                this._value = "FizzBuzz";
+            } else if (number % 3 == 0) {
+                this._value = "Fizz";
+            } else if (number % 5 == 0) {
+                this._value = "Buzz";
+            }
+            break;
+        }
 
-        return this._value;    
-    }    
+        return this._value;
+    }
 
     public String generate(Type01 type) {
         return type.generate();
     }
 
-	public String[] iterate(int count) {
+    public String generate(Type02 type) {
+        return type.generate();
+    }
+
+    public String generate(Type03 type) {
+        return type.generate();
+    }
+
+    public String generate(Type04 type) {
+        return type.generate();
+    }
+
+    public String generate(Type05 type) {
+        return type.generate();
+    }
+
+    public String generate(TypeNormal type) {
+        return type.generate();
+    }
+
+
+    public String[] iterate(int count) {
         this._values = new String[count];
         FizzBuzz fizzBuzz = new FizzBuzz();
 
-        for(int i = 0; i < count; i = i + 1) {
+        for (int i = 0; i < count; i = i + 1) {
             this._values[i] = fizzBuzz.generate(i + 1);
         }
-        
+
         return this._values;
-	}
+    }
 }
