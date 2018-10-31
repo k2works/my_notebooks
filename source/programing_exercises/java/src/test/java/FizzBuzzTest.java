@@ -42,8 +42,9 @@ class FizzBuzzTest {
         assertArrayEquals(expected, _fizzBuzz.iterate(10));
     }    
     @Test
-    public void タイプ１は数を返す() {        
-        assertEquals("3", _fizzBuzz.generate(3, 1));
+    public void タイプ１は数を返す() {   
+        Type01 type = new Type01(3);
+        assertEquals("3", _fizzBuzz.generate(type));
     }
     @Test
     public void タイプ２はFizzを返す() {        

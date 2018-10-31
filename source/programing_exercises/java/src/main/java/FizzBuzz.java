@@ -1,3 +1,15 @@
+class Type01 {
+    private String _number;
+
+    Type01(int number){
+        this._number = Integer.toString(number);
+    }
+
+    public String generate() {
+        return this._number;
+    }
+}
+
 class FizzBuzz {
     private String _value;
     private String _values[];
@@ -67,6 +79,10 @@ class FizzBuzz {
 
         return this._value;    
     }    
+
+    public String generate(Type01 type) {
+        return type.generate();
+    }
 
 	public String[] iterate(int count) {
         this._values = new String[count];
