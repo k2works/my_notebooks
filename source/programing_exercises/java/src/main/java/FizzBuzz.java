@@ -1,4 +1,8 @@
-class Type01 {
+interface IType{
+    String generate();
+}
+
+class Type01 implements IType {
     private String _number;
 
     Type01(int number) {
@@ -10,19 +14,19 @@ class Type01 {
     }
 }
 
-class Type02 {
+class Type02 implements IType {
     public String generate() {
         return "Fizz";
     }
 }
 
-class Type03 {
+class Type03 implements IType {
     public String generate() {
         return "Buzz";
     }
 }
 
-class Type04 {
+class Type04 implements IType {
     private Integer _number;
 
     Type04(int number) {
@@ -41,7 +45,7 @@ class Type04 {
     }
 }
 
-class Type05 {
+class Type05 implements IType {
     private Integer _number;
 
     Type05(int number) {
@@ -60,7 +64,7 @@ class Type05 {
     }
 }
 
-class TypeNormal {
+class TypeNormal implements IType {
     private Integer _number;
 
     TypeNormal(int number) {
@@ -105,30 +109,9 @@ class FizzBuzz {
         return this._value;
     }
 
-    public String generate(Type01 type) {
+    public String generate(IType type) {
         return type.generate();
     }
-
-    public String generate(Type02 type) {
-        return type.generate();
-    }
-
-    public String generate(Type03 type) {
-        return type.generate();
-    }
-
-    public String generate(Type04 type) {
-        return type.generate();
-    }
-
-    public String generate(Type05 type) {
-        return type.generate();
-    }
-
-    public String generate(TypeNormal type) {
-        return type.generate();
-    }
-
 
     public String[] iterate(int count) {
         this._values = new String[count];
