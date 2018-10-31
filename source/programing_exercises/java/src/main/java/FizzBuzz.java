@@ -105,50 +105,6 @@ class FizzBuzz {
         return this._value;
     }
 
-    public String generate(int number, int flg) {
-        this._value = Integer.toString(number);
-
-        switch (flg) {
-        case 1:
-            break;
-        case 2:
-            this._value = "Fizz";
-            break;
-        case 3:
-            this._value = "Buzz";
-            break;
-        case 4:
-            if (number % 3 == 0 && number % 5 == 0) {
-                this._value = "FIZZBUZZ";
-            } else if (number % 3 == 0) {
-                this._value = "FIZZ";
-            } else if (number % 5 == 0) {
-                this._value = "BUZZ";
-            }
-            break;
-        case 5:
-            if (number % 2 == 0 && number % 3 == 0) {
-                this._value = "FIZZBUZZ";
-            } else if (number % 2 == 0) {
-                this._value = "Fizz";
-            } else if (number % 3 == 0) {
-                this._value = "Buzz";
-            }
-            break;
-        default:
-            if (number % 3 == 0 && number % 5 == 0) {
-                this._value = "FizzBuzz";
-            } else if (number % 3 == 0) {
-                this._value = "Fizz";
-            } else if (number % 5 == 0) {
-                this._value = "Buzz";
-            }
-            break;
-        }
-
-        return this._value;
-    }
-
     public String generate(Type01 type) {
         return type.generate();
     }
