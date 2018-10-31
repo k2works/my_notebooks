@@ -95,20 +95,6 @@ class FizzBuzz {
         return this._values;
     }
 
-    public String generate(int number) {
-        this._value = Integer.toString(number);
-
-        if (number % 3 == 0 && number % 5 == 0) {
-            this._value = "FizzBuzz";
-        } else if (number % 3 == 0) {
-            this._value = "Fizz";
-        } else if (number % 5 == 0) {
-            this._value = "Buzz";
-        }
-
-        return this._value;
-    }
-
     public String generate(IType type) {
         return type.generate();
     }
@@ -118,7 +104,8 @@ class FizzBuzz {
         FizzBuzz fizzBuzz = new FizzBuzz();
 
         for (int i = 0; i < count; i = i + 1) {
-            this._values[i] = fizzBuzz.generate(i + 1);
+            IType type = new TypeNormal(i + 1);
+            this._values[i] = fizzBuzz.generate(type);
         }
 
         return this._values;

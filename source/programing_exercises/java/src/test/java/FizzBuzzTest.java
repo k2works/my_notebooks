@@ -11,24 +11,29 @@ class FizzBuzzTest {
         _fizzBuzz = new FizzBuzz();
     }    
     @Test
-    public void 数が3ならばFizzを返す() {    
-        assertEquals("Fizz", _fizzBuzz.generate(3));
+    public void 数が3ならばFizzを返す() {   
+        IType type = new TypeNormal(3); 
+        assertEquals("Fizz", _fizzBuzz.generate(type));
     }
     @Test
     public void 数が5ならばBuzzをかえす() {
-        assertEquals("Buzz", _fizzBuzz.generate(5));
+        IType type = new TypeNormal(5);
+        assertEquals("Buzz", _fizzBuzz.generate(type));
     }    
     @Test
     public void 数が15ならばFizzBuzzを返す() {
-        assertEquals("FizzBuzz", _fizzBuzz.generate(15));
+        IType type = new TypeNormal(15);
+        assertEquals("FizzBuzz", _fizzBuzz.generate(type));
     }
     @Test
     public void 数が1ならば1を返す() {
-        assertEquals("1", _fizzBuzz.generate(1));
+        IType type = new TypeNormal(1);
+        assertEquals("1", _fizzBuzz.generate(type));
     }
     @Test
     public void 数が101ならば101を返す() {
-        assertEquals("101", _fizzBuzz.generate(101));
+        IType type = new TypeNormal(101);
+        assertEquals("101", _fizzBuzz.generate(type));
     }
     @Test
     public void 回数を5回繰り返し実行したならば配列を返す() {
@@ -43,22 +48,22 @@ class FizzBuzzTest {
     }    
     @Test
     public void タイプ１は数を返す() {   
-        Type01 type = new Type01(3);
+        IType type = new Type01(3);
         assertEquals("3", _fizzBuzz.generate(type));
     }
     @Test
     public void タイプ２はFizzを返す() { 
-        Type02 type = new Type02();
+        IType type = new Type02();
         assertEquals("Fizz", _fizzBuzz.generate(type));
     }
     @Test
     public void タイプ３はBuzzを返す() {   
-        Type03 type = new Type03();
+        IType type = new Type03();
         assertEquals("Buzz", _fizzBuzz.generate(type));
     }    
     @Test
     public void タイプ４は大文字の値を返す() { 
-        Type04 type = new Type04(3);
+        IType type = new Type04(3);
         assertEquals("FIZZ", _fizzBuzz.generate(type));        
         type = new Type04(5);
         assertEquals("BUZZ", _fizzBuzz.generate(type));
@@ -67,7 +72,7 @@ class FizzBuzzTest {
     } 
     @Test
     public void タイプ５は２で割り切れたらFizz３で割り切れたらBuzz２と３で割り切れたならFIZZBUZZを返す() {        
-        Type05 type = new Type05(2);
+        IType type = new Type05(2);
         assertEquals("Fizz", _fizzBuzz.generate(type));
         type = new Type05(3);
         assertEquals("Buzz", _fizzBuzz.generate(type));     
@@ -76,7 +81,7 @@ class FizzBuzzTest {
     } 
     @Test
     public void 上記以外のは通常のFizzBuzzパターンを返す() {  
-        TypeNormal type = new TypeNormal(3);
+        IType type = new TypeNormal(3);
         assertEquals("Fizz", _fizzBuzz.generate(type));    
         type = new TypeNormal(5);
         assertEquals("Buzz", _fizzBuzz.generate(type));                
