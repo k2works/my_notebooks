@@ -6,16 +6,8 @@ class FizzBuzz {
         return this._value;
     }
 
-    public void setValue(String _value) {
-        this._value = _value;
-    }
-
     public String[] getValues() {
         return this._values;
-    }
-
-    public void setValues(String[] _values) {
-        this._values = _values;
     }
 
     public String generate(int number) {
