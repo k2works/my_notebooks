@@ -15,6 +15,10 @@ enum FizzBuzzType {
     String generate() {
         return type.generate();
     }
+
+    String generate(int number) {
+        return type.generate(number);
+    }    
 }
 
 interface IType{
@@ -36,7 +40,7 @@ class Type01 implements IType {
 
     @Override
     public String generate(int number) {
-        return null;
+        return Integer.toString(number);
     }
 }
 
@@ -47,7 +51,7 @@ class Type02 implements IType {
 
     @Override
     public String generate(int number) {
-        return null;
+        return "Fizz";
     }
 }
 
@@ -83,7 +87,14 @@ class Type04 implements IType {
 
     @Override
     public String generate(int number) {
-        return null;
+        if (number % 3 == 0 && number % 5 == 0) {
+            return "FIZZBUZZ";
+        } else if (number % 3 == 0) {
+            return "FIZZ";
+        } else if (number % 5 == 0) {
+            return "BUZZ";
+        }
+        return Integer.toString(number);
     }
 }
 
@@ -108,7 +119,14 @@ class Type05 implements IType {
 
     @Override
     public String generate(int number) {
-        return null;
+        if (number % 2 == 0 && number % 3 == 0) {
+            return "FIZZBUZZ";
+        } else if (number % 2 == 0) {
+            return "Fizz";
+        } else if (number % 3 == 0) {
+            return "Buzz";
+        }
+        return Integer.toString(number);
     }
 }
 
@@ -133,7 +151,14 @@ class TypeNormal implements IType {
 
     @Override
     public String generate(int number) {
-        return null;
+        if (number % 3 == 0 && number % 5 == 0) {
+            return "FizzBuzz";
+        } else if (number % 3 == 0) {
+            return "Fizz";
+        } else if (number % 5 == 0) {
+            return "Buzz";
+        }
+        return Integer.toString(number);
     }
 }
 

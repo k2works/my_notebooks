@@ -48,8 +48,8 @@ class FizzBuzzTest {
     }    
     @Test
     public void タイプ１は数を返す() {   
-        IType type = new Type01(3);
-        assertEquals("3", _fizzBuzz.generate(type));
+        FizzBuzzType type = FizzBuzzType.valueOf("one");
+        assertEquals("3", type.generate(3));
     }
     @Test
     public void タイプ２はFizzを返す() { 
@@ -58,34 +58,28 @@ class FizzBuzzTest {
     }
     @Test
     public void タイプ３はBuzzを返す() {   
-        IType type = new Type03();
-        assertEquals("Buzz", _fizzBuzz.generate(type));
+        FizzBuzzType type = FizzBuzzType.valueOf("three");
+        assertEquals("Buzz", type.generate());
     }    
     @Test
     public void タイプ４は大文字の値を返す() { 
-        IType type = new Type04(3);
-        assertEquals("FIZZ", _fizzBuzz.generate(type));        
-        type = new Type04(5);
-        assertEquals("BUZZ", _fizzBuzz.generate(type));
-        type = new Type04(15);
-        assertEquals("FIZZBUZZ", _fizzBuzz.generate(type));
+        FizzBuzzType type = FizzBuzzType.valueOf("four");
+        assertEquals("FIZZ", type.generate(3));        
+        assertEquals("BUZZ", type.generate(5));
+        assertEquals("FIZZBUZZ", type.generate(15));
     } 
     @Test
-    public void タイプ５は２で割り切れたらFizz３で割り切れたらBuzz２と３で割り切れたならFIZZBUZZを返す() {        
-        IType type = new Type05(2);
-        assertEquals("Fizz", _fizzBuzz.generate(type));
-        type = new Type05(3);
-        assertEquals("Buzz", _fizzBuzz.generate(type));     
-        type = new Type05(6);
-        assertEquals("FIZZBUZZ", _fizzBuzz.generate(type));        
+    public void タイプ５は２で割り切れたらFizz３で割り切れたらBuzz２と３で割り切れたならFIZZBUZZを返す() {                
+        FizzBuzzType type = FizzBuzzType.valueOf("five");
+        assertEquals("Fizz", type.generate(2));        
+        assertEquals("Buzz", type.generate(3));             
+        assertEquals("FIZZBUZZ", type.generate(6));        
     } 
     @Test
     public void 上記以外のは通常のFizzBuzzパターンを返す() {  
-        IType type = new TypeNormal(3);
-        assertEquals("Fizz", _fizzBuzz.generate(type));    
-        type = new TypeNormal(5);
-        assertEquals("Buzz", _fizzBuzz.generate(type));                
-        type = new TypeNormal(15);
-        assertEquals("FizzBuzz", _fizzBuzz.generate(type));        
+        FizzBuzzType type = FizzBuzzType.valueOf("normal");
+        assertEquals("Fizz", type.generate(3));    
+        assertEquals("Buzz", type.generate(5));                
+        assertEquals("FizzBuzz", type.generate(15));        
     }    
 }
