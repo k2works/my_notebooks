@@ -180,11 +180,10 @@ class FizzBuzz {
 
     public String[] iterate(int count) {
         this._values = new String[count];
-        FizzBuzz fizzBuzz = new FizzBuzz();
+        FizzBuzzType fizzBuzz = FizzBuzzType.valueOf("normal");
 
-        for (int i = 0; i < count; i = i + 1) {
-            IType type = new TypeNormal(i + 1);
-            this._values[i] = fizzBuzz.generate(type);
+        for (int i = 0; i < count; i = i + 1) {            
+            this._values[i] = fizzBuzz.generate(i + 1);
         }
 
         return this._values;
