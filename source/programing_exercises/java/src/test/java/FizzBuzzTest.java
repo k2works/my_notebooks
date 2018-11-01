@@ -59,11 +59,11 @@ class FizzBuzzTest {
     }
     @Test
     public void タイプ２はFizzを返す() {         
-        assertEquals("Fizz", _typeTwo.generate());
+        assertEquals("Fizz", _typeTwo.generate(1));
     }
     @Test
     public void タイプ３はBuzzを返す() {           
-        assertEquals("Buzz", _typeThree.generate());
+        assertEquals("Buzz", _typeThree.generate(1));
     }    
     @Test
     public void タイプ４は大文字の値を返す() { 
