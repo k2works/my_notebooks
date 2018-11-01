@@ -1,10 +1,31 @@
+enum FizzBuzzType {
+    one(new Type01()),
+    two(new Type02()),
+    three(new Type03()),
+    four(new Type04()),
+    five(new Type05()),
+    normal(new TypeNormal());
+
+    private IType type;
+
+    private FizzBuzzType(IType type ) {
+        this.type = type;
+    }
+
+    String generate() {
+        return type.generate();
+    }
+}
+
 interface IType{
     String generate();
+    String generate(int number);
 }
 
 class Type01 implements IType {
     private String _number;
 
+    Type01(){};
     Type01(int number) {
         this._number = Integer.toString(number);
     }
@@ -12,11 +33,21 @@ class Type01 implements IType {
     public String generate() {
         return this._number;
     }
+
+    @Override
+    public String generate(int number) {
+        return null;
+    }
 }
 
 class Type02 implements IType {
     public String generate() {
         return "Fizz";
+    }
+
+    @Override
+    public String generate(int number) {
+        return null;
     }
 }
 
@@ -24,11 +55,17 @@ class Type03 implements IType {
     public String generate() {
         return "Buzz";
     }
+
+    @Override
+    public String generate(int number) {
+        return null;
+    }
 }
 
 class Type04 implements IType {
     private Integer _number;
 
+    Type04() {};
     Type04(int number) {
         this._number = number;
     }
@@ -43,11 +80,17 @@ class Type04 implements IType {
         }
         return Integer.toString(this._number);
     }
+
+    @Override
+    public String generate(int number) {
+        return null;
+    }
 }
 
 class Type05 implements IType {
     private Integer _number;
 
+    Type05() {};
     Type05(int number) {
         this._number = number;
     }
@@ -62,11 +105,17 @@ class Type05 implements IType {
         }
         return Integer.toString(this._number);
     }
+
+    @Override
+    public String generate(int number) {
+        return null;
+    }
 }
 
 class TypeNormal implements IType {
     private Integer _number;
 
+    TypeNormal() {};
     TypeNormal(int number) {
         this._number = number;
     }
@@ -80,6 +129,11 @@ class TypeNormal implements IType {
             return "Buzz";
         }
         return Integer.toString(this._number);
+    }
+
+    @Override
+    public String generate(int number) {
+        return null;
     }
 }
 

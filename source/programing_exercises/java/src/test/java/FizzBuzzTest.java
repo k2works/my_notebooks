@@ -53,8 +53,8 @@ class FizzBuzzTest {
     }
     @Test
     public void タイプ２はFizzを返す() { 
-        IType type = new Type02();
-        assertEquals("Fizz", _fizzBuzz.generate(type));
+        FizzBuzzType type = FizzBuzzType.valueOf("two");
+        assertEquals("Fizz", type.generate());
     }
     @Test
     public void タイプ３はBuzzを返す() {   
