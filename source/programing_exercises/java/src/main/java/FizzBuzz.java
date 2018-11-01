@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 interface IType {
     String generate(int number);
 }
@@ -124,6 +127,28 @@ class FizzBuzzValue {
     }    
 }
 
+class FizzBuzzValues {
+    List<FizzBuzzValue> _fizzBzuuValues;
+
+    public FizzBuzzValues(boolean add) {
+    }
+
+    FizzBuzzValues add(FizzBuzzValue fizzBuzzValue) {
+        List<FizzBuzzValue> result = new ArrayList<>(_fizzBzuuValues);
+        return new FizzBuzzValues(result.add(fizzBuzzValue));
+    }
+
+    String[] arrayValue() {
+        String[] result = new String[_fizzBzuuValues.size()];
+        int i = 0;
+        for(FizzBuzzValue fizzBuzzValue :_fizzBzuuValues) {
+            result[i] = fizzBuzzValue.getValue();
+            i =+ 1;
+        }
+        return result;
+    }
+}
+
 class FizzBuzz {
     private String _value;
     private String _values[];
@@ -136,7 +161,7 @@ class FizzBuzz {
         return this._values;
     }
 
-    public String[] iterate(int count) {
+    public String[] iterate(int count) {        
         this._values = new String[count];
         FizzBuzzType fizzBuzz = FizzBuzzType.valueOf("normal");
 
