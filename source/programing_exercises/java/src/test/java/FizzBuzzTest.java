@@ -12,7 +12,7 @@ class FizzBuzzTest {
     private FizzBuzzType _typeThree;
     private FizzBuzzType _typeFour;
     private FizzBuzzType _typeFive;
-
+    
     @BeforeEach
     void init() {
         _fizzBuzz = new FizzBuzz();
@@ -21,27 +21,37 @@ class FizzBuzzTest {
         _typeTwo = FizzBuzzType.valueOf("two");
         _typeThree = FizzBuzzType.valueOf("three");
         _typeFour = FizzBuzzType.valueOf("four");
-        _typeFive = FizzBuzzType.valueOf("five");
+        _typeFive = FizzBuzzType.valueOf("five");    
     }    
     @Test
-    public void 数が3ならばFizzを返す() {   
-        assertEquals("Fizz", _typeNormal.generate(3));
+    public void 数が3ならばFizzを返す() {        
+        FizzBuzzValueCommand command = new FizzBuzzValueCommand(_typeNormal);
+        command.execute(3);
+        assertEquals("Fizz", command.getValue());
     }
     @Test
     public void 数が5ならばBuzzをかえす() {
-        assertEquals("Buzz", _typeNormal.generate(5));
+        FizzBuzzValueCommand command = new FizzBuzzValueCommand(_typeNormal);
+        command.execute(5);        
+        assertEquals("Buzz", command.getValue());
     }    
     @Test
-    public void 数が15ならばFizzBuzzを返す() {        
-        assertEquals("FizzBuzz", _typeNormal.generate(15));
+    public void 数が15ならばFizzBuzzを返す() {  
+        FizzBuzzValueCommand command = new FizzBuzzValueCommand(_typeNormal);
+        command.execute(15);        
+        assertEquals("FizzBuzz", command.getValue());
     }
     @Test
-    public void 数が1ならば1を返す() {        
-        assertEquals("1", _typeNormal.generate(1));
+    public void 数が1ならば1を返す() {  
+        FizzBuzzValueCommand command = new FizzBuzzValueCommand(_typeNormal);
+        command.execute(1);                      
+        assertEquals("1", command.getValue());
     }
     @Test
-    public void 数が101ならば101を返す() {        
-        assertEquals("101", _typeNormal.generate(101));
+    public void 数が101ならば101を返す() {      
+        FizzBuzzValueCommand command = new FizzBuzzValueCommand(_typeNormal);
+        command.execute(101);          
+        assertEquals("101", command.getValue());
     }
     @Test
     public void 回数を5回繰り返し実行したならば配列を返す() {
@@ -54,36 +64,51 @@ class FizzBuzzTest {
         assertArrayEquals(expected, _fizzBuzz.iterate(10));
     }    
     @Test
-    public void タイプ１は数を返す() {           
-        assertEquals("3", _typeOne.generate(3));
+    public void タイプ１は数を返す() {    
+        FizzBuzzValueCommand command = new FizzBuzzValueCommand(_typeOne);
+        command.execute(3);                                     
+        assertEquals("3", command.getValue());
     }
     @Test
-    public void タイプ２はFizzを返す() {         
-        assertEquals("Fizz", _typeTwo.generate(1));
+    public void タイプ２はFizzを返す() {       
+        FizzBuzzValueCommand command = new FizzBuzzValueCommand(_typeTwo);
+        command.execute(1);                                               
+        assertEquals("Fizz", command.getValue());
     }
     @Test
-    public void タイプ３はBuzzを返す() {           
-        assertEquals("Buzz", _typeThree.generate(1));
+    public void タイプ３はBuzzを返す() {   
+        FizzBuzzValueCommand command = new FizzBuzzValueCommand(_typeThree);
+        command.execute(1);                                               
+        assertEquals("Buzz", command.getValue());
     }    
     @Test
     public void タイプ４は大文字の値を返す() { 
-        FizzBuzzType type = _typeFour;
-        assertEquals("FIZZ", type.generate(3));        
-        assertEquals("BUZZ", type.generate(5));
-        assertEquals("FIZZBUZZ", type.generate(15));
+        FizzBuzzValueCommand command = new FizzBuzzValueCommand(_typeFour);
+        command.execute(3);                                               
+        assertEquals("FIZZ", command.getValue());        
+        command.execute(5);                                               
+        assertEquals("BUZZ", command.getValue());
+        command.execute(15);                                               
+        assertEquals("FIZZBUZZ", command.getValue());
     } 
     @Test
     public void タイプ５は２で割り切れたらFizz３で割り切れたらBuzz２と３で割り切れたならFIZZBUZZを返す() {                
-        FizzBuzzType type = _typeFive;
-        assertEquals("Fizz", type.generate(2));        
-        assertEquals("Buzz", type.generate(3));             
-        assertEquals("FIZZBUZZ", type.generate(6));        
+        FizzBuzzValueCommand command = new FizzBuzzValueCommand(_typeFive);
+        command.execute(2);
+        assertEquals("Fizz", command.getValue());        
+        command.execute(3);
+        assertEquals("Buzz", command.getValue());             
+        command.execute(6);        
+        assertEquals("FIZZBUZZ", command.getValue());        
     } 
     @Test
     public void 上記以外のは通常のFizzBuzzパターンを返す() {  
-        FizzBuzzType type = _typeNormal;
-        assertEquals("Fizz", type.generate(3));    
-        assertEquals("Buzz", type.generate(5));                
-        assertEquals("FizzBuzz", type.generate(15));        
+        FizzBuzzValueCommand command = new FizzBuzzValueCommand(_typeNormal);        
+        command.execute(3);
+        assertEquals("Fizz", command.getValue());    
+        command.execute(5);
+        assertEquals("Buzz", command.getValue());                
+        command.execute(15);
+        assertEquals("FizzBuzz", command.getValue());        
     }    
 }

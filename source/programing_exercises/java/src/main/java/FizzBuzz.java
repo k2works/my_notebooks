@@ -2,40 +2,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 interface IType {
-    String generate(int number);
+    FizzBuzzValue generate(int number);
+}
+
+interface ICommand {
+    void execute(int arg);
 }
 
 class Type01 implements IType {
     @Override
-    public String generate(int number) {
+    public FizzBuzzValue generate(int number) {
         String value = Integer.toString(number);
         FizzBuzzValue fizzBzuuValue = new FizzBuzzValue(number, value);
-        return fizzBzuuValue.getValue();
+        return fizzBzuuValue;
     }
 }
 
 class Type02 implements IType {
     @Override
-    public String generate(int number) {
+    public FizzBuzzValue generate(int number) {
         FizzBuzzValue fizzBzuuValue = new FizzBuzzValue(number, "Fizz");
-        return fizzBzuuValue.getValue();
+        return fizzBzuuValue;
     }
 }
 
 class Type03 implements IType {
     @Override
-    public String generate(int number) {
+    public FizzBuzzValue generate(int number) {
         FizzBuzzValue fizzBzuuValue = new FizzBuzzValue(number, "Buzz");
-        return fizzBzuuValue.getValue();
+        return fizzBzuuValue;
     }
 }
 
 class Type04 implements IType {
     @Override
-    public String generate(int number) {
+    public FizzBuzzValue generate(int number) {
         String value = this.judge(number);
         FizzBuzzValue fizzBzuuValue = new FizzBuzzValue(number, value);
-        return fizzBzuuValue.getValue();        
+        return fizzBzuuValue;        
     }
 
     private String judge(int number) {
@@ -52,10 +56,10 @@ class Type04 implements IType {
 
 class Type05 implements IType {
     @Override
-    public String generate(int number) {
+    public FizzBuzzValue generate(int number) {
         String value = this.judge(number);
         FizzBuzzValue fizzBzuuValue = new FizzBuzzValue(number, value);
-        return fizzBzuuValue.getValue();        
+        return fizzBzuuValue;        
     }
 
     private String judge(int number) {
@@ -72,10 +76,10 @@ class Type05 implements IType {
 
 class TypeNormal implements IType {
     @Override
-    public String generate(int number) {
+    public FizzBuzzValue generate(int number) {
         String value = this.judge(number);
         FizzBuzzValue fizzBzuuValue = new FizzBuzzValue(number, value);
-        return fizzBzuuValue.getValue();                
+        return fizzBzuuValue;                
     }
 
     private String judge(int number) {
@@ -104,9 +108,9 @@ enum FizzBuzzType {
         this.type = type;
     }
 
-    String generate(int number) {
+    FizzBuzzValue generate(int number) {
         return type.generate(number);
-    }    
+    }        
 }
 
 class FizzBuzzValue {
@@ -130,12 +134,15 @@ class FizzBuzzValue {
 class FizzBuzzValues {
     List<FizzBuzzValue> _fizzBzuuValues;
 
-    public FizzBuzzValues(boolean add) {
+    public FizzBuzzValues(List<FizzBuzzValue> fizzBuzzValues) {
+        _fizzBzuuValues = fizzBuzzValues;
     }
 
     FizzBuzzValues add(FizzBuzzValue fizzBuzzValue) {
-        List<FizzBuzzValue> result = new ArrayList<>(_fizzBzuuValues);
-        return new FizzBuzzValues(result.add(fizzBuzzValue));
+        //List<FizzBuzzValue> result = new ArrayList<>(_fizzBzuuValues);
+        //result.add(fizzBuzzValue);
+        //return new FizzBuzzValues(result);
+        return new FizzBuzzValues(new ArrayList<>(_fizzBzuuValues));
     }
 
     String[] arrayValue() {
@@ -147,6 +154,51 @@ class FizzBuzzValues {
         }
         return result;
     }
+}
+
+class FizzBuzzValueCommand implements ICommand {
+    private FizzBuzzType _type;
+    private FizzBuzzValue _value;
+
+    FizzBuzzValueCommand(FizzBuzzType type) {
+        _type = type;
+    }
+
+	public Integer getNumber() {
+        return _value.getNumber();
+    }
+
+    public String getValue() {
+        return _value.getValue();
+    }
+
+    @Override
+    public void execute(int arg) {
+        _value = _type.generate(arg);
+    }
+}
+
+class FizzBuzzValuesCommand implements ICommand {
+    private FizzBuzzType _type;
+    private FizzBuzzValue _value;
+    private FizzBuzzValues _values;
+
+    FizzBuzzValuesCommand(FizzBuzzType type) {
+        _type = type;
+    }
+
+    public String[] getValues() {
+        return _values.arrayValue();
+    }
+
+    @Override
+    public void execute(int arg) {
+        for (int i = 0; i < arg; i = i + 1) {
+            _value = _type.generate(i + 1);
+            _values.add(_value);                    
+        }            
+    }
+
 }
 
 class FizzBuzz {
@@ -166,7 +218,7 @@ class FizzBuzz {
         FizzBuzzType fizzBuzz = FizzBuzzType.valueOf("normal");
 
         for (int i = 0; i < count; i = i + 1) {            
-            this._values[i] = fizzBuzz.generate(i + 1);
+            this._values[i] = fizzBuzz.generate(i + 1).getValue();
         }
 
         return this._values;
