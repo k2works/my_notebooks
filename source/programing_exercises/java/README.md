@@ -23,6 +23,8 @@
 + 保持する必要のある変数はプライベートメンバ変数として扱う
 + ポリモフィズムの導入
 + インターフェースの導入
++ 値がオブジェクトの導入
++ コレクションオブジェクトの導入
 
 #### PROBLEM
 + Javaのプロジェクト構成のセットアップにはまる
@@ -50,3 +52,4 @@
 + [Organizing Gradle Projects](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html)
 + [Build Init Plugin](https://docs.gradle.org/current/userguide/build_init_plugin.html)
 + [JUnit5 テストの記述](http://www.ne.jp/asahi/hishidama/home/tech/java/junit/5/assertion.html)
++ [値オブジェクトとコレクションオブジェクト](http://blog.sojiro.me/blog/2017/08/25/value-object-and-collection-object/)

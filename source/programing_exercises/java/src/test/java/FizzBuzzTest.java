@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class FizzBuzzTest {
-    private FizzBuzz _fizzBuzz;
     private FizzBuzzType _typeNormal;
     private FizzBuzzType _typeOne;
     private FizzBuzzType _typeTwo;
@@ -15,7 +14,6 @@ class FizzBuzzTest {
     
     @BeforeEach
     void init() {
-        _fizzBuzz = new FizzBuzz();
         _typeNormal = FizzBuzzType.valueOf("normal");
         _typeOne = FizzBuzzType.valueOf("one");
         _typeTwo = FizzBuzzType.valueOf("two");
@@ -55,13 +53,19 @@ class FizzBuzzTest {
     }
     @Test
     public void 回数を5回繰り返し実行したならば配列を返す() {
-        String[] expected = {"1","2","Fizz","4","Buzz"};
-        assertArrayEquals(expected, _fizzBuzz.iterate(5));
+        FizzBuzzValuesCommand command = new FizzBuzzValuesCommand(_typeNormal);
+        command.execute(5);
+        String[] actual = command.getValues();
+        String[] expected = {"1","2","Fizz","4","Buzz"};        
+        assertArrayEquals(expected, actual);
     }
     @Test
     public void 回数を10回繰り返し実行したならば配列を返す() {
+        FizzBuzzValuesCommand command = new FizzBuzzValuesCommand(_typeNormal);
+        command.execute(10);
+        String[] actual = command.getValues();        
         String[] expected = {"1","2","Fizz","4","Buzz", "Fizz", "7", "8", "Fizz", "Buzz"};
-        assertArrayEquals(expected, _fizzBuzz.iterate(10));
+        assertArrayEquals(expected, actual);
     }    
     @Test
     public void タイプ１は数を返す() {    
@@ -110,5 +114,5 @@ class FizzBuzzTest {
         assertEquals("Buzz", command.getValue());                
         command.execute(15);
         assertEquals("FizzBuzz", command.getValue());        
-    }    
+    }  
 }

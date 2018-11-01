@@ -134,15 +134,14 @@ class FizzBuzzValue {
 class FizzBuzzValues {
     List<FizzBuzzValue> _fizzBzuuValues;
 
-    public FizzBuzzValues(List<FizzBuzzValue> fizzBuzzValues) {
+    FizzBuzzValues(List<FizzBuzzValue> fizzBuzzValues) {
         _fizzBzuuValues = fizzBuzzValues;
     }
 
     FizzBuzzValues add(FizzBuzzValue fizzBuzzValue) {
-        //List<FizzBuzzValue> result = new ArrayList<>(_fizzBzuuValues);
-        //result.add(fizzBuzzValue);
-        //return new FizzBuzzValues(result);
-        return new FizzBuzzValues(new ArrayList<>(_fizzBzuuValues));
+        List<FizzBuzzValue> result = new ArrayList<>(_fizzBzuuValues);
+        result.add(fizzBuzzValue);
+        return new FizzBuzzValues(result);        
     }
 
     String[] arrayValue() {
@@ -150,7 +149,7 @@ class FizzBuzzValues {
         int i = 0;
         for(FizzBuzzValue fizzBuzzValue :_fizzBzuuValues) {
             result[i] = fizzBuzzValue.getValue();
-            i =+ 1;
+            i = i + 1;
         }
         return result;
     }
@@ -185,6 +184,8 @@ class FizzBuzzValuesCommand implements ICommand {
 
     FizzBuzzValuesCommand(FizzBuzzType type) {
         _type = type;
+        List<FizzBuzzValue> list = new ArrayList<>();
+        _values = new FizzBuzzValues(list);
     }
 
     public String[] getValues() {
@@ -195,32 +196,8 @@ class FizzBuzzValuesCommand implements ICommand {
     public void execute(int arg) {
         for (int i = 0; i < arg; i = i + 1) {
             _value = _type.generate(i + 1);
-            _values.add(_value);                    
+            _values = _values.add(_value);                    
         }            
     }
 
-}
-
-class FizzBuzz {
-    private String _value;
-    private String _values[];
-
-    public String getValue() {
-        return this._value;
-    }
-
-    public String[] getValues() {
-        return this._values;
-    }
-
-    public String[] iterate(int count) {        
-        this._values = new String[count];
-        FizzBuzzType fizzBuzz = FizzBuzzType.valueOf("normal");
-
-        for (int i = 0; i < count; i = i + 1) {            
-            this._values[i] = fizzBuzz.generate(i + 1).getValue();
-        }
-
-        return this._values;
-    }
 }
