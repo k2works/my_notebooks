@@ -1,31 +1,41 @@
-interface IType{
+interface IType {
     String generate(int number);
 }
 
 class Type01 implements IType {
     @Override
     public String generate(int number) {
-        return Integer.toString(number);
+        String value = Integer.toString(number);
+        FizzBuzzValue fizzBzuuValue = new FizzBuzzValue(number, value);
+        return fizzBzuuValue.getValue();
     }
 }
 
 class Type02 implements IType {
     @Override
     public String generate(int number) {
-        return "Fizz";
+        FizzBuzzValue fizzBzuuValue = new FizzBuzzValue(number, "Fizz");
+        return fizzBzuuValue.getValue();
     }
 }
 
 class Type03 implements IType {
     @Override
     public String generate(int number) {
-        return "Buzz";
+        FizzBuzzValue fizzBzuuValue = new FizzBuzzValue(number, "Buzz");
+        return fizzBzuuValue.getValue();
     }
 }
 
 class Type04 implements IType {
     @Override
     public String generate(int number) {
+        String value = this.judge(number);
+        FizzBuzzValue fizzBzuuValue = new FizzBuzzValue(number, value);
+        return fizzBzuuValue.getValue();        
+    }
+
+    private String judge(int number) {
         if (number % 3 == 0 && number % 5 == 0) {
             return "FIZZBUZZ";
         } else if (number % 3 == 0) {
@@ -40,6 +50,12 @@ class Type04 implements IType {
 class Type05 implements IType {
     @Override
     public String generate(int number) {
+        String value = this.judge(number);
+        FizzBuzzValue fizzBzuuValue = new FizzBuzzValue(number, value);
+        return fizzBzuuValue.getValue();        
+    }
+
+    private String judge(int number) {
         if (number % 2 == 0 && number % 3 == 0) {
             return "FIZZBUZZ";
         } else if (number % 2 == 0) {
@@ -54,6 +70,12 @@ class Type05 implements IType {
 class TypeNormal implements IType {
     @Override
     public String generate(int number) {
+        String value = this.judge(number);
+        FizzBuzzValue fizzBzuuValue = new FizzBuzzValue(number, value);
+        return fizzBzuuValue.getValue();                
+    }
+
+    private String judge(int number) {
         if (number % 3 == 0 && number % 5 == 0) {
             return "FizzBuzz";
         } else if (number % 3 == 0) {
@@ -81,6 +103,24 @@ enum FizzBuzzType {
 
     String generate(int number) {
         return type.generate(number);
+    }    
+}
+
+class FizzBuzzValue {
+    private Integer _number;    
+    private String _value;
+
+    FizzBuzzValue(Integer number, String value) {
+        this._number = number;
+        this._value = value;
+    }
+
+    public Integer getNumber() {
+        return this._number;
+    }    
+
+    public String getValue() {
+        return this._value;
     }    
 }
 
