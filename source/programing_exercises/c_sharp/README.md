@@ -15,7 +15,10 @@
 + ~~値が１５ならばFizzBuzzを返す~~
 + ~~値が１ならば１を返す~~
 + ~~値が１０１ならば１０１を返す~~
++ ~~５回実行したら配列を返す~~
++ ~~１０回実行したら配列を返す~~
 
 ## 開発
 ## 参照
 + [.NET Core と .NET Standard の単体テスト](https://docs.microsoft.com/ja-jp/dotnet/core/testing/)
++ [xUnit.net でユニットテストを始める](https://qiita.com/takutoy/items/84fa6498f0726418825d)

@@ -20,6 +20,17 @@ namespace FizzBuzzService.Tests
 
             return value;
         }
+
+        internal static String[] iterate(int count)
+        {            
+            String[] array = new String[count];
+
+            for (var i = 0; i < count; i = i + 1) {
+                array[i] = FizzBuzz.generate(i + 1);
+            }
+
+            return array;
+        }
     }
     public class FizzBuzzTest
     {
@@ -47,6 +58,18 @@ namespace FizzBuzzService.Tests
         public void 値が１０１ならば１０１を返す()
         {
             Assert.Equal(FizzBuzz.generate(101), "101");
+        }        
+        [Fact]
+        public void 回数を５回繰り返し実行したら配列を返す()
+        {
+            string[] expect = {"1","2","Fizz","4","Buzz"};
+            Assert.Equal(FizzBuzz.iterate(5), expect);
+        }
+        [Fact]
+        public void 回数を１０回繰り返し実行したら配列を返す()
+        {
+            string[] expect = {"1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz"};
+            Assert.Equal(FizzBuzz.iterate(10), expect);
         }        
     }
 }
