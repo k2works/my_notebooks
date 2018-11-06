@@ -4,35 +4,7 @@ using Xunit;
 
 namespace FizzBuzzService.Tests
 {
-    public class FizzBuzz
-    {
-        internal static String generate(int number)
-        {            
-            String value = number.ToString();
-            
-            if (number % 3 == 0 && number % 5 == 0) {
-                value = "FizzBuzz";
-            } else if (number % 5 == 0) {
-                value = "Buzz";
-            } else if (number % 3 == 0) {
-                value = "Fizz";
-            }
-
-            return value;
-        }
-
-        internal static String[] iterate(int count)
-        {            
-            String[] array = new String[count];
-
-            for (var i = 0; i < count; i = i + 1) {
-                array[i] = FizzBuzz.generate(i + 1);
-            }
-
-            return array;
-        }
-    }
-    public class FizzBuzzTest
+        public class FizzBuzzTest
     {
         [Fact]
         public void 値が３ならばFizzを返す()
