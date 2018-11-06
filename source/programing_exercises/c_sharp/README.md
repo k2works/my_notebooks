@@ -28,6 +28,13 @@
 + データクラスの作成を通して[メンバー](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/members)の概念を理解する
 + [バッキングフィールド](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/properties)を使用したプロパティの実装をする
 + 選択ステートメントからswitch文を実装する
++ データクラスとロジッククラスの存在
++ 一つのクラスに異なる責務
++ 長いメソッド・大きいクラス
++ 似たような処理の重複
++ マジックナンバーの使用
++ 外部に公開されたSetter
++ 副作用のある代入変数
 
 ### ふりかえり
 #### Keep
