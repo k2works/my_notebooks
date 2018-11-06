@@ -2,7 +2,7 @@
 
 namespace FizzBuzzService
 {
-    public class FizzBuzzData
+    public class FizzBuzz
     {
         private String _value;
         private String[] _values;
@@ -10,48 +10,47 @@ namespace FizzBuzzService
         public String Value
         {
             get { return _value; }
-            set { this._value = value; }
         }
         public String[] Values
         {
             get { return _values; }
-            set { this._values = value; }
-        }
-    }
-    public class FizzBuzz
-    {
-        public static String generate(int number)
+        }        
+        public FizzBuzz()
         {
-            String value = number.ToString();
+        }        
+        public void generate(int number)
+        {
+            this._value = number.ToString();
 
             if (number % 3 == 0 && number % 5 == 0)
             {
-                value = "FizzBuzz";
+                this._value = "FizzBuzz";
             }
             else if (number % 5 == 0)
             {
-                value = "Buzz";
+                this._value = "Buzz";
             }
             else if (number % 3 == 0)
             {
-                value = "Fizz";
+                this._value = "Fizz";
             }
-
-            return value;
         }
 
-        public static string generate(int number, int type)
+        public void generate(int number, int type)
         {
             String value;
 
             switch (type)
             {
                 case 1:
-                    return number.ToString();
+                    this._value = number.ToString();
+                    break;
                 case 2:
-                    return "Fizz";
+                    this._value = "Fizz";
+                    break;
                 case 3:
-                    return "Buzz";
+                    this._value = "Buzz";
+                    break;
                 case 4:
                     value = number.ToString();
 
@@ -68,24 +67,26 @@ namespace FizzBuzzService
                         value = "Fizz";
                     }
 
-                    return value.ToUpper();
+                    this._value = value.ToUpper();
+                    break;
                 case 5:
                     if (number % 2 == 0 && number % 3 == 0)
                     {
-                        return "FIZZBUZZ";
+                        this._value = "FIZZBUZZ";
                     }
                     else if (number % 2 == 0)
                     {
-                        return "Fizz";
+                        this._value = "Fizz";
                     }
                     else if (number % 3 == 0)
                     {
-                        return "Buzz";
+                        this._value = "Buzz";
                     }
                     else
                     {
-                        return number.ToString();
+                        this._value = number.ToString();
                     }
+                    break;
                 default:     
                     value = null;        
 
@@ -102,20 +103,22 @@ namespace FizzBuzzService
                         value = "Fizz";                    
                     }
 
-                    return value;
+                    this._value = value;
+                    break;
             }            
         }
 
-        public static String[] iterate(int count)
+        public void iterate(int count)
         {
             String[] array = new String[count];
+            FizzBuzz fizzBuzz = new FizzBuzz();
 
             for (var i = 0; i < count; i = i + 1)
             {
-                array[i] = FizzBuzz.generate(i + 1);
-            }
-
-            return array;
+                fizzBuzz.generate(i + 1);
+                array[i] = fizzBuzz.Value;
+            }   
+            this._values = array;         
         }
     }
 }
