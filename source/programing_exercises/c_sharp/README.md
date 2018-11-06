@@ -19,6 +19,14 @@
 + ~~１０回実行したら配列を返す~~
 
 ## 開発
++ データクラスの作成を通して[メンバー](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/members)の概念を理解する
++ [バッキングフィールド](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/properties)を使用したプロパティの実装をする
+
+### ふりかえり
+#### Keep
+#### Problem
+#### Try
+
 ## 参照
 + [.NET Core と .NET Standard の単体テスト](https://docs.microsoft.com/ja-jp/dotnet/core/testing/)
 + [xUnit.net でユニットテストを始める](https://qiita.com/takutoy/items/84fa6498f0726418825d)
