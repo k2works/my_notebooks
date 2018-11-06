@@ -57,5 +57,43 @@ namespace FizzBuzzService.Tests
             string[] expect = {"1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz"};
             Assert.Equal(_data.Values, expect);
         }
+        [Fact]
+        public void タイプ１は値を返す()
+        {
+            _data.Value = FizzBuzz.generate(3, 1);
+            Assert.Equal(_data.Value, "3");
+        }
+        [Fact]
+        public void タイプ２はFizzだけを返す()
+        {
+            _data.Value = FizzBuzz.generate(5, 2);
+            Assert.Equal(_data.Value, "Fizz");
+        }     
+        [Fact]   
+        public void タイプ３はBuzzだけを返す()
+        {
+            _data.Value = FizzBuzz.generate(3, 3);
+            Assert.Equal(_data.Value, "Buzz");
+        }   
+        [Fact]
+        public void タイプ４は通常パターンを大文字に変換して返す()
+        {
+            _data.Value = FizzBuzz.generate(3, 4);
+            Assert.Equal(_data.Value, "FIZZ");
+            _data.Value = FizzBuzz.generate(5, 4);
+            Assert.Equal(_data.Value, "BUZZ");            
+            _data.Value = FizzBuzz.generate(15, 4);
+            Assert.Equal(_data.Value, "FIZZBUZZ");            
+        }   
+        [Fact]
+        public void タイプ５は２で割り切れたらFizz３で割り切れたらBuzz２と３で割り切れたならFIZZBUZZを返す()
+        {
+            _data.Value = FizzBuzz.generate(2, 5);
+            Assert.Equal(_data.Value, "Fizz");
+            _data.Value = FizzBuzz.generate(3, 5);
+            Assert.Equal(_data.Value, "Buzz");            
+            _data.Value = FizzBuzz.generate(6, 5);
+            Assert.Equal(_data.Value, "FIZZBUZZ");            
+        }                  
     }
 }

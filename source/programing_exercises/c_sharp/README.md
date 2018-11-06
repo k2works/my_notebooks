@@ -17,10 +17,17 @@
 + ~~値が１０１ならば１０１を返す~~
 + ~~５回実行したら配列を返す~~
 + ~~１０回実行したら配列を返す~~
++ ~~タイプ１は値を返す~~
++ ~~タイプ２はFizzだけを返す~~
++ ~~タイプ３はBuzzだけを返す~~
++ ~~タイプ４は通常パターンを大文字に変換して返す~~
++ ~~タイプ５は２で割り切れたらFizz３で割り切れたらBuzz２と３で割り切れたならFIZZBUZZを返す~~
+
 
 ## 開発
 + データクラスの作成を通して[メンバー](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/members)の概念を理解する
 + [バッキングフィールド](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/properties)を使用したプロパティの実装をする
++ 選択ステートメントからswitch文を実装する
 
 ### ふりかえり
 #### Keep
@@ -31,3 +38,4 @@
 + [.NET Core と .NET Standard の単体テスト](https://docs.microsoft.com/ja-jp/dotnet/core/testing/)
 + [xUnit.net でユニットテストを始める](https://qiita.com/takutoy/items/84fa6498f0726418825d)
 + [C# プログラミング ガイド](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/)
++ [ステートメントのキーワード (C# リファレンス)](https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/keywords/statement-keywords)
