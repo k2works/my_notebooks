@@ -2,6 +2,21 @@
 
 namespace FizzBuzzService
 {
+    public class FizzBuzzData {
+        private String _value;
+        private String[] _values;
+
+        public String Value
+        {
+            get { return _value; }
+            set { this._value = value; }
+        }
+        public String[] Values
+        {
+            get { return _values; }
+            set { this._values = value; }
+        }
+    }
     public class FizzBuzz
     {
         public static String generate(int number)

@@ -22,3 +22,4 @@
 ## 参照
 + [.NET Core と .NET Standard の単体テスト](https://docs.microsoft.com/ja-jp/dotnet/core/testing/)
 + [xUnit.net でユニットテストを始める](https://qiita.com/takutoy/items/84fa6498f0726418825d)
++ [C# プログラミング ガイド](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/)
