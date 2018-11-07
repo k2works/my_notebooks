@@ -9,7 +9,23 @@ namespace FizzBuzzService
 
         public String Value { get { return this._value; } }
 
-        public abstract void generate(int number);
+        public virtual void generate(int number)
+        {
+            this._value = number.ToString();
+
+            if (number % 3 == 0 && number % 5 == 0)
+            {
+                this._value = "FizzBuzz";
+            }
+            else if (number % 5 == 0)
+            {
+                this._value = "Buzz";
+            }
+            else if (number % 3 == 0)
+            {
+                this._value = "Fizz";
+            }
+        }
     }
     public class Type01 : Type
     {
@@ -49,22 +65,9 @@ namespace FizzBuzzService
     {
         public override void generate(int number)
         {
-            _value = number.ToString();
-
-            if (number % 3 == 0 && number % 5 == 0)
-            {
-                _value = "FizzBuzz";
-            }
-            else if (number % 5 == 0)
-            {
-                _value = "Buzz";
-            }
-            else if (number % 3 == 0)
-            {
-                _value = "Fizz";
-            }
-
-            this._value = _value.ToUpper();
+            base.generate(number);
+            
+            this._value = this._value.ToUpper();
         }
     }
 
@@ -91,27 +94,8 @@ namespace FizzBuzzService
         }
     }
 
-    public class TypeStandard : Type
-    {
-        public override void generate(int number)
-        {
-            this._value = number.ToString();
+    public class TypeStandard : Type { }
 
-            if (number % 3 == 0 && number % 5 == 0)
-            {
-                this._value = "FizzBuzz";
-            }
-            else if (number % 5 == 0)
-            {
-                this._value = "Buzz";
-            }
-            else if (number % 3 == 0)
-            {
-                this._value = "Fizz";
-            }
-        }
-    }
-    
     public class FizzBuzz
     {
         private String _value;
@@ -126,12 +110,12 @@ namespace FizzBuzzService
         {
             get { return _values; }
         }
-        public FizzBuzz()        
+        public FizzBuzz()
         {
-            _type = new TypeStandard();                     
+            _type = new TypeStandard();
         }
         public void generate(int number)
-        {            
+        {
             _type.generate(number);
             this._value = _type.Value;
         }

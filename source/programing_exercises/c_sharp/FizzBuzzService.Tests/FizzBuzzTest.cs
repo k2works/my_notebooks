@@ -39,14 +39,16 @@ namespace FizzBuzzService.Tests
         [Fact]         
         public void 値が１ならば１を返す()
         {
-            _fizzBuzz.generate(1);
-            Assert.Equal("1", _fizzBuzz.Value);
+            Type actual = _typeStandard;
+            actual.generate(1);
+            Assert.Equal("1", actual.Value);
         }
         [Fact]
         public void 値が１０１ならば１０１を返す()
         {
-            _fizzBuzz.generate(101);
-            Assert.Equal("101", _fizzBuzz.Value);
+            Type actual = _typeStandard;
+            actual.generate(101);
+            Assert.Equal("101", actual.Value);
         }        
         [Fact]
         public void 回数を５回繰り返し実行したら配列を返す()
