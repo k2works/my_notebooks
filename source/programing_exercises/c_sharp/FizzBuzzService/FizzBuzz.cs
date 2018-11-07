@@ -7,7 +7,7 @@ namespace FizzBuzzService
     {
         protected string _value;
 
-        public IEnumerable<char> Value { get { return this._value; } }
+        public String Value { get { return this._value; } }
 
         public abstract void generate(int number);
     }
@@ -90,23 +90,10 @@ namespace FizzBuzzService
             }
         }
     }
-    public class FizzBuzz
-    {
-        private String _value;
-        private String[] _values;
 
-        public String Value
-        {
-            get { return _value; }
-        }
-        public String[] Values
-        {
-            get { return _values; }
-        }
-        public FizzBuzz()
-        {
-        }
-        public void generate(int number)
+    public class TypeStandard : Type
+    {
+        public override void generate(int number)
         {
             this._value = number.ToString();
 
@@ -122,6 +109,31 @@ namespace FizzBuzzService
             {
                 this._value = "Fizz";
             }
+        }
+    }
+    
+    public class FizzBuzz
+    {
+        private String _value;
+        private String[] _values;
+        private Type _type;
+
+        public String Value
+        {
+            get { return _value; }
+        }
+        public String[] Values
+        {
+            get { return _values; }
+        }
+        public FizzBuzz()        
+        {
+            _type = new TypeStandard();                     
+        }
+        public void generate(int number)
+        {            
+            _type.generate(number);
+            this._value = _type.Value;
         }
 
         public void iterate(int count)

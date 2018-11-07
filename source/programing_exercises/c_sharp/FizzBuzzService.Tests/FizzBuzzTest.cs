@@ -7,29 +7,34 @@ namespace FizzBuzzService.Tests
     public class FizzBuzzTest : IDisposable
     {
         FizzBuzz _fizzBuzz;
+        Type _typeStandard;
         public FizzBuzzTest()
         {     
             _fizzBuzz = new FizzBuzz();
+            _typeStandard = new TypeStandard();
         }
         public void Dispose(){}        
 
         [Fact]
         public void 値が３ならばFizzを返す()
-        {                        
-            _fizzBuzz.generate(3);            
-            Assert.Equal("Fizz", _fizzBuzz.Value);
+        {                                    
+            Type actual = _typeStandard;
+            actual.generate(3);            
+            Assert.Equal("Fizz", actual.Value);
         }
         [Fact]
         public void 値が５ならばBuzzを返す()
         {
-            _fizzBuzz.generate(5);
-            Assert.Equal("Buzz", _fizzBuzz.Value);
+            Type actual = _typeStandard;
+            actual.generate(5);
+            Assert.Equal("Buzz", actual.Value);
         }
         [Fact]
         public void 値が１５ならばFizzBuzzを返す()
         {
-            _fizzBuzz.generate(15);
-            Assert.Equal("FizzBuzz", _fizzBuzz.Value);
+            Type actual = _typeStandard;
+            actual.generate(15);
+            Assert.Equal("FizzBuzz", actual.Value);
         }       
         [Fact]         
         public void 値が１ならば１を返す()
