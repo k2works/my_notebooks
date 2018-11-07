@@ -60,40 +60,45 @@ namespace FizzBuzzService.Tests
         [Fact]
         public void タイプ１は値を返す()
         {
-            _fizzBuzz.generate(3, 1);
-            Assert.Equal("3", _fizzBuzz.Value);
+            Type fizzBuzz = new Type01();
+            fizzBuzz.generate(3);            
+            Assert.Equal("3", fizzBuzz.Value);
         }
         [Fact]
         public void タイプ２はFizzだけを返す()
         {
-            _fizzBuzz.generate(5, 2);
-            Assert.Equal("Fizz", _fizzBuzz.Value);
+            Type fizzBuzz = new Type02();
+            fizzBuzz.generate(5);
+            Assert.Equal("Fizz", fizzBuzz.Value);
         }     
         [Fact]   
         public void タイプ３はBuzzだけを返す()
-        {
-            _fizzBuzz.generate(3, 3);
-            Assert.Equal("Buzz", _fizzBuzz.Value);
+        {            
+            Type fizzBuzz = new Type03();
+            fizzBuzz.generate(3);
+            Assert.Equal("Buzz", fizzBuzz.Value);
         }   
         [Fact]
         public void タイプ４は通常パターンを大文字に変換して返す()
         {
-            _fizzBuzz.generate(3, 4);
-            Assert.Equal("FIZZ", _fizzBuzz.Value);
-            _fizzBuzz.generate(5, 4);
-            Assert.Equal("BUZZ", _fizzBuzz.Value);            
-            _fizzBuzz.generate(15, 4);
-            Assert.Equal("FIZZBUZZ", _fizzBuzz.Value);            
+            Type fizzBuzz = new Type04();
+            fizzBuzz.generate(3);
+            Assert.Equal("FIZZ", fizzBuzz.Value);
+            fizzBuzz.generate(5);
+            Assert.Equal("BUZZ", fizzBuzz.Value);            
+            fizzBuzz.generate(15);
+            Assert.Equal("FIZZBUZZ", fizzBuzz.Value);            
         }   
         [Fact]
         public void タイプ５は２で割り切れたらFizz３で割り切れたらBuzz２と３で割り切れたならFIZZBUZZを返す()
         {
-            _fizzBuzz.generate(2, 5);
-            Assert.Equal("Fizz", _fizzBuzz.Value);
-            _fizzBuzz.generate(3, 5);
-            Assert.Equal("Buzz", _fizzBuzz.Value);            
-            _fizzBuzz.generate(6, 5);
-            Assert.Equal("FIZZBUZZ", _fizzBuzz.Value);            
+            Type fizzBuzz = new Type05();
+            fizzBuzz.generate(2);
+            Assert.Equal("Fizz", fizzBuzz.Value);
+            fizzBuzz.generate(3);
+            Assert.Equal("Buzz", fizzBuzz.Value);            
+            fizzBuzz.generate(6);
+            Assert.Equal("FIZZBUZZ", fizzBuzz.Value);            
         }                  
     }
 }
