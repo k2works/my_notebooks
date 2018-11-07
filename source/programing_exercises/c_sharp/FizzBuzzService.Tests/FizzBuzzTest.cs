@@ -7,21 +7,21 @@ namespace FizzBuzzService.Tests
     public class FizzBuzzTest : IDisposable
     {
         FizzBuzz _fizzBuzz;
-        Type _typeOne;
-        Type _typeTwo;
-        Type _typeThree;
-        Type _typeFour;
-        Type _typeFive;
-        Type _typeStandard;
+        FizzBuzzType _typeOne;
+        FizzBuzzType _typeTwo;
+        FizzBuzzType _typeThree;
+        FizzBuzzType _typeFour;
+        FizzBuzzType _typeFive;
+        FizzBuzzType _typeStandard;
         public FizzBuzzTest()
         {     
             _fizzBuzz = new FizzBuzz();
-            _typeOne = new Type01();
-            _typeTwo = new Type02();
-            _typeThree = new Type03();
-            _typeFour = new Type04();
-            _typeFive = new Type05();
-            _typeStandard = new TypeStandard();
+            _typeOne = FizzBuzzType.One;
+            _typeTwo = FizzBuzzType.Two;
+            _typeThree = FizzBuzzType.Three;
+            _typeFour = FizzBuzzType.Four;
+            _typeFive = FizzBuzzType.Five;
+            _typeStandard = FizzBuzzType.Standard;
         }
         public void Dispose(){}        
 

@@ -1,10 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace FizzBuzzService
 {
-    public abstract class Type
+    public abstract class Enumeration : IComparable
     {
+        public int CompareTo(object obj)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public abstract class FizzBuzzType : Enumeration
+    {
+        public static FizzBuzzType Standard = new TypeStandard();
+        public static FizzBuzzType One = new Type01();
+        public static FizzBuzzType Two = new Type02();
+        public static FizzBuzzType Three = new Type03();
+        public static FizzBuzzType Four = new Type04();
+        public static FizzBuzzType Five = new Type05();
+        protected FizzBuzzType()
+        {
+        }
+
         protected string _value;
 
         public String Value { get { return this._value; } }
@@ -27,86 +47,87 @@ namespace FizzBuzzService
             }
 
             return value;
-        }
-    }
-    public class Type01 : Type
-    {
-        public Type01()
+        }        
+
+        private class Type01 : FizzBuzzType
         {
-        }
-
-        public override String generate(int number)
-        {
-            return number.ToString();
-        }
-    }
-
-    public class Type02 : Type
-    {
-        public Type02()
-        {
-        }
-
-        public override String generate(int number)
-        {
-            return "Fizz";
-        }
-    }
-
-    public class Type03 : Type
-    {
-        public Type03() { }
-
-        public override String generate(int number)
-        {
-            return "Buzz";
-        }
-    }
-
-    public class Type04 : Type
-    {
-        public override String generate(int number)
-        {
-            String value = base.generate(number);
-            
-            return value.ToUpper();
-        }
-    }
-
-    public class Type05 : Type
-    {
-        public override String generate(int number)
-        {
-            String value = number.ToString();
-
-            if (number % 2 == 0 && number % 3 == 0)
+            public Type01()
             {
-                value = "FIZZBUZZ";
-            }
-            else if (number % 2 == 0)
-            {
-                value = "Fizz";
-            }
-            else if (number % 3 == 0)
-            {
-                value = "Buzz";
-            }
-            else
-            {
-                value = number.ToString();
             }
 
-            return value;
+            public override String generate(int number)
+            {
+                return number.ToString();
+            }
         }
-    }
 
-    public class TypeStandard : Type { }
+        private class Type02 : FizzBuzzType
+        {
+            public Type02()
+            {
+            }
+
+            public override String generate(int number)
+            {
+                return "Fizz";
+            }
+        }
+
+        private class Type03 : FizzBuzzType
+        {
+            public Type03() { }
+
+            public override String generate(int number)
+            {
+                return "Buzz";
+            }
+        }
+
+        private class Type04 : FizzBuzzType
+        {
+            public override String generate(int number)
+            {
+                String value = base.generate(number);
+
+                return value.ToUpper();
+            }
+        }
+
+        private class Type05 : FizzBuzzType
+        {
+            public override String generate(int number)
+            {
+                String value = number.ToString();
+
+                if (number % 2 == 0 && number % 3 == 0)
+                {
+                    value = "FIZZBUZZ";
+                }
+                else if (number % 2 == 0)
+                {
+                    value = "Fizz";
+                }
+                else if (number % 3 == 0)
+                {
+                    value = "Buzz";
+                }
+                else
+                {
+                    value = number.ToString();
+                }
+
+                return value;
+            }
+        }
+
+        private class TypeStandard : FizzBuzzType { }
+    }
 
     public class FizzBuzz
     {
         private String _value;
         private String[] _values;
-        private Type _type;
+        private FizzBuzzType _type;
 
         public String Value
         {
@@ -116,8 +137,8 @@ namespace FizzBuzzService
         {
             get { return _values; }
         }
-        public FizzBuzz() { }        
-        public FizzBuzz(Type type)
+        public FizzBuzz() { }
+        public FizzBuzz(FizzBuzzType type)
         {
             _type = type;
         }
@@ -129,7 +150,7 @@ namespace FizzBuzzService
         public void iterate(int count)
         {
             String[] array = new String[count];
-            Type type = new TypeStandard();
+            FizzBuzzType type = FizzBuzzType.Standard;
             FizzBuzz fizzBuzz = new FizzBuzz(type);
 
             for (var i = 0; i < count; i = i + 1)
