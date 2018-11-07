@@ -7,46 +7,56 @@ namespace FizzBuzzService.Tests
     public class FizzBuzzTest : IDisposable
     {
         FizzBuzz _fizzBuzz;
+        Type _typeOne;
+        Type _typeTwo;
+        Type _typeThree;
+        Type _typeFour;
+        Type _typeFive;
         Type _typeStandard;
         public FizzBuzzTest()
         {     
             _fizzBuzz = new FizzBuzz();
+            _typeOne = new Type01();
+            _typeTwo = new Type02();
+            _typeThree = new Type03();
+            _typeFour = new Type04();
+            _typeFive = new Type05();
             _typeStandard = new TypeStandard();
         }
         public void Dispose(){}        
 
         [Fact]
         public void 値が３ならばFizzを返す()
-        {                                    
-            Type actual = _typeStandard;
+        {                             
+            FizzBuzz actual = new FizzBuzz(_typeStandard);
             actual.generate(3);            
             Assert.Equal("Fizz", actual.Value);
         }
         [Fact]
         public void 値が５ならばBuzzを返す()
         {
-            Type actual = _typeStandard;
+            FizzBuzz actual = new FizzBuzz(_typeStandard);
             actual.generate(5);
             Assert.Equal("Buzz", actual.Value);
         }
         [Fact]
         public void 値が１５ならばFizzBuzzを返す()
         {
-            Type actual = _typeStandard;
+            FizzBuzz actual = new FizzBuzz(_typeStandard);
             actual.generate(15);
             Assert.Equal("FizzBuzz", actual.Value);
         }       
         [Fact]         
         public void 値が１ならば１を返す()
         {
-            Type actual = _typeStandard;
+            FizzBuzz actual = new FizzBuzz(_typeStandard);
             actual.generate(1);
             Assert.Equal("1", actual.Value);
         }
         [Fact]
         public void 値が１０１ならば１０１を返す()
         {
-            Type actual = _typeStandard;
+            FizzBuzz actual = new FizzBuzz(_typeStandard);
             actual.generate(101);
             Assert.Equal("101", actual.Value);
         }        
@@ -67,45 +77,45 @@ namespace FizzBuzzService.Tests
         [Fact]
         public void タイプ１は値を返す()
         {
-            Type fizzBuzz = new Type01();
-            fizzBuzz.generate(3);            
-            Assert.Equal("3", fizzBuzz.Value);
+            FizzBuzz actual = new FizzBuzz(_typeOne);
+            actual.generate(3);
+            Assert.Equal("3", actual.Value);
         }
         [Fact]
         public void タイプ２はFizzだけを返す()
         {
-            Type fizzBuzz = new Type02();
-            fizzBuzz.generate(5);
-            Assert.Equal("Fizz", fizzBuzz.Value);
+            FizzBuzz actual = new FizzBuzz(_typeTwo);
+            actual.generate(5);            
+            Assert.Equal("Fizz", actual.Value);
         }     
         [Fact]   
         public void タイプ３はBuzzだけを返す()
         {            
-            Type fizzBuzz = new Type03();
-            fizzBuzz.generate(3);
-            Assert.Equal("Buzz", fizzBuzz.Value);
+            FizzBuzz actual = new FizzBuzz(_typeThree);
+            actual.generate(3);                        
+            Assert.Equal("Buzz", actual.Value);
         }   
         [Fact]
         public void タイプ４は通常パターンを大文字に変換して返す()
         {
-            Type fizzBuzz = new Type04();
-            fizzBuzz.generate(3);
-            Assert.Equal("FIZZ", fizzBuzz.Value);
-            fizzBuzz.generate(5);
-            Assert.Equal("BUZZ", fizzBuzz.Value);            
-            fizzBuzz.generate(15);
-            Assert.Equal("FIZZBUZZ", fizzBuzz.Value);            
+            FizzBuzz actual = new FizzBuzz(_typeFour);
+            actual.generate(3);
+            Assert.Equal("FIZZ", actual.Value);
+            actual.generate(5);
+            Assert.Equal("BUZZ", actual.Value);            
+            actual.generate(15);
+            Assert.Equal("FIZZBUZZ", actual.Value);            
         }   
         [Fact]
         public void タイプ５は２で割り切れたらFizz３で割り切れたらBuzz２と３で割り切れたならFIZZBUZZを返す()
         {
-            Type fizzBuzz = new Type05();
-            fizzBuzz.generate(2);
-            Assert.Equal("Fizz", fizzBuzz.Value);
-            fizzBuzz.generate(3);
-            Assert.Equal("Buzz", fizzBuzz.Value);            
-            fizzBuzz.generate(6);
-            Assert.Equal("FIZZBUZZ", fizzBuzz.Value);            
+            FizzBuzz actual = new FizzBuzz(_typeFive);
+            actual.generate(2);
+            Assert.Equal("Fizz", actual.Value);
+            actual.generate(3);
+            Assert.Equal("Buzz", actual.Value);            
+            actual.generate(6);
+            Assert.Equal("FIZZBUZZ", actual.Value);            
         }                  
     }
 }

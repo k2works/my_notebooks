@@ -9,22 +9,24 @@ namespace FizzBuzzService
 
         public String Value { get { return this._value; } }
 
-        public virtual void generate(int number)
+        public virtual String generate(int number)
         {
-            this._value = number.ToString();
+            String value = number.ToString();
 
             if (number % 3 == 0 && number % 5 == 0)
             {
-                this._value = "FizzBuzz";
+                value = "FizzBuzz";
             }
             else if (number % 5 == 0)
             {
-                this._value = "Buzz";
+                value = "Buzz";
             }
             else if (number % 3 == 0)
             {
-                this._value = "Fizz";
+                value = "Fizz";
             }
+
+            return value;
         }
     }
     public class Type01 : Type
@@ -33,9 +35,9 @@ namespace FizzBuzzService
         {
         }
 
-        public override void generate(int number)
+        public override String generate(int number)
         {
-            this._value = number.ToString();
+            return number.ToString();
         }
     }
 
@@ -45,9 +47,9 @@ namespace FizzBuzzService
         {
         }
 
-        public override void generate(int number)
+        public override String generate(int number)
         {
-            this._value = "Fizz";
+            return "Fizz";
         }
     }
 
@@ -55,42 +57,46 @@ namespace FizzBuzzService
     {
         public Type03() { }
 
-        public override void generate(int number)
+        public override String generate(int number)
         {
-            this._value = "Buzz";
+            return "Buzz";
         }
     }
 
     public class Type04 : Type
     {
-        public override void generate(int number)
+        public override String generate(int number)
         {
-            base.generate(number);
+            String value = base.generate(number);
             
-            this._value = this._value.ToUpper();
+            return value.ToUpper();
         }
     }
 
     public class Type05 : Type
     {
-        public override void generate(int number)
+        public override String generate(int number)
         {
+            String value = number.ToString();
+
             if (number % 2 == 0 && number % 3 == 0)
             {
-                this._value = "FIZZBUZZ";
+                value = "FIZZBUZZ";
             }
             else if (number % 2 == 0)
             {
-                this._value = "Fizz";
+                value = "Fizz";
             }
             else if (number % 3 == 0)
             {
-                this._value = "Buzz";
+                value = "Buzz";
             }
             else
             {
-                this._value = number.ToString();
+                value = number.ToString();
             }
+
+            return value;
         }
     }
 
@@ -110,20 +116,21 @@ namespace FizzBuzzService
         {
             get { return _values; }
         }
-        public FizzBuzz()
+        public FizzBuzz() { }        
+        public FizzBuzz(Type type)
         {
-            _type = new TypeStandard();
+            _type = type;
         }
         public void generate(int number)
         {
-            _type.generate(number);
-            this._value = _type.Value;
+            this._value = _type.generate(number);
         }
 
         public void iterate(int count)
         {
             String[] array = new String[count];
-            FizzBuzz fizzBuzz = new FizzBuzz();
+            Type type = new TypeStandard();
+            FizzBuzz fizzBuzz = new FizzBuzz(type);
 
             for (var i = 0; i < count; i = i + 1)
             {
