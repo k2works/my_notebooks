@@ -6,7 +6,6 @@ namespace FizzBuzzService.Tests
 {
     public class FizzBuzzTest : IDisposable
     {
-        FizzBuzz _fizzBuzz;
         FizzBuzzType _typeOne;
         FizzBuzzType _typeTwo;
         FizzBuzzType _typeThree;
