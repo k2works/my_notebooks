@@ -10,6 +10,58 @@ namespace FizzBuzzService
         {
             throw new NotImplementedException();
         }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(obj, null))
+            {
+                return false;
+            }
+
+            throw new NotImplementedException();
+        }
+
+        public override int GetHashCode() => throw new NotImplementedException();
+
+        public static bool operator ==(Enumeration left, Enumeration right)
+        {
+            if (ReferenceEquals(left, null))
+            {
+                return ReferenceEquals(right, null);
+            }
+
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Enumeration left, Enumeration right)
+        {
+            return !(left == right);
+        }
+
+        public static bool operator <(Enumeration left, Enumeration right)
+        {
+            return ReferenceEquals(left, null) ? !ReferenceEquals(right, null) : left.CompareTo(right) < 0;
+        }
+
+        public static bool operator <=(Enumeration left, Enumeration right)
+        {
+            return ReferenceEquals(left, null) || left.CompareTo(right) <= 0;
+        }
+
+        public static bool operator >(Enumeration left, Enumeration right)
+        {
+            return !ReferenceEquals(left, null) && left.CompareTo(right) > 0;
+        }
+
+        public static bool operator >=(Enumeration left, Enumeration right)
+        {
+            return ReferenceEquals(left, null) ? ReferenceEquals(right, null) : left.CompareTo(right) >= 0;
+        }
     }
 
     public abstract class FizzBuzzType : Enumeration
@@ -20,11 +72,10 @@ namespace FizzBuzzService
         public static FizzBuzzType Three = new Type03();
         public static FizzBuzzType Four = new Type04();
         public static FizzBuzzType Five = new Type05();
-        protected FizzBuzzType() { }
 
-        public virtual FizzBuzzValue generate(int number)
+        public virtual FizzBuzzValue Generate(int number)
         {
-            String value = number.ToString();
+            var value = number.ToString();
 
             if (number % 3 == 0 && number % 5 == 0)
             {
@@ -44,11 +95,7 @@ namespace FizzBuzzService
 
         private class Type01 : FizzBuzzType
         {
-            public Type01()
-            {
-            }
-
-            public override FizzBuzzValue generate(int number)
+            public override FizzBuzzValue Generate(int number)
             {
                 var value = number.ToString();
                 return new FizzBuzzValue(value, number);
@@ -57,31 +104,19 @@ namespace FizzBuzzService
 
         private class Type02 : FizzBuzzType
         {
-            public Type02()
-            {
-            }
-
-            public override FizzBuzzValue generate(int number)
-            {
-                return new FizzBuzzValue("Fizz", number);
-            }
+            public override FizzBuzzValue Generate(int number) => new FizzBuzzValue("Fizz", number);
         }
 
         private class Type03 : FizzBuzzType
         {
-            public Type03() { }
-
-            public override FizzBuzzValue generate(int number)
-            {
-                return new FizzBuzzValue("Buzz", number);
-            }
+            public override FizzBuzzValue Generate(int number) => new FizzBuzzValue("Buzz", number);
         }
 
         private class Type04 : FizzBuzzType
         {
-            public override FizzBuzzValue generate(int number)
+            public override FizzBuzzValue Generate(int number)
             {
-                FizzBuzzValue value = base.generate(number);
+                var value = base.Generate(number);
 
                 return new FizzBuzzValue(value.Value.ToUpper(), number);
             }
@@ -89,9 +124,9 @@ namespace FizzBuzzService
 
         private class Type05 : FizzBuzzType
         {
-            public override FizzBuzzValue generate(int number)
+            public override FizzBuzzValue Generate(int number)
             {
-                String value = number.ToString();
+                var value = number.ToString();
 
                 if (number % 2 == 0 && number % 3 == 0)
                 {
@@ -115,20 +150,6 @@ namespace FizzBuzzService
 
     public abstract class ValueObject
     {
-        protected static bool EqualOperator(ValueObject left, ValueObject right)
-        {
-            if (ReferenceEquals(left, null) ^ ReferenceEquals(right, null))
-            {
-                return false;
-            }
-            return ReferenceEquals(left, null) || left.Equals(right);
-        }
-
-        protected static bool NotEqualOperator(ValueObject left, ValueObject right)
-        {
-            return !(EqualOperator(left, right));
-        }
-
         protected abstract IEnumerable<object> GetAtomicValues();
 
         public override bool Equals(object obj)
@@ -166,30 +187,21 @@ namespace FizzBuzzService
 
     public class FizzBuzzValues
     {
-        private List<FizzBuzzValue> _fizzBuzzValues;
+        private readonly List<FizzBuzzValue> _fizzBuzzValueCollection;
 
-        public FizzBuzzValues(List<FizzBuzzValue> fizzBuzzValues)
-        {
-            _fizzBuzzValues = fizzBuzzValues;
-        }
+        public FizzBuzzValues(List<FizzBuzzValue> fizzBuzzValueCollection) => _fizzBuzzValueCollection = fizzBuzzValueCollection;
 
-        public FizzBuzzValues add(FizzBuzzValue fizzBuzzValue)
+        public FizzBuzzValues Add(FizzBuzzValue fizzBuzzValue)
         {
-            var result = new List<FizzBuzzValue>(_fizzBuzzValues);
-            result.Add(fizzBuzzValue);
+            var result = new List<FizzBuzzValue>(_fizzBuzzValueCollection) {fizzBuzzValue};
             return new FizzBuzzValues(result);
         }
 
-        public List<FizzBuzzValue> getCollection()
+        public string[] ArrayValue()
         {
-            return this._fizzBuzzValues;
-        }
-
-        public string[] arrayValue()
-        {
-            string[] result = new string[_fizzBuzzValues.Count];
+            var result = new string[_fizzBuzzValueCollection.Count];
             var i = 0;
-            foreach (FizzBuzzValue each in _fizzBuzzValues)
+            foreach (var each in _fizzBuzzValueCollection)
             {
                 result[i] = each.Value;
                 i = i + 1;
@@ -202,8 +214,6 @@ namespace FizzBuzzService
     {
         public string Value { get; }
         public int Number { get; }
-
-        private FizzBuzzValue() { }
 
         public FizzBuzzValue(string value, int number)
         {
@@ -220,7 +230,7 @@ namespace FizzBuzzService
 
     public interface ICommand
     {
-        void execute(int arg);        
+        void Execute(int arg);        
     }
 
     public class FizzBuzzValueCommand : ICommand
@@ -233,14 +243,14 @@ namespace FizzBuzzService
             _type = type;
         }
 
-        public void execute(int number)
+        public void Execute(int number)
         {
-            _value = _type.generate(number);
+            _value = _type.Generate(number);
         }
 
-        public FizzBuzzValue getResult()
+        public FizzBuzzValue GetResult()
         {
-            return this._value;
+            return _value;
         }
     }
 
@@ -256,18 +266,18 @@ namespace FizzBuzzService
             _values = new FizzBuzzValues(list);            
         }
 
-        public void execute(int count)
+        public void Execute(int count)
         {
             foreach (var i in Enumerable.Range(1, count))
             {
-                FizzBuzzValue fizzBuzzValue = _type.generate(i);
-                this._values = this._values.add(fizzBuzzValue);
+                var fizzBuzzValue = _type.Generate(i);
+                _values = _values.Add(fizzBuzzValue);
             }
         }
 
-        public string[] getResult()
+        public string[] GetResult()
         {
-            return this._values.arrayValue();
+            return _values.ArrayValue();
         }
     }
 }
