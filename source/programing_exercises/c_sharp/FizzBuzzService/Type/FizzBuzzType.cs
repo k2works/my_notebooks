@@ -1,4 +1,6 @@
-﻿namespace FizzBuzzService
+﻿using FizzBuzzService.Value;
+
+namespace FizzBuzzService.Type
 {
     public abstract class FizzBuzzType : Enumeration
     {

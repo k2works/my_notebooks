@@ -1,4 +1,4 @@
-﻿namespace FizzBuzzService
+﻿namespace FizzBuzzService.Command
 {
     public interface ICommand
     {

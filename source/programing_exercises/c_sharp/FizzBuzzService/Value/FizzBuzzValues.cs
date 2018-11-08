@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FizzBuzzService
+namespace FizzBuzzService.Value
 {
     public class FizzBuzzValues
     {

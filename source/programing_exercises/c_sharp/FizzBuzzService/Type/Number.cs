@@ -1,4 +1,4 @@
-﻿namespace FizzBuzzService
+﻿namespace FizzBuzzService.Type
 {
     public class Number
     {

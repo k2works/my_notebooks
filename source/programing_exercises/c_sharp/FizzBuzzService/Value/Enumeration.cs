@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FizzBuzzService
+namespace FizzBuzzService.Value
 {
     public abstract class Enumeration : IComparable
     {

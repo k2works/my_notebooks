@@ -1,4 +1,7 @@
-﻿namespace FizzBuzzService
+﻿using FizzBuzzService.Type;
+using FizzBuzzService.Value;
+
+namespace FizzBuzzService.Command
 {
     public class FizzBuzzValueCommand : ICommand
     {

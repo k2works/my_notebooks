@@ -1,4 +1,6 @@
 using System;
+using FizzBuzzService.Command;
+using FizzBuzzService.Type;
 using Xunit;
 
 namespace FizzBuzzService.Tests

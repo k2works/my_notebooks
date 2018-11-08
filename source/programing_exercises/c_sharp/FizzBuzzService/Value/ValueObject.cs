@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace FizzBuzzService
+namespace FizzBuzzService.Value
 {
     public abstract class ValueObject
     {
