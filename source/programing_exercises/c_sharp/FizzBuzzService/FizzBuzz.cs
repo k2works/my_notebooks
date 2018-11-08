@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 namespace FizzBuzzService
 {
@@ -47,7 +46,7 @@ namespace FizzBuzzService
             }
 
             return value;
-        }        
+        }
 
         private class Type01 : FizzBuzzType
         {
@@ -123,6 +122,77 @@ namespace FizzBuzzService
         private class TypeStandard : FizzBuzzType { }
     }
 
+    public abstract class ValueObject
+    {
+        protected static bool EqualOperator(ValueObject left, ValueObject right)
+        {
+            if (ReferenceEquals(left, null) ^ ReferenceEquals(right, null))
+            {
+                return false;
+            }
+            return ReferenceEquals(left, null) || left.Equals(right);
+        }
+
+        protected static bool NotEqualOperator(ValueObject left, ValueObject right)
+        {
+            return !(EqualOperator(left, right));
+        }
+
+        protected abstract IEnumerable<object> GetAtomicValues();
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            ValueObject other = (ValueObject)obj;
+            IEnumerator<object> thisValues = GetAtomicValues().GetEnumerator();
+            IEnumerator<object> otherValues = other.GetAtomicValues().GetEnumerator();
+            while (thisValues.MoveNext() && otherValues.MoveNext())
+            {
+                if (ReferenceEquals(thisValues.Current, null) ^ ReferenceEquals(otherValues.Current, null))
+                {
+                    return false;
+                }
+
+                if (thisValues.Current != null && !thisValues.Current.Equals(otherValues.Current))                
+                {
+                    return false;
+                }                
+            }
+            return !thisValues.MoveNext() && !otherValues.MoveNext();
+        }
+
+        public override int GetHashCode()
+        {
+            return GetAtomicValues()
+            .Select(x => x != null ? x.GetHashCode() : 0)
+            .Aggregate((x, y) => x ^ y);
+        }
+    }
+
+    public class FizzBuzzValue : ValueObject
+    {
+        public string Value { get; }
+        public int Number { get; }
+
+        private FizzBuzzValue() { }
+
+        public FizzBuzzValue(string value, int number)
+        {
+            Value = value;
+            Number = number;
+        }
+
+        protected override IEnumerable<object> GetAtomicValues()
+        {
+            yield return Value;
+            yield return Number;
+        }
+    }
+
     public class FizzBuzz
     {
         private String _value;
@@ -142,9 +212,10 @@ namespace FizzBuzzService
         {
             _type = type;
         }
-        public void generate(int number)
+        public FizzBuzzValue generate(int number)
         {
             this._value = _type.generate(number);
+            return new FizzBuzzValue(this._value, number);
         }
 
         public void iterate(int count)

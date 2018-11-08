@@ -49,3 +49,6 @@
 + [C# プログラミング ガイド](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/)
 + [ステートメントのキーワード (C# リファレンス)](https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/keywords/statement-keywords)
 + [列挙型ではなく列挙型クラスを使用する](https://docs.microsoft.com/ja-jp/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/enumeration-classes-over-enum-types)
++ [オブジェクト指向のいろは](https://qiita.com/nrslib/items/73bf176147192c402049)
++ [C# のコーディング規則 (C# プログラミング ガイド)
+](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/inside-a-program/coding-conventions#implicitly-typed-local-variables)

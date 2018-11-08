@@ -28,37 +28,42 @@ namespace FizzBuzzService.Tests
         [Fact]
         public void 値が３ならばFizzを返す()
         {                             
-            FizzBuzz actual = new FizzBuzz(_typeStandard);
-            actual.generate(3);            
-            Assert.Equal("Fizz", actual.Value);
+            FizzBuzz fizzBuzz = new FizzBuzz(_typeStandard);
+            FizzBuzzValue actual = fizzBuzz.generate(3);            
+            Assert.Equal("Fizz", actual.Value);            
+            Assert.Equal(3, actual.Number);
         }
         [Fact]
         public void 値が５ならばBuzzを返す()
         {
-            FizzBuzz actual = new FizzBuzz(_typeStandard);
-            actual.generate(5);
+            FizzBuzz fizzBuzz = new FizzBuzz(_typeStandard);
+            FizzBuzzValue actual = fizzBuzz.generate(5);            
             Assert.Equal("Buzz", actual.Value);
+            Assert.Equal(5, actual.Number);
         }
         [Fact]
         public void 値が１５ならばFizzBuzzを返す()
         {
-            FizzBuzz actual = new FizzBuzz(_typeStandard);
-            actual.generate(15);
+            FizzBuzz fizzBuzz = new FizzBuzz(_typeStandard);
+            FizzBuzzValue actual = fizzBuzz.generate(15);            
             Assert.Equal("FizzBuzz", actual.Value);
+            Assert.Equal(15, actual.Number);
         }       
         [Fact]         
         public void 値が１ならば１を返す()
         {
-            FizzBuzz actual = new FizzBuzz(_typeStandard);
-            actual.generate(1);
+            FizzBuzz fizzBuzz = new FizzBuzz(_typeStandard);
+            FizzBuzzValue actual = fizzBuzz.generate(1);            
             Assert.Equal("1", actual.Value);
+            Assert.Equal(1, actual.Number);
         }
         [Fact]
         public void 値が１０１ならば１０１を返す()
         {
-            FizzBuzz actual = new FizzBuzz(_typeStandard);
-            actual.generate(101);
+            FizzBuzz fizzBuzz = new FizzBuzz(_typeStandard);
+            FizzBuzzValue actual = fizzBuzz.generate(101);                        
             Assert.Equal("101", actual.Value);
+            Assert.Equal(101, actual.Number);            
         }        
         [Fact]
         public void 回数を５回繰り返し実行したら配列を返す()
