@@ -105,10 +105,6 @@ namespace FizzBuzzService
                 {
                     value = "Buzz";
                 }
-                else
-                {
-                    value = number.ToString();
-                }
 
                 return new FizzBuzzValue(value, number);
             }
@@ -217,11 +213,11 @@ namespace FizzBuzzService
 
     public class FizzBuzz
     {
-        private String _value;
+        private FizzBuzzValue _value;
         private FizzBuzzValues _values;
         private FizzBuzzType _type;
 
-        public String Value
+        public FizzBuzzValue Value
         {
             get { return _value; }
         }
@@ -229,14 +225,11 @@ namespace FizzBuzzService
         {
             get { return _values; }
         }
-        public FizzBuzz() 
-        { 
-            var list = new List<FizzBuzzValue>();
-            _values = new FizzBuzzValues(list);
-        }
         public FizzBuzz(FizzBuzzType type)
         {
             _type = type;
+            var list = new List<FizzBuzzValue>();
+            _values = new FizzBuzzValues(list);            
         }
         public FizzBuzzValue generate(int number)
         {
@@ -245,13 +238,9 @@ namespace FizzBuzzService
 
         public void iterate(int count)
         {
-            String[] array = new String[count];
-            FizzBuzzType type = FizzBuzzType.Standard;
-            FizzBuzz fizzBuzz = new FizzBuzz(type);
-
-            for (var i = 0; i < count; i = i + 1)
+            foreach (var i in Enumerable.Range(1, count))
             {
-                FizzBuzzValue fizzBuzzValue = fizzBuzz.generate(i + 1);
+                FizzBuzzValue fizzBuzzValue = _type.generate(i);
                 this._values = this._values.add(fizzBuzzValue);
             }
         }
