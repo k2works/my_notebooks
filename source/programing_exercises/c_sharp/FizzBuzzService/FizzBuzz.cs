@@ -168,6 +168,33 @@ namespace FizzBuzzService
         }
     }
 
+    public class FizzBuzzValues {
+        private List<FizzBuzzValue> _fizzBuzzValues;
+
+        public FizzBuzzValues(List<FizzBuzzValue> fizzBuzzValues)
+        {
+            _fizzBuzzValues = fizzBuzzValues;
+        }
+
+        public FizzBuzzValues add(FizzBuzzValue fizzBuzzValue)
+        {
+            var result = new List<FizzBuzzValue>(_fizzBuzzValues);
+            result.Add(fizzBuzzValue);
+            return new FizzBuzzValues(result);
+        }
+
+        public string[] arrayValue() {
+            string[] result = new string[_fizzBuzzValues.Count];
+            var i = 0;
+            foreach(FizzBuzzValue each in _fizzBuzzValues)
+            {
+                result[i] = each.Value;
+                i = i + 1;
+            }
+            return result;
+        }
+    }
+
     public class FizzBuzzValue : ValueObject
     {
         public string Value { get; }
@@ -191,18 +218,22 @@ namespace FizzBuzzService
     public class FizzBuzz
     {
         private String _value;
-        private String[] _values;
+        private FizzBuzzValues _values;
         private FizzBuzzType _type;
 
         public String Value
         {
             get { return _value; }
         }
-        public String[] Values
+        public FizzBuzzValues Values
         {
             get { return _values; }
         }
-        public FizzBuzz() { }
+        public FizzBuzz() 
+        { 
+            var list = new List<FizzBuzzValue>();
+            _values = new FizzBuzzValues(list);
+        }
         public FizzBuzz(FizzBuzzType type)
         {
             _type = type;
@@ -221,9 +252,8 @@ namespace FizzBuzzService
             for (var i = 0; i < count; i = i + 1)
             {
                 FizzBuzzValue fizzBuzzValue = fizzBuzz.generate(i + 1);
-                array[i] = fizzBuzzValue.Value;
+                this._values = this._values.add(fizzBuzzValue);
             }
-            this._values = array;
         }
     }
 }

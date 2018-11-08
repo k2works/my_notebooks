@@ -70,14 +70,14 @@ namespace FizzBuzzService.Tests
         {
             _fizzBuzz.iterate(5);
             string[] expect = {"1","2","Fizz","4","Buzz"};
-            Assert.Equal(expect, _fizzBuzz.Values);
+            Assert.Equal(expect, _fizzBuzz.Values.arrayValue());
         }
         [Fact]
         public void 回数を１０回繰り返し実行したら配列を返す()
         {
             _fizzBuzz.iterate(10);
             string[] expect = {"1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz"};
-            Assert.Equal(expect, _fizzBuzz.Values);
+            Assert.Equal(expect, _fizzBuzz.Values.arrayValue());
         }
         [Fact]
         public void タイプ１は値を返す()
