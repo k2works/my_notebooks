@@ -20,15 +20,9 @@ namespace FizzBuzzService
         public static FizzBuzzType Three = new Type03();
         public static FizzBuzzType Four = new Type04();
         public static FizzBuzzType Five = new Type05();
-        protected FizzBuzzType()
-        {
-        }
+        protected FizzBuzzType() { }
 
-        protected string _value;
-
-        public String Value { get { return this._value; } }
-
-        public virtual String generate(int number)
+        public virtual FizzBuzzValue generate(int number)
         {
             String value = number.ToString();
 
@@ -45,7 +39,7 @@ namespace FizzBuzzService
                 value = "Fizz";
             }
 
-            return value;
+            return new FizzBuzzValue(value, number);
         }
 
         private class Type01 : FizzBuzzType
@@ -54,9 +48,10 @@ namespace FizzBuzzService
             {
             }
 
-            public override String generate(int number)
+            public override FizzBuzzValue generate(int number)
             {
-                return number.ToString();
+                var value = number.ToString();
+                return new FizzBuzzValue(value, number);
             }
         }
 
@@ -66,9 +61,9 @@ namespace FizzBuzzService
             {
             }
 
-            public override String generate(int number)
+            public override FizzBuzzValue generate(int number)
             {
-                return "Fizz";
+                return new FizzBuzzValue("Fizz", number);
             }
         }
 
@@ -76,25 +71,25 @@ namespace FizzBuzzService
         {
             public Type03() { }
 
-            public override String generate(int number)
+            public override FizzBuzzValue generate(int number)
             {
-                return "Buzz";
+                return new FizzBuzzValue("Buzz", number);
             }
         }
 
         private class Type04 : FizzBuzzType
         {
-            public override String generate(int number)
+            public override FizzBuzzValue generate(int number)
             {
-                String value = base.generate(number);
+                FizzBuzzValue value = base.generate(number);
 
-                return value.ToUpper();
+                return new FizzBuzzValue(value.Value.ToUpper(), number);
             }
         }
 
         private class Type05 : FizzBuzzType
         {
-            public override String generate(int number)
+            public override FizzBuzzValue generate(int number)
             {
                 String value = number.ToString();
 
@@ -115,7 +110,7 @@ namespace FizzBuzzService
                     value = number.ToString();
                 }
 
-                return value;
+                return new FizzBuzzValue(value, number);
             }
         }
 
@@ -214,8 +209,7 @@ namespace FizzBuzzService
         }
         public FizzBuzzValue generate(int number)
         {
-            this._value = _type.generate(number);
-            return new FizzBuzzValue(this._value, number);
+            return _type.generate(number);
         }
 
         public void iterate(int count)
@@ -226,8 +220,8 @@ namespace FizzBuzzService
 
             for (var i = 0; i < count; i = i + 1)
             {
-                fizzBuzz.generate(i + 1);
-                array[i] = fizzBuzz.Value;
+                FizzBuzzValue fizzBuzzValue = fizzBuzz.generate(i + 1);
+                array[i] = fizzBuzzValue.Value;
             }
             this._values = array;
         }

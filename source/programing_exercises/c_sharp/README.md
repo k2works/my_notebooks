@@ -52,3 +52,4 @@
 + [オブジェクト指向のいろは](https://qiita.com/nrslib/items/73bf176147192c402049)
 + [C# のコーディング規則 (C# プログラミング ガイド)
 ](https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/inside-a-program/coding-conventions#implicitly-typed-local-variables)
++ [値オブジェクトの実装](https://docs.microsoft.com/ja-jp/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/implement-value-objects)

@@ -82,44 +82,39 @@ namespace FizzBuzzService.Tests
         [Fact]
         public void タイプ１は値を返す()
         {
-            FizzBuzz actual = new FizzBuzz(_typeOne);
-            actual.generate(3);
+            FizzBuzzValue actual = _typeOne.generate(3);
             Assert.Equal("3", actual.Value);
         }
         [Fact]
         public void タイプ２はFizzだけを返す()
         {
-            FizzBuzz actual = new FizzBuzz(_typeTwo);
-            actual.generate(5);            
+            FizzBuzzValue actual = _typeTwo.generate(5);
             Assert.Equal("Fizz", actual.Value);
         }     
         [Fact]   
         public void タイプ３はBuzzだけを返す()
         {            
-            FizzBuzz actual = new FizzBuzz(_typeThree);
-            actual.generate(3);                        
+            FizzBuzzValue actual = _typeThree.generate(3);
             Assert.Equal("Buzz", actual.Value);
         }   
         [Fact]
         public void タイプ４は通常パターンを大文字に変換して返す()
         {
-            FizzBuzz actual = new FizzBuzz(_typeFour);
-            actual.generate(3);
+            FizzBuzzValue actual = _typeFour.generate(3);
             Assert.Equal("FIZZ", actual.Value);
-            actual.generate(5);
+            actual = _typeFour.generate(5);
             Assert.Equal("BUZZ", actual.Value);            
-            actual.generate(15);
+            actual = _typeFour.generate(15);
             Assert.Equal("FIZZBUZZ", actual.Value);            
         }   
         [Fact]
         public void タイプ５は２で割り切れたらFizz３で割り切れたらBuzz２と３で割り切れたならFIZZBUZZを返す()
         {
-            FizzBuzz actual = new FizzBuzz(_typeFive);
-            actual.generate(2);
+            FizzBuzzValue actual = _typeFive.generate(2);
             Assert.Equal("Fizz", actual.Value);
-            actual.generate(3);
-            Assert.Equal("Buzz", actual.Value);            
-            actual.generate(6);
+            actual = _typeFive.generate(3);            
+            Assert.Equal("Buzz", actual.Value);                        
+            actual = _typeFive.generate(6);            
             Assert.Equal("FIZZBUZZ", actual.Value);            
         }                  
     }
