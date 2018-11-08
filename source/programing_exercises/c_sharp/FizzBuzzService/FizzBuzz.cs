@@ -75,22 +75,9 @@ namespace FizzBuzzService
 
         public virtual FizzBuzzValue Generate(int number)
         {
-            var value = number.ToString();
-
-            if (number % 3 == 0 && number % 5 == 0)
-            {
-                value = "FizzBuzz";
-            }
-            else if (number % 5 == 0)
-            {
-                value = "Buzz";
-            }
-            else if (number % 3 == 0)
-            {
-                value = "Fizz";
-            }
-
-            return new FizzBuzzValue(value, number);
+            return number % 3 == 0 && number % 5 == 0 ? new FizzBuzzValue("FizzBuzz", number) :
+                number % 5 == 0 ? new FizzBuzzValue("Buzz", number) :
+                number % 3 == 0 ? new FizzBuzzValue("Fizz", number) : new FizzBuzzValue(number.ToString(), number);
         }
 
         private class Type01 : FizzBuzzType
@@ -126,22 +113,9 @@ namespace FizzBuzzService
         {
             public override FizzBuzzValue Generate(int number)
             {
-                var value = number.ToString();
-
-                if (number % 2 == 0 && number % 3 == 0)
-                {
-                    value = "FIZZBUZZ";
-                }
-                else if (number % 2 == 0)
-                {
-                    value = "Fizz";
-                }
-                else if (number % 3 == 0)
-                {
-                    value = "Buzz";
-                }
-
-                return new FizzBuzzValue(value, number);
+                return number % 2 == 0 && number % 3 == 0 ? new FizzBuzzValue("FIZZBUZZ", number) :
+                    number % 2 == 0 ? new FizzBuzzValue("Fizz", number) :
+                    number % 3 == 0 ? new FizzBuzzValue("Buzz", number) : new FizzBuzzValue(number.ToString(), number);                
             }
         }
 
