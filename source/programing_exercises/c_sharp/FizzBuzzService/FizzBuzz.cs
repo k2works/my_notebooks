@@ -148,10 +148,10 @@ namespace FizzBuzzService
                     return false;
                 }
 
-                if (thisValues.Current != null && !thisValues.Current.Equals(otherValues.Current))                
+                if (thisValues.Current != null && !thisValues.Current.Equals(otherValues.Current))
                 {
                     return false;
-                }                
+                }
             }
             return !thisValues.MoveNext() && !otherValues.MoveNext();
         }
@@ -164,7 +164,8 @@ namespace FizzBuzzService
         }
     }
 
-    public class FizzBuzzValues {
+    public class FizzBuzzValues
+    {
         private List<FizzBuzzValue> _fizzBuzzValues;
 
         public FizzBuzzValues(List<FizzBuzzValue> fizzBuzzValues)
@@ -179,10 +180,16 @@ namespace FizzBuzzService
             return new FizzBuzzValues(result);
         }
 
-        public string[] arrayValue() {
+        public List<FizzBuzzValue> getCollection()
+        {
+            return this._fizzBuzzValues;
+        }
+
+        public string[] arrayValue()
+        {
             string[] result = new string[_fizzBuzzValues.Count];
             var i = 0;
-            foreach(FizzBuzzValue each in _fizzBuzzValues)
+            foreach (FizzBuzzValue each in _fizzBuzzValues)
             {
                 result[i] = each.Value;
                 i = i + 1;
@@ -211,38 +218,56 @@ namespace FizzBuzzService
         }
     }
 
-    public class FizzBuzz
+    public interface ICommand
     {
-        private FizzBuzzValue _value;
-        private FizzBuzzValues _values;
-        private FizzBuzzType _type;
+        void execute(int arg);        
+    }
 
-        public FizzBuzzValue Value
+    public class FizzBuzzValueCommand : ICommand
+    {
+        private readonly FizzBuzzType _type;
+        private FizzBuzzValue _value;
+
+        public FizzBuzzValueCommand(FizzBuzzType type)
         {
-            get { return _value; }
+            _type = type;
         }
-        public FizzBuzzValues Values
+
+        public void execute(int number)
         {
-            get { return _values; }
+            _value = _type.generate(number);
         }
-        public FizzBuzz(FizzBuzzType type)
+
+        public FizzBuzzValue getResult()
+        {
+            return this._value;
+        }
+    }
+
+    public class FizzBuzzValuesCommand : ICommand
+    {
+        private readonly FizzBuzzType _type;
+        private FizzBuzzValues _values;
+
+        public FizzBuzzValuesCommand(FizzBuzzType type)
         {
             _type = type;
             var list = new List<FizzBuzzValue>();
             _values = new FizzBuzzValues(list);            
         }
-        public FizzBuzzValue generate(int number)
-        {
-            return _type.generate(number);
-        }
 
-        public void iterate(int count)
+        public void execute(int count)
         {
             foreach (var i in Enumerable.Range(1, count))
             {
                 FizzBuzzValue fizzBuzzValue = _type.generate(i);
                 this._values = this._values.add(fizzBuzzValue);
             }
+        }
+
+        public string[] getResult()
+        {
+            return this._values.arrayValue();
         }
     }
 }
