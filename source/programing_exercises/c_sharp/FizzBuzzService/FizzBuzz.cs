@@ -64,6 +64,47 @@ namespace FizzBuzzService
         }
     }
 
+    public class Number
+    {
+        public Number(int number)
+        {
+            Value = number;
+        }
+
+        public int Value { get; }
+
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
+
+        public bool CanDivideThree()
+        {
+            return Value % 3 == 0;
+        }
+
+        public bool CanDivideFive()
+        {
+            return Value % 5 == 0;
+        }
+
+        public bool CanDivideThreeAndFive()
+        {
+            return Value % 3 == 0 && Value % 5 == 0;
+        }
+
+        public bool CanDivideTwo()
+        {
+            return Value % 2 == 0;
+        }
+
+        public bool CanDivideTwoAndThree()
+        {
+            return Value % 2 == 0 && Value % 3 == 0;
+        }
+    }
+
+
     public abstract class FizzBuzzType : Enumeration
     {
         public static FizzBuzzType Standard = new TypeStandard();
@@ -73,11 +114,13 @@ namespace FizzBuzzService
         public static FizzBuzzType Four = new Type04();
         public static FizzBuzzType Five = new Type05();
 
-        public virtual FizzBuzzValue Generate(int number)
+        public virtual FizzBuzzValue Generate(int v)
         {
-            return number % 3 == 0 && number % 5 == 0 ? new FizzBuzzValue("FizzBuzz", number) :
-                number % 5 == 0 ? new FizzBuzzValue("Buzz", number) :
-                number % 3 == 0 ? new FizzBuzzValue("Fizz", number) : new FizzBuzzValue(number.ToString(), number);
+            var number = new Number(v);
+            return number.CanDivideThreeAndFive() ? new FizzBuzzValue("FizzBuzz", number.Value) :
+                number.CanDivideFive() ? new FizzBuzzValue("Buzz", number.Value) :
+                number.CanDivideThree() ? new FizzBuzzValue("Fizz", number.Value) :
+                new FizzBuzzValue(number.ToString(), number.Value);
         }
 
         private class Type01 : FizzBuzzType
@@ -111,15 +154,19 @@ namespace FizzBuzzService
 
         private class Type05 : FizzBuzzType
         {
-            public override FizzBuzzValue Generate(int number)
+            public override FizzBuzzValue Generate(int v)
             {
-                return number % 2 == 0 && number % 3 == 0 ? new FizzBuzzValue("FIZZBUZZ", number) :
-                    number % 2 == 0 ? new FizzBuzzValue("Fizz", number) :
-                    number % 3 == 0 ? new FizzBuzzValue("Buzz", number) : new FizzBuzzValue(number.ToString(), number);                
+                var number = new Number(v);
+                return number.CanDivideTwoAndThree() ? new FizzBuzzValue("FIZZBUZZ", number.Value) :
+                    number.CanDivideTwo() ? new FizzBuzzValue("Fizz", number.Value) :
+                    number.CanDivideThree() ? new FizzBuzzValue("Buzz", number.Value) :
+                    new FizzBuzzValue(number.ToString(), number.Value);
             }
         }
 
-        private class TypeStandard : FizzBuzzType { }
+        private class TypeStandard : FizzBuzzType
+        {
+        }
     }
 
     public abstract class ValueObject
@@ -133,7 +180,7 @@ namespace FizzBuzzService
                 return false;
             }
 
-            ValueObject other = (ValueObject)obj;
+            ValueObject other = (ValueObject) obj;
             IEnumerator<object> thisValues = GetAtomicValues().GetEnumerator();
             IEnumerator<object> otherValues = other.GetAtomicValues().GetEnumerator();
             while (thisValues.MoveNext() && otherValues.MoveNext())
@@ -148,14 +195,15 @@ namespace FizzBuzzService
                     return false;
                 }
             }
+
             return !thisValues.MoveNext() && !otherValues.MoveNext();
         }
 
         public override int GetHashCode()
         {
             return GetAtomicValues()
-            .Select(x => x != null ? x.GetHashCode() : 0)
-            .Aggregate((x, y) => x ^ y);
+                .Select(x => x != null ? x.GetHashCode() : 0)
+                .Aggregate((x, y) => x ^ y);
         }
     }
 
@@ -163,7 +211,8 @@ namespace FizzBuzzService
     {
         private readonly List<FizzBuzzValue> _fizzBuzzValueCollection;
 
-        public FizzBuzzValues(List<FizzBuzzValue> fizzBuzzValueCollection) => _fizzBuzzValueCollection = fizzBuzzValueCollection;
+        public FizzBuzzValues(List<FizzBuzzValue> fizzBuzzValueCollection) =>
+            _fizzBuzzValueCollection = fizzBuzzValueCollection;
 
         public FizzBuzzValues Add(FizzBuzzValue fizzBuzzValue)
         {
@@ -180,6 +229,7 @@ namespace FizzBuzzService
                 result[i] = each.Value;
                 i = i + 1;
             }
+
             return result;
         }
     }
@@ -204,7 +254,7 @@ namespace FizzBuzzService
 
     public interface ICommand
     {
-        void Execute(int arg);        
+        void Execute(int arg);
     }
 
     public class FizzBuzzValueCommand : ICommand
@@ -237,7 +287,7 @@ namespace FizzBuzzService
         {
             _type = type;
             var list = new List<FizzBuzzValue>();
-            _values = new FizzBuzzValues(list);            
+            _values = new FizzBuzzValues(list);
         }
 
         public void Execute(int count)
