@@ -8,3 +8,4 @@ Programing Exercises
    ./ruby/drill
    ./python/drill
    ./nodejs/drill
+   ./java/drill
