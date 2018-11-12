@@ -1,0 +1,19 @@
+# FizzBuzz
+
+## 仕様
+> 1から100までの数をプリントするプログラムを書け。
+> ただし3の倍数のときは数の代わりに｢Fizz｣と、5の倍数のときは｢Buzz｣とプリントし、3と5両方の倍数の場合には｢FizzBuzz｣とプリントすること。
+
+## 設計
+### TODOリスト
+
+## 開発
+
+### ふりかえり
+#### Keep
+#### Problem
+#### Try
+
+## 参照
++ [Pythonでunittestを実行する（初心者用）](https://qiita.com/takus69/items/cde279266b46daf9972d)
++ [どうしてプログラマに・・・プログラムが書けないのか?](http://www.aoky.net/articles/jeff_atwood/why_cant_programmers_program.htm)
