@@ -2,15 +2,18 @@ import unittest
 from test.support import captured_stdout
 
 count = 100
+values = []
 
-def execute():    
+
+def execute():
     iterate(count)
 
 
 def iterate(count):
-    for n in range(count + 1):        
-        n = generate(n)
-        print(n)
+    for n in range(count + 1):
+        value = generate(n)
+        print(value)
+
 
 def generate(number):
     if number % 3 == 0 and number % 5 == 0:
