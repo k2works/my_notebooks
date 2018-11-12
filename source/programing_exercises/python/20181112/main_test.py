@@ -8,43 +8,38 @@ class FizzBuzz():
     BUZZ = "Buzz"
     FIZZ_BUZZ = "FizzBuzz"
 
-    @classmethod
-    def execute(cls):
-        FizzBuzz.iterate(FizzBuzz.data['count'])
+    def execute(self):
+        self.iterate(self.data['count'])
 
-        for value in FizzBuzz.data['values']:
+        for value in self.data['values']:
             print(value)
-    
-    @classmethod
-    def iterate(cls, count):
-        for n in range(count + 1):
-            FizzBuzz.data['values'].append(FizzBuzz.generate(n))
 
-    @classmethod
-    def generate(cls, number):
-        if FizzBuzz.isFizz(number) and FizzBuzz.isBuzz(number):
-            return FizzBuzz.FIZZ_BUZZ
-        elif FizzBuzz.isFizz(number):
-            return FizzBuzz.FIZZ
-        elif FizzBuzz.isBuzz(number):
-            return FizzBuzz.BUZZ
+    def iterate(self, count):
+        for n in range(count + 1):
+            self.data['values'].append(self.generate(n))
+
+    def generate(self, number):
+        if self.isFizz(number) and self.isBuzz(number):
+            return self.FIZZ_BUZZ
+        elif self.isFizz(number):
+            return self.FIZZ
+        elif self.isBuzz(number):
+            return self.BUZZ
         else:
             return number
 
-    @classmethod
-    def isFizz(cls, number):
+    def isFizz(self, number):
         return number % 3 == 0
 
-    @classmethod
-    def isBuzz(cls, number):
+    def isBuzz(self, number):
         return number % 5 == 0
 
 
 class MainTest(unittest.TestCase):
 
     def test_結果を100回出力する(self):
-        with captured_stdout() as stdout:      
-            fizzBuzz = FizzBuzz()      
+        with captured_stdout() as stdout:
+            fizzBuzz = FizzBuzz()
             fizzBuzz.execute()
 
             lines = stdout.getvalue().splitlines()
@@ -54,7 +49,7 @@ class MainTest(unittest.TestCase):
 
     def test_3の倍数の時はFizzを出力する(self):
         with captured_stdout() as stdout:
-            fizzBuzz = FizzBuzz()      
+            fizzBuzz = FizzBuzz()
             fizzBuzz.execute()
 
             lines = stdout.getvalue().splitlines()
@@ -64,7 +59,7 @@ class MainTest(unittest.TestCase):
 
     def test_5の倍数の時はBuzzを出力する(self):
         with captured_stdout() as stdout:
-            fizzBuzz = FizzBuzz()      
+            fizzBuzz = FizzBuzz()
             fizzBuzz.execute()
 
             lines = stdout.getvalue().splitlines()
@@ -74,7 +69,7 @@ class MainTest(unittest.TestCase):
 
     def test_3と5の両方の倍数の時はFizzBuzzを出力する(self):
         with captured_stdout() as stdout:
-            fizzBuzz = FizzBuzz()      
+            fizzBuzz = FizzBuzz()
             fizzBuzz.execute()
 
             lines = stdout.getvalue().splitlines()
