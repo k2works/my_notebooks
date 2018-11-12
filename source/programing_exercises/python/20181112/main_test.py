@@ -9,15 +9,7 @@ def execute():
 def iterate(count):
     for n in range(count):
         num = n + 1        
-        if num % 3 == 0 and num % 5 == 0:
-            print("FizzBuzz")
-        elif num % 3 == 0:
-            print("Fizz")
-        elif num % 5 == 0:
-            print("Buzz")
-        else:
-            print(num)
-
+        print(generate(num))
 
 def generate(number):
     if number % 3 == 0 and number % 5 == 0:
