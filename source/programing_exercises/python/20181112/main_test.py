@@ -2,6 +2,9 @@ import unittest
 from test.support import captured_stdout
 
 data = {'count': 100, 'values': []}
+FIZZ = "Fizz"
+BUZZ = "Buzz"
+FIZZ_BUZZ = "FizzBuzz"
 
 
 def execute():
@@ -18,11 +21,11 @@ def iterate(count):
 
 def generate(number):
     if isFizz(number) and isBuzz(number):
-        return "FizzBuzz"
+        return FIZZ_BUZZ
     elif isFizz(number):
-        return "Fizz"
+        return FIZZ
     elif isBuzz(number):
-        return "Buzz"
+        return BUZZ
     else:
         return number
 
