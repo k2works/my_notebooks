@@ -7,9 +7,9 @@ def execute():
 
 
 def iterate(count):
-    for n in range(count):
-        num = n + 1        
-        print(generate(num))
+    for n in range(count + 1):        
+        n = generate(n)
+        print(n)
 
 def generate(number):
     if number % 3 == 0 and number % 5 == 0:
@@ -30,8 +30,8 @@ class MainTest(unittest.TestCase):
 
             lines = stdout.getvalue().splitlines()
 
-        self.assertEqual(lines[0], "1")
-        self.assertEqual(lines[99], "Buzz")
+        self.assertEqual(lines[1], "1")
+        self.assertEqual(lines[100], "Buzz")
 
     def test_3の倍数の時はFizzを出力する(self):
         with captured_stdout() as stdout:
@@ -39,8 +39,8 @@ class MainTest(unittest.TestCase):
 
             lines = stdout.getvalue().splitlines()
 
-        self.assertEqual(lines[2], "Fizz")
-        self.assertEqual(lines[5], "Fizz")
+        self.assertEqual(lines[3], "Fizz")
+        self.assertEqual(lines[6], "Fizz")
 
     def test_5の倍数の時はBuzzを出力する(self):
         with captured_stdout() as stdout:
@@ -48,8 +48,8 @@ class MainTest(unittest.TestCase):
 
             lines = stdout.getvalue().splitlines()
 
-        self.assertEqual(lines[4], "Buzz")
-        self.assertEqual(lines[9], "Buzz")
+        self.assertEqual(lines[5], "Buzz")
+        self.assertEqual(lines[10], "Buzz")
 
     def test_3と5の両方の倍数の時はFizzBuzzを出力する(self):
         with captured_stdout() as stdout:
@@ -57,7 +57,7 @@ class MainTest(unittest.TestCase):
 
             lines = stdout.getvalue().splitlines()
 
-        self.assertEqual(lines[14], "FizzBuzz")
+        self.assertEqual(lines[15], "FizzBuzz")
 
 
 if __name__ == "__main__":
