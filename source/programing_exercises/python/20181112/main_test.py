@@ -2,11 +2,15 @@ import unittest
 from test.support import captured_stdout
 
 
-def execute():        
-    for n in range(100):
+def execute():
+    iterate(100)
+
+
+def iterate(count):
+    for n in range(count):
         num = n + 1
         if num % 3 == 0 and num % 5 == 0:
-            print("FizzBuzz")        
+            print("FizzBuzz")
         elif num % 3 == 0:
             print("Fizz")
         elif num % 5 == 0:
@@ -14,14 +18,8 @@ def execute():
         else:
             print(num)
 
-def iterate(count):
-    for n in range(count):
-        print(n)
 
 class MainTest(unittest.TestCase):
-
-    def test_iterate(self):
-        self.assertEqual(iterate(10), "")
 
     def test_結果を100回出力する(self):
         with captured_stdout() as stdout:
