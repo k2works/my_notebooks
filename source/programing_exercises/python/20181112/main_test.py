@@ -14,7 +14,14 @@ def execute():
         else:
             print(num)
 
+def iterate(count):
+    for n in range(count):
+        print(n)
+
 class MainTest(unittest.TestCase):
+
+    def test_iterate(self):
+        self.assertEqual(iterate(10), "")
 
     def test_結果を100回出力する(self):
         with captured_stdout() as stdout:
