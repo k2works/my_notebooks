@@ -13,6 +13,7 @@
 
 
 ## 開発
++ 仮実装
 
 ### ふりかえり
 #### Keep
@@ -22,3 +23,4 @@
 ## 参照
 + [Pythonでunittestを実行する（初心者用）](https://qiita.com/takus69/items/cde279266b46daf9972d)
 + [どうしてプログラマに・・・プログラムが書けないのか?](http://www.aoky.net/articles/jeff_atwood/why_cant_programmers_program.htm)
++ [Pythonプログラムの標準出力をテストする](https://qiita.com/Asayu123/items/6f2471aa5ebe597b2638)
