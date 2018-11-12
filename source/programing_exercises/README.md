@@ -1398,3 +1398,4 @@ main()
 [^WEB03]:https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%B3%E3%83%89%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%BB%E3%82%B9%E3%82%BF%E3%83%87%E3%82%A3
 [^Habits of programming in scratch]: https://dl.acm.org/citation.cfm?doid=1999747.1999796
 [^『なぜ、プログラミングは楽しいのか？』に対する素晴らしい答え]: http://naglly.com/archives/2009/04/why-is-programming-fun.php
+[^なぜプログラミングは楽しいのか？]: http://docs.komagata.org/5541
