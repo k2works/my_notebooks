@@ -15,6 +15,8 @@
 ## 開発
 + 仮実装
 + 制御構造
++ pythonインタプリタ
++　変数(リテラル、配列) 演算 文の書き方（if for while)
 
 ### ふりかえり
 #### Keep
@@ -25,3 +27,4 @@
 + [Pythonでunittestを実行する（初心者用）](https://qiita.com/takus69/items/cde279266b46daf9972d)
 + [どうしてプログラマに・・・プログラムが書けないのか?](http://www.aoky.net/articles/jeff_atwood/why_cant_programmers_program.htm)
 + [Pythonプログラムの標準出力をテストする](https://qiita.com/Asayu123/items/6f2471aa5ebe597b2638)
++ [Python の unittest で任意の関数 “だけ” テストしたい](https://cloudpack.media/39817)

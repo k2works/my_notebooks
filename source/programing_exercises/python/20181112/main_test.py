@@ -2,56 +2,54 @@ import unittest
 from test.support import captured_stdout
 
 
-def execute():
-    n = 100
-    while n != 0:
-        if n % 3 == 0 and n % 5 == 0:
+def execute():        
+    for n in range(100):
+        num = n + 1
+        if num % 3 == 0 and num % 5 == 0:
             print("FizzBuzz")        
-        elif n % 3 == 0:
+        elif num % 3 == 0:
             print("Fizz")
-        elif n % 5 == 0:
+        elif num % 5 == 0:
             print("Buzz")
         else:
-            print(n)
-        n = n - 1
-
+            print(num)
 
 class MainTest(unittest.TestCase):
 
-    def test_結果を１００回出力する(self):
+    def test_結果を100回出力する(self):
         with captured_stdout() as stdout:
             execute()
 
             lines = stdout.getvalue().splitlines()
 
-        self.assertEqual(lines[99], "1")
-        self.assertEqual(lines[0], "Buzz")
+        self.assertEqual(lines[0], "1")
+        self.assertEqual(lines[99], "Buzz")
 
-    def test_３の倍数の時はFizzを出力する(self):
+    def test_3の倍数の時はFizzを出力する(self):
         with captured_stdout() as stdout:
             execute()
 
             lines = stdout.getvalue().splitlines()
 
-        self.assertEqual(lines[97], "Fizz")
-        self.assertEqual(lines[94], "Fizz")
+        self.assertEqual(lines[2], "Fizz")
+        self.assertEqual(lines[5], "Fizz")
 
-    def test_５の倍数の時はBuzzを出力する(self):
+    def test_5の倍数の時はBuzzを出力する(self):
         with captured_stdout() as stdout:
             execute()
 
             lines = stdout.getvalue().splitlines()
 
-        self.assertEqual(lines[95], "Buzz")
-        self.assertEqual(lines[90], "Buzz")
+        self.assertEqual(lines[4], "Buzz")
+        self.assertEqual(lines[9], "Buzz")
 
-    def test_３と５の両方の倍数の時はFizzBuzzを出力する(self):
+    def test_3と5の両方の倍数の時はFizzBuzzを出力する(self):
         with captured_stdout() as stdout:
             execute()
 
             lines = stdout.getvalue().splitlines()
 
-        self.assertEqual(lines[85], "FizzBuzz")
+        self.assertEqual(lines[14], "FizzBuzz")
 
 
 if __name__ == "__main__":
