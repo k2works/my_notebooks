@@ -30,6 +30,7 @@ class MainTest(unittest.TestCase):
             lines = stdout.getvalue().splitlines()
 
         self.assertEqual(lines[97], "Fizz")
+        self.assertEqual(lines[93], "Fizz")
 
 
 if __name__ == "__main__":
