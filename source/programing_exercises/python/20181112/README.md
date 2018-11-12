@@ -23,6 +23,7 @@
 + データ構造体
 + 変数・定数
 + 関数とクラス
++ スタティックメソッド・クラスメソッド・インスタンスメソッド
 
 ### ふりかえり
 #### Keep
@@ -34,3 +35,4 @@
 + [どうしてプログラマに・・・プログラムが書けないのか?](http://www.aoky.net/articles/jeff_atwood/why_cant_programmers_program.htm)
 + [Pythonプログラムの標準出力をテストする](https://qiita.com/Asayu123/items/6f2471aa5ebe597b2638)
 + [Python の unittest で任意の関数 “だけ” テストしたい](https://cloudpack.media/39817)
++ [Pythonで、呼び出し方によってメソッドの振る舞いを変える](https://qiita.com/masaru/items/5ebf2e96d6524830511b)
