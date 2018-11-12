@@ -5,7 +5,10 @@ from test.support import captured_stdout
 def execute():
     n = 100
     while n != 0:
-        print(n)
+        if n == 3:
+            print("Fizz")
+        else:
+            print(n)
         n = n - 1
 
 
