@@ -8,7 +8,7 @@ def execute():
 
 def iterate(count):
     for n in range(count):
-        num = n + 1
+        num = n + 1        
         if num % 3 == 0 and num % 5 == 0:
             print("FizzBuzz")
         elif num % 3 == 0:
@@ -19,7 +19,23 @@ def iterate(count):
             print(num)
 
 
+def generate(number):
+    if number % 3 == 0 and number % 5 == 0:
+        return "FizzBuzz"
+    elif number % 3 == 0:
+        return "Fizz"
+    elif number % 5 == 0:
+        return "Buzz"
+    else:
+        return number
+
+
 class MainTest(unittest.TestCase):
+
+    def test_generte(self):
+        self.assertEqual(generate(3), "Fizz")
+        self.assertEqual(generate(5), "Buzz")
+        self.assertEqual(generate(15), "FizzBuzz")
 
     def test_結果を100回出力する(self):
         with captured_stdout() as stdout:
