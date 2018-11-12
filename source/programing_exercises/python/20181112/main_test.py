@@ -17,14 +17,20 @@ def iterate(count):
 
 
 def generate(number):
-    if number % 3 == 0 and number % 5 == 0:
+    if isFizz(number) and isBuzz(number):
         return "FizzBuzz"
-    elif number % 3 == 0:
+    elif isFizz(number):
         return "Fizz"
-    elif number % 5 == 0:
+    elif isBuzz(number):
         return "Buzz"
     else:
         return number
+
+def isFizz(number):
+    return number % 3 == 0
+
+def isBuzz(number):
+    return number % 5 == 0
 
 
 class MainTest(unittest.TestCase):
