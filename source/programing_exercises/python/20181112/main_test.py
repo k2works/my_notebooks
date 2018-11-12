@@ -8,11 +8,13 @@ values = []
 def execute():
     iterate(count)
 
+    for value in values:
+        print(value)
+
 
 def iterate(count):
     for n in range(count + 1):
-        value = generate(n)
-        print(value)
+        values.append(generate(n))
 
 
 def generate(number):
