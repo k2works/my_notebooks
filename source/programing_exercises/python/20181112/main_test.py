@@ -1,34 +1,33 @@
 import unittest
 from test.support import captured_stdout
 
-data = {'count': 100, 'values': []}
-FIZZ = "Fizz"
-BUZZ = "Buzz"
-FIZZ_BUZZ = "FizzBuzz"
-
 
 class FizzBuzz():
+    data = {'count': 100, 'values': []}
+    FIZZ = "Fizz"
+    BUZZ = "Buzz"
+    FIZZ_BUZZ = "FizzBuzz"
 
     @classmethod
     def execute(cls):
-        FizzBuzz.iterate(data['count'])
+        FizzBuzz.iterate(FizzBuzz.data['count'])
 
-        for value in data['values']:
+        for value in FizzBuzz.data['values']:
             print(value)
     
     @classmethod
     def iterate(cls, count):
         for n in range(count + 1):
-            data['values'].append(FizzBuzz.generate(n))
+            FizzBuzz.data['values'].append(FizzBuzz.generate(n))
 
     @classmethod
     def generate(cls, number):
         if FizzBuzz.isFizz(number) and FizzBuzz.isBuzz(number):
-            return FIZZ_BUZZ
+            return FizzBuzz.FIZZ_BUZZ
         elif FizzBuzz.isFizz(number):
-            return FIZZ
+            return FizzBuzz.FIZZ
         elif FizzBuzz.isBuzz(number):
-            return BUZZ
+            return FizzBuzz.BUZZ
         else:
             return number
 
