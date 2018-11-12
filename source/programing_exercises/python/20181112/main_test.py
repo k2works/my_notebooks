@@ -9,10 +9,8 @@ class FizzBuzz():
     __count = 0
     __values = []
 
-
     def __init__(self, count):
         self.__count = count
-    
 
     def execute(self):
         self.__iterate(self.__count)
@@ -21,11 +19,11 @@ class FizzBuzz():
             print(value)
 
     @classmethod
-    def isFizz(cls, number):
+    def is_fizz(cls, number):
         return number % 3 == 0
 
     @classmethod
-    def isBuzz(cls, number):
+    def is_fuzz(cls, number):
         return number % 5 == 0
 
     def __iterate(self, count):
@@ -33,11 +31,11 @@ class FizzBuzz():
             self.__values.append(self.__generate(n))
 
     def __generate(self, number):
-        if self.isFizz(number) and self.isBuzz(number):
+        if self.is_fizz(number) and self.is_fuzz(number):
             return self.FIZZ_BUZZ
-        elif self.isFizz(number):
+        elif self.is_fizz(number):
             return self.FIZZ
-        elif self.isBuzz(number):
+        elif self.is_fuzz(number):
             return self.BUZZ
         else:
             return number
@@ -85,14 +83,14 @@ class MainTest(unittest.TestCase):
         self.assertEqual(lines[15], "FizzBuzz")
 
     def test_isFizz(self):
-        self.assertTrue(FizzBuzz.isFizz(3))
-        fizzBuzz = FizzBuzz(100)        
-        self.assertTrue(fizzBuzz.isFizz(6))
+        self.assertTrue(FizzBuzz.is_fizz(3))
+        fizzBuzz = FizzBuzz(100)
+        self.assertTrue(fizzBuzz.is_fizz(6))
 
     def test_isBuzz(self):
-        self.assertTrue(FizzBuzz.isBuzz(5))
-        fizzBuzz = FizzBuzz(100)        
-        self.assertTrue(fizzBuzz.isBuzz(10))
+        self.assertTrue(FizzBuzz.is_fuzz(5))
+        fizzBuzz = FizzBuzz(100)
+        self.assertTrue(fizzBuzz.is_fuzz(10))
 
 
 if __name__ == "__main__":
