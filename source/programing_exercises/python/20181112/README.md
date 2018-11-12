@@ -25,6 +25,9 @@
 + 関数とクラス
 + スタティックメソッド・クラスメソッド・インスタンスメソッド
 + クラスメンバのスコープ
++ コンストラクタ
++ キーワード引数
++ カプセル化
 
 ### ふりかえり
 #### Keep
@@ -38,3 +41,5 @@
 + [Python の unittest で任意の関数 “だけ” テストしたい](https://cloudpack.media/39817)
 + [Pythonで、呼び出し方によってメソッドの振る舞いを変える](https://qiita.com/masaru/items/5ebf2e96d6524830511b)
 + [Pythonのクラスメンバのスコープまとめ](https://qiita.com/0xfffffff7/items/6ef16e79fe9886acb3f2)
++ [Python 関数のキーワード引数](https://qiita.com/junkoda/items/bfd35793c5cd33c600bc)
++ [Pythonでリストの最後(一番後ろ)の値を取得する方法](https://qiita.com/komeiy/items/971ead35d33c25923222)
