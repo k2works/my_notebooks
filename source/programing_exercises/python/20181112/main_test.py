@@ -3,22 +3,30 @@ from test.support import captured_stdout
 
 
 class FizzBuzz():
-    data = {'count': 100, 'values': []}
     FIZZ = "Fizz"
     BUZZ = "Buzz"
     FIZZ_BUZZ = "FizzBuzz"
+    __data = {'count': 100, 'values': []}
 
     def execute(self):
-        self.iterate(self.data['count'])
+        self.__iterate(self.__data['count'])
 
-        for value in self.data['values']:
+        for value in self.__data['values']:
             print(value)
 
-    def iterate(self, count):
-        for n in range(count + 1):
-            self.data['values'].append(self.generate(n))
+    @classmethod
+    def isFizz(cls, number):
+        return number % 3 == 0
 
-    def generate(self, number):
+    @classmethod
+    def isBuzz(cls, number):
+        return number % 5 == 0
+
+    def __iterate(self, count):
+        for n in range(count + 1):
+            self.__data['values'].append(self.__generate(n))
+
+    def __generate(self, number):
         if self.isFizz(number) and self.isBuzz(number):
             return self.FIZZ_BUZZ
         elif self.isFizz(number):
@@ -27,12 +35,6 @@ class FizzBuzz():
             return self.BUZZ
         else:
             return number
-
-    def isFizz(self, number):
-        return number % 3 == 0
-
-    def isBuzz(self, number):
-        return number % 5 == 0
 
 
 class MainTest(unittest.TestCase):
@@ -75,6 +77,16 @@ class MainTest(unittest.TestCase):
             lines = stdout.getvalue().splitlines()
 
         self.assertEqual(lines[15], "FizzBuzz")
+
+    def test_isFizz(self):
+        self.assertTrue(FizzBuzz.isFizz(3))
+        fizzBuzz = FizzBuzz()        
+        self.assertTrue(fizzBuzz.isFizz(6))
+
+    def test_isBuzz(self):
+        self.assertTrue(FizzBuzz.isBuzz(5))
+        fizzBuzz = FizzBuzz()        
+        self.assertTrue(fizzBuzz.isBuzz(10))
 
 
 if __name__ == "__main__":
