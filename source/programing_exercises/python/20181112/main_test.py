@@ -26,8 +26,10 @@ def generate(number):
     else:
         return number
 
+
 def isFizz(number):
     return number % 3 == 0
+
 
 def isBuzz(number):
     return number % 5 == 0
