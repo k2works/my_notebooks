@@ -7,7 +7,7 @@ def execute():
     while n != 0:
         if n % 3 == 0:
             print("Fizz")
-        elif n == 5:
+        elif n % 5 == 0:
             print("Buzz")
         else:
             print(n)
@@ -23,7 +23,7 @@ class MainTest(unittest.TestCase):
             lines = stdout.getvalue().splitlines()
 
         self.assertEqual(lines[99], "1")
-        self.assertEqual(lines[0], "100")
+        self.assertEqual(lines[0], "Buzz")
 
     def test_３の倍数の時はFizzを出力する(self):
         with captured_stdout() as stdout:
@@ -41,6 +41,7 @@ class MainTest(unittest.TestCase):
             lines = stdout.getvalue().splitlines()
 
         self.assertEqual(lines[95], "Buzz")
+        self.assertEqual(lines[90], "Buzz")
 
 
 if __name__ == "__main__":
