@@ -20,6 +20,14 @@ class MainTest(unittest.TestCase):
         self.assertEqual(lines[99], "1")
         self.assertEqual(lines[0], "100")
 
+    def test_３の倍数の時はFizzを出力する(self):
+        with captured_stdout() as stdout:
+            execute()
+
+            lines = stdout.getvalue().splitlines()
+
+        self.assertEqual(lines[97], "Fizz")
+
 
 if __name__ == "__main__":
     unittest.main()
