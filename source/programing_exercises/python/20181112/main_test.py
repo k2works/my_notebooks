@@ -1,9 +1,10 @@
 import unittest
 from test.support import captured_stdout
 
+count = 100
 
-def execute():
-    iterate(100)
+def execute():    
+    iterate(count)
 
 
 def iterate(count):
