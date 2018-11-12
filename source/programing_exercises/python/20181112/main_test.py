@@ -5,7 +5,7 @@ from test.support import captured_stdout
 def execute():
     n = 100
     while n != 0:
-        if n == 3:
+        if n % 3 == 0:            
             print("Fizz")
         else:
             print(n)
@@ -30,7 +30,7 @@ class MainTest(unittest.TestCase):
             lines = stdout.getvalue().splitlines()
 
         self.assertEqual(lines[97], "Fizz")
-        self.assertEqual(lines[93], "Fizz")
+        self.assertEqual(lines[94], "Fizz")
 
 
 if __name__ == "__main__":
