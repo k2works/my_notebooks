@@ -24,11 +24,6 @@ def generate(number):
 
 class MainTest(unittest.TestCase):
 
-    def test_generte(self):
-        self.assertEqual(generate(3), "Fizz")
-        self.assertEqual(generate(5), "Buzz")
-        self.assertEqual(generate(15), "FizzBuzz")
-
     def test_結果を100回出力する(self):
         with captured_stdout() as stdout:
             execute()
