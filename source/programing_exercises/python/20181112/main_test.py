@@ -5,7 +5,9 @@ from test.support import captured_stdout
 def execute():
     n = 100
     while n != 0:
-        if n % 3 == 0:
+        if n % 3 == 0 and n % 5 == 0:
+            print("FizzBuzz")        
+        elif n % 3 == 0:
             print("Fizz")
         elif n % 5 == 0:
             print("Buzz")
@@ -42,6 +44,14 @@ class MainTest(unittest.TestCase):
 
         self.assertEqual(lines[95], "Buzz")
         self.assertEqual(lines[90], "Buzz")
+
+    def test_３と５の両方の倍数の時はFizzBuzzを出力する(self):
+        with captured_stdout() as stdout:
+            execute()
+
+            lines = stdout.getvalue().splitlines()
+
+        self.assertEqual(lines[85], "FizzBuzz")
 
 
 if __name__ == "__main__":
