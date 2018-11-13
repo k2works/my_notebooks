@@ -29,6 +29,10 @@
 + キーワード引数
 + カプセル化
 
+```
+ python -m unittest main_test.MainTest.test_1から100までプリントする
+```
+
 ### ふりかえり
 #### Keep
 #### Problem
