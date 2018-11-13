@@ -3,6 +3,7 @@ from test.support import captured_stdout
 
 values = []
 
+
 def exectue():
     iterate(100)
     for value in values:
@@ -11,7 +12,9 @@ def exectue():
 
 def iterate(count):
     for number in range(count + 1):
-        values.append((generate(number)))
+        value = generate(number)
+        values.append(value)
+
 
 def generate(number):
     value = str(number)
