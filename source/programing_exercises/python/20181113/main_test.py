@@ -10,9 +10,7 @@ data = {
 
 
 def exectue(count=100):
-
-    iterate(count)
-
+    set_values(count)
     print_valus()
 
 
@@ -21,7 +19,7 @@ def print_valus():
         print(value)
 
 
-def iterate(count):
+def set_values(count):
     for number in range(count + 1):
         value = generate(number)
         data['values'].append(value)
