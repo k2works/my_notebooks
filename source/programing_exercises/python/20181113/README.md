@@ -47,4 +47,7 @@
 + [Pythonのクラスメンバのスコープまとめ](https://qiita.com/0xfffffff7/items/6ef16e79fe9886acb3f2)
 + [Python 関数のキーワード引数](https://qiita.com/junkoda/items/bfd35793c5cd33c600bc)
 + [Pythonでリストの最後(一番後ろ)の値を取得する方法](https://qiita.com/komeiy/items/971ead35d33c25923222)
-+ [VSCode初心者のための、絶対覚えておきたい便利機能まとめ](https://homupedia.com/editor-vscode-features.html)
++ [VSCode初心者のための、絶対覚えておきたい便利機能まとめ]
+(https://homupedia.com/editor-vscode-features.html)
++ [意外と知られていない構造化プログラミング、あるいは構造化プログラミングはデータも手続きと一緒に抽象化する、あるいはストロヴストルップのオブジェクト指向プログラミング史観](http://www.tatapa.org/~takuo/structured_programming/structured_programming.html)
++ [超構造化(02) 構造化定理、構造化の恩恵、構造化チャート](http://sken20k.hatenablog.com/entry/2018/02/07/230005)

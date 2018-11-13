@@ -5,12 +5,14 @@ FIZZ_BUZZ = "FizzBuzz"
 FIZZ = "Fizz"
 BUZZ = "Buzz"
 data = {
+    'count' : 0,
     'values': []
 }
 
 
 def exectue(count=100):
-    set_values(count)
+    data['count'] = count
+    set_values()
     print_valus()
 
 
@@ -19,8 +21,8 @@ def print_valus():
         print(value)
 
 
-def set_values(count):
-    for number in range(count + 1):
+def set_values():
+    for number in range(data['count'] + 1):
         value = generate(number)
         data['values'].append(value)
 
