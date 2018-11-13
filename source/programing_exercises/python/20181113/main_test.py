@@ -10,7 +10,6 @@ def iterate(count):
     for n in range(count + 1):
         generate(n)
 
-
 def generate(n):
     if n % 3 == 0 and n % 5 == 0:
         print("FizzBuzz")
@@ -20,6 +19,7 @@ def generate(n):
         print("Buzz")
     else:
         print(n)
+
 
 
 class MainTest(unittest.TestCase):
