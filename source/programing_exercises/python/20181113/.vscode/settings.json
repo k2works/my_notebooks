@@ -8,5 +8,6 @@
     ],
     "python.unitTest.pyTestEnabled": false,
     "python.unitTest.nosetestsEnabled": false,
-    "python.unitTest.unittestEnabled": true
+    "python.unitTest.unittestEnabled": true,
+    "python.pythonPath": "/Users/k2works/.pyenv/versions/3.6.0/bin/python"
 }

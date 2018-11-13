@@ -17,8 +17,8 @@ class MainTest(unittest.TestCase):
             exectue()
             lines = stdout.getvalue().splitlines()
 
-        self.assertEqual(lines[0], "100")                
-        self.assertEqual(lines[99], "1")        
+        self.assertEqual(lines[0], "100")
+        self.assertEqual(lines[99], "1")
 
 
 if __name__ == "__main__":
