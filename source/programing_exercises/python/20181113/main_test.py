@@ -7,7 +7,7 @@ def exectue():
 
     while n != 0:
         if n % 3 == 0 and n % 5 == 0:
-            print("FizzBuzz")        
+            print("FizzBuzz")
         elif n % 3 == 0:
             print("Fizz")
         elif n % 5 == 0:
@@ -18,7 +18,15 @@ def exectue():
         n = n - 1
 
 
+def for_each():
+    for n in range(100):
+        print(n)
+
+
 class MainTest(unittest.TestCase):
+
+    def test_for_each(self):
+        for_each()
 
     def test_1から100までプリントする(self):
         with captured_stdout() as stdout:
@@ -47,7 +55,7 @@ class MainTest(unittest.TestCase):
             exectue()
             lines = stdout.getvalue().splitlines()
 
-        self.assertEqual(lines[85], "FizzBuzz")        
+        self.assertEqual(lines[85], "FizzBuzz")
 
 
 if __name__ == "__main__":
