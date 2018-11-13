@@ -13,6 +13,10 @@ def exectue(count=100):
 
     iterate(count)
 
+    print_valus()
+
+
+def print_valus():
     for value in data['values']:
         print(value)
 
@@ -52,7 +56,6 @@ class MainTest(unittest.TestCase):
             lines = stdout.getvalue().splitlines()
 
         self.assertEqual(lines[10], "Buzz")
-        
 
     def test_3の倍数のときは数の代わりにFizzをプリントする(self):
         with captured_stdout() as stdout:
