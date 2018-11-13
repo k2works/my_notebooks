@@ -5,20 +5,20 @@ FIZZ_BUZZ = "FizzBuzz"
 FIZZ = "Fizz"
 BUZZ = "Buzz"
 data = {
-    'count': 100, 
     'values': []
-    }
+}
 
 
-def exectue():
-    iterate(data['count'])
+def exectue(count=100):
+
+    iterate(count)
 
     for value in data['values']:
         print(value)
 
 
 def iterate(count):
-    for number in range(data['count'] + 1):
+    for number in range(count + 1):
         value = generate(number)
         data['values'].append(value)
 
