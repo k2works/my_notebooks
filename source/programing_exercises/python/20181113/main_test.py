@@ -7,18 +7,18 @@ def exectue():
 
 
 def iterate(count):
-    for n in range(count + 1):
-        generate(n)
+    for number in range(count + 1):
+        generate(number)
 
-def generate(n):
-    if n % 3 == 0 and n % 5 == 0:
+def generate(number):
+    if number % 3 == 0 and number % 5 == 0:
         print("FizzBuzz")
-    elif n % 3 == 0:
+    elif number % 3 == 0:
         print("Fizz")
-    elif n % 5 == 0:
+    elif number % 5 == 0:
         print("Buzz")
     else:
-        print(n)
+        print(number)
 
 
 
