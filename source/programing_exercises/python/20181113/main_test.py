@@ -4,21 +4,20 @@ from test.support import captured_stdout
 FIZZ_BUZZ = "FizzBuzz"
 FIZZ = "Fizz"
 BUZZ = "Buzz"
-count = 100
-values = []
+data = {'count': 100, 'values': []}
 
 
 def exectue():
-    iterate(count)
+    iterate(data['count'])
 
-    for value in values:
+    for value in data['values']:
         print(value)
 
 
 def iterate(count):
-    for number in range(count + 1):
+    for number in range(data['count'] + 1):
         value = generate(number)
-        values.append(value)
+        data['values'].append(value)
 
 
 def generate(number):
