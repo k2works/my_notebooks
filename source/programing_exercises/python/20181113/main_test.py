@@ -46,6 +46,14 @@ class MainTest(unittest.TestCase):
         self.assertEqual(lines[1], "1")
         self.assertEqual(lines[100], "Buzz")
 
+    def test_1から10までプリントする(self):
+        with captured_stdout() as stdout:
+            exectue(10)
+            lines = stdout.getvalue().splitlines()
+
+        self.assertEqual(lines[10], "Buzz")
+        
+
     def test_3の倍数のときは数の代わりにFizzをプリントする(self):
         with captured_stdout() as stdout:
             exectue()
