@@ -1,12 +1,16 @@
 import unittest
 from test.support import captured_stdout
 
+FIZZ_BUZZ = "FizzBuzz"
+FIZZ = "Fizz"
+BUZZ = "Buzz"
 count = 100
 values = []
 
 
 def exectue():
     iterate(count)
+
     for value in values:
         print(value)
 
@@ -19,12 +23,13 @@ def iterate(count):
 
 def generate(number):
     value = str(number)
+
     if number % 3 == 0 and number % 5 == 0:
-        value = "FizzBuzz"
+        value = FIZZ_BUZZ
     elif number % 3 == 0:
-        value = "Fizz"
+        value = FIZZ
     elif number % 5 == 0:
-        value = "Buzz"
+        value = BUZZ
 
     return value
 
