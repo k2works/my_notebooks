@@ -3,7 +3,11 @@ from test.support import captured_stdout
 
 
 def exectue():
-    for n in range(101):        
+    iterate(100)
+
+
+def iterate(count):
+    for n in range(count + 1):
         if n % 3 == 0 and n % 5 == 0:
             print("FizzBuzz")
         elif n % 3 == 0:
