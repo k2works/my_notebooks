@@ -1,14 +1,17 @@
 import unittest
 from test.support import captured_stdout
 
+values = []
 
 def exectue():
     iterate(100)
+    for value in values:
+        print(value)
 
 
 def iterate(count):
     for number in range(count + 1):
-        print(generate(number))
+        values.append((generate(number)))
 
 def generate(number):
     value = str(number)
