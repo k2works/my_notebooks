@@ -8,18 +8,18 @@ def exectue():
 
 def iterate(count):
     for number in range(count + 1):
-        generate(number)
+        print(generate(number))
 
 def generate(number):
+    value = str(number)
     if number % 3 == 0 and number % 5 == 0:
-        print("FizzBuzz")
+        value = "FizzBuzz"
     elif number % 3 == 0:
-        print("Fizz")
+        value = "Fizz"
     elif number % 5 == 0:
-        print("Buzz")
-    else:
-        print(number)
+        value = "Buzz"
 
+    return value
 
 
 class MainTest(unittest.TestCase):
