@@ -6,7 +6,9 @@ def exectue():
     n = 100
 
     while n != 0:
-        if n % 3 == 0:
+        if n % 3 == 0 and n % 5 == 0:
+            print("FizzBuzz")        
+        elif n % 3 == 0:
             print("Fizz")
         elif n % 5 == 0:
             print("Buzz")
@@ -23,8 +25,8 @@ class MainTest(unittest.TestCase):
             exectue()
             lines = stdout.getvalue().splitlines()
 
-        self.assertEqual(lines[0], "100")
-        self.assertEqual(lines[99], "Buzz")
+        self.assertEqual(lines[0], "Buzz")
+        self.assertEqual(lines[99], "1")
 
     def test_3の倍数のときは数の代わりにFizzをプリントする(self):
         with captured_stdout() as stdout:
@@ -39,6 +41,13 @@ class MainTest(unittest.TestCase):
             lines = stdout.getvalue().splitlines()
 
         self.assertEqual(lines[95], "Buzz")
+
+    def test_3と5の倍数のときは数の代わりにFizzBuzzをプリントする(self):
+        with captured_stdout() as stdout:
+            exectue()
+            lines = stdout.getvalue().splitlines()
+
+        self.assertEqual(lines[85], "FizzBuzz")        
 
 
 if __name__ == "__main__":
