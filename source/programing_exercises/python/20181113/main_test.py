@@ -2,7 +2,9 @@ import unittest
 
 
 class MainTest(unittest.TestCase):
-    pass
+    
+    def test_1から100までプリントする(self):
+        self.assertTrue(False)
 
 
 if __name__ == "__main__":
