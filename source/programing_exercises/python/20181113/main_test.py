@@ -4,7 +4,10 @@ from test.support import captured_stdout
 FIZZ_BUZZ = "FizzBuzz"
 FIZZ = "Fizz"
 BUZZ = "Buzz"
-data = {'count': 100, 'values': []}
+data = {
+    'count': 100, 
+    'values': []
+    }
 
 
 def exectue():
