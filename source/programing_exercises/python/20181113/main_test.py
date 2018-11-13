@@ -12,7 +12,7 @@ def exectue():
             print("Buzz")
         else:
             print(n)
-        
+
         n = n - 1
 
 
@@ -38,7 +38,7 @@ class MainTest(unittest.TestCase):
             exectue()
             lines = stdout.getvalue().splitlines()
 
-        self.assertEqual(lines[95], "Buzz")        
+        self.assertEqual(lines[95], "Buzz")
 
 
 if __name__ == "__main__":
