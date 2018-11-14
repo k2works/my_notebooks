@@ -378,6 +378,7 @@ DOAの概念をさらに進めたアプローチ。オブジェクトとは、�
 
 === 言語仕様パターン
 
+==== Ruby
 |===
 |                |    |Ruby   |Python   |C=   |3   |4   |5   |
 |Rubyの基本を学ぼう   |     |     |     |     |     |     |     |
@@ -478,6 +479,11 @@ DOAの概念をさらに進めたアプローチ。オブジェクトとは、�
 |                |環境変数を扱う|     |     |     |     |     |     |
 |                |コマンドライン引数を扱う|     |     |     |     |     |     |
 ||     |     |     |     |     |     |     |
+|===
+
+==== Python
+|===
+|                |    |Ruby   |Python   |C=   |3   |4   |5   |
 |プログラミングの基本   |     |     |     |     |     |     |     |
 |                |基本のデータ|     |     |     |     |     |     |
 |                |変数|     |     |     |     |     |     |
@@ -529,7 +535,10 @@ DOAの概念をさらに進めたアプローチ。オブジェクトとは、�
 |                |非同期構文|     |     |     |     |     |     |
 |                |イテレータ・ジェネレータ|     |     |     |     |     |     |
 |                |Pythonの慣習 - PEP8|     |     |     |     |     |     |
-||     |     |     |     |     |     |     |
+|===
+==== C#
+|===
+|                |    |Ruby   |Python   |C=   |3   |4   |5   |
 |C=の基本を学ぶ   |     |     |     |     |     |     |     |
 |                |プログラムの実行順序と構成|     |     |     |     |     |     |
 |                |記述方法の基本|     |     |     |     |     |     |
@@ -661,298 +670,9 @@ DOAの概念をさらに進めたアプローチ。オブジェクトとは、�
 ===== 継続的インテグレーション
 
 ===== テストファーストプログラミング
-  
-* TDD
-  * テスト駆動開発のパターン
-    * テスト(名詞)
-    * 独立したテスト
-    * TODOリスト
-    * テストファースト
-    * アサートファースト
-    * テストデータ
-    * 明示的なデータ  
-  * レッドバーのパターン
-    * 一歩を示すテスト
-    * 説明的なテスト
-    * 学習用テスト
-    * 脱線はTODOリストへ
-    * 回帰テスト
-    * 休憩
-    * やり直す
-    * 安い椅子に良い椅子
-  * テスティングのパターン
-    * 小さいテスト
-    * Mock Object(偽装オブジェクト)パターン
-    * Self Shunt(自己接続)パターン
-    * Long String(記録用文字列)パターン
-    * Crash Test Dummy(衝突実験ダミー人形)パターン
-    * 失敗させたままのテスト
-    * きれいなチェックイン
-  * グリーンバーのパターン
-    * 仮実装を経て本実装へ
-    * 三角測量
-    * 明白な実装
-    * 一から多へ
-  * xUnitのパターン
-    * フィクスチャー
-    * 外部フィクスチャー
-    * テストメソッド
-    * 例外のテスト
-    * まとめてテスト
-  * デザインパターン
-    * Commandパターン
-    * Value Objectパターン
-    * Null Objectパターン
-    * Template Methodパターン
-    * Pluggable Objectパターン
-    * Factory Methodパターン
-    * Imposterパターン
-    * Collecting Parameterパターン
-    * Singletonパターン
-  * リファクタリング
-    * 差異をなくす
-    * 変更の分離
-    * データ構造の変更
-    * メソッドの抽出
-    * メソッドのインライン化
-    * インタフェースの抽出
-    * メソッドの移動
-    * メソッドオブジェクト
-    * パラメータの追加
-    * メソッドからコンストラクタへのパラメータの移動
-* F.I.R.S.T
-  1. Fast(高速)
-  1. Independent(独立)
-  1. Repeatable(再現性)
-  1. Self-Validating(自己検証可能)
-  1. Timely(適時性)
-  
+
 ===== インクリメンタルな設計
-  
-* 設計の悪臭
-  1. 硬さ
-  1. もろさ
-  1. 移植性のなさ
-  1. 扱いにくさ
-  1. 不必要な複雑さ
-  1. 不必要な繰り返し
-  1. 不透明さ
-  
-* リファクタリング[^Refactoring]
-  * コードの不吉な臭い
-  * メソッドの構成
-  * オブジェクト間での特性の移動
-  * データの再編成
-  * 条件記述の単純化
-  * メソッド呼び出しの単純化
-  * 継承の取り扱い
-* リファクタリングの定義
-* リファクタリングを行う理由
-  * リファクタリングはソフトウェア設計を改善する
-  * リファクタリングはソフトウェアを理解しやすくする
-  * リファクタリングはバグを見つけ出す
-  * リファクタリングでより速くプログラミングできる
-* いつリファクタリングをすべきか
-  * ３度目の法則
-  * 機能追加時にリファクタリングを行う
-  * バグフィックスの時にリファクタリングを行う
-  * コードレビューの時にリファクタリングを行う
-  
-* リファクタリングカタログ
-  * メソッドの構成方法 
-    * メソッドの抽出(Extract Method)
-    * メソッドのインライン化(Inline Method)
-    * 一時変数のインライン化(Inline Temp)
-    * 一時変数から問い合わせメソッドへ(Replace Temp with Query)
-    * 一時変数からチェインへ(Replace Temp with Query)
-    * 説明変数の導入(Introduce Explaining Variable)
-    * 一時変数の導入(Split Temporary Variable)
-    * 引数への代入の除去(Remove Assignments to Parameters)
-    * メソッドからメソッドオブジェクトへ(Replace Method with Method Object)
-    * アルゴリズム変更(Substitute Algorithm)
-    * ループからコレクションクロージャメソッドへ(Replace Loop with Collection Closure Method)
-    * サンドイッチメソッドの抽出(Extract Surrounding Method)
-    * クラスアノテーションの導入(Introduce Class Annotation)
-    * 名前付き引数の導入(Introduce Named Parameter)
-    * 名前付き引数の除去(Remove Named Parameter)
-    * 使われていないデフォルト引数の除去(Remove Unused Default Parameter)
-    * 動的メソッド定義(Dynamic Method Definition)
-    * 動的レセプタから動的メソッド定義へ(Replace Dynamic Receptor with Dynamic Method Definition)
-    * 動的レセプタの分離(Isolate Dynamic Receptor)
-    * evalを実行時からパース時へ(Move Eval from Runtime to Parse Time)
-  * オブジェクト間でのメンバの移動
-    * メソッドの移動(Move Method)
-    * フィールドの移動(Move Field)
-    * クラスの抽出(Extract Class)
-    * クラスのインライン化(Inline Class)
-    * 移譲の隠蔽(Hide Delegate)
-    * 横流しブローカーの除去(Remove Middle Man)
-  * データの構成
-    * 自己カプセル化フィールド(Self Encapsulate Field)
-    * データ値からオブジェクトへ(Replace Data Value with Object)
-    * 値から参照へ(Change Value to Reference)
-    * 参照から値へ(Change Reference to Value)
-    * 配列からオブジェクトへ(Replace Array with Object)
-    * ハッシュからオブジェクトへ(Replace Array with Object)
-    * 片方向リンクから双方向リンクへ(Change Unidirectional Association to Bidirectional)
-    * 双方向リンクから片方向リンクへ(Change Bidirectional Association to Unidirectional)
-    * マジックナンバーからシンボル定数へ(Replace Magic Number with Symbolic Constant)
-    * コレクションのカプセル化(Encapsulate Collection)
-    * レコードからデータクラスへ(Replace Record with Data Class)
-    * タイプコードからポリモーフィズムへ(Replace Type Code with Polymorphism)
-    * タイプコードからモジュールのextendへ(Replace Type Code with Module Extension)
-    * タイプコードからState/Strategyへ(Replace Type Code with State/Strategy)
-    * サブクラスからフィールドへ(Replace Subclass with Fields)
-    * 属性初期化の遅延実行(Lazily Initialized Attribute)
-    * 属性初期化の先行実行(Eagerly Initialized Attribute)
-  * 条件式の単純化
-    * 条件分の分解(Decompose Conditional)
-    * 条件分岐の組み換え(Recompose Conditinal)
-    * 重複する条件分岐の断片の統合(Consolidate Duplicate Conditional Fragments)
-    * 制御フラグの除去
-    * 条件分岐のネストからガード節へ(Replace Nested Conditional with Guard Clauses)
-    * 条件分岐からポリモーフィズムへ(Replace Conditional with Polymorphism)
-    * nullオブジェクトの導入(Introduce Null Object)
-    * アサーションの導入(Introduce Assertion)
-  * メソッド呼び出しの単純化
-    * メソッド名の変更(Rename Method)  
-    * 引数の追加(Add Parameter)
-    * 引数の削除(Remove Parameter)
-    * 問い合わせと更新の分離(Separate Query from Modifier)
-    * メソッドのパラメータ化(Parameterize Method)
-    * 引数から別々のメソッドへ(Replace Parameter with Explicit Methods)
-    * オブジェクト自体の受け渡し(Preserve Whole Object)
-    * 引数からメソッドへ(Replace Parameter with Method)
-    * 引数オブジェクトの導入(Introduce Parameter Object)
-    * 設定メソッドの削除(Remove Setting Method)
-    * メソッドの隠蔽(Hide Method)
-    * コンストラクタからファクトリメソッドへ(Replace Constructor with Factory Method)
-    * エラーコードから例外へ(Replace Error Code wiht Exception)
-    * 例外からテストへ(Replace Exception with Test)
-    * ゲートウェイの導入(Introduce Gateway)
-    * 式ビルダーの導入(Intorduce Expression Builder)
-  * 一般化の処理
-    * メソッドの上位階層への移動(Pull Up Method)  
-    * メソッドの下位階層への移動(Push Down Method)
-    * モジュールの抽出(Extract Module)
-    * モジュールのインライン化(Inline Module)
-    * サブクラスの抽出(Extract Subclass)
-    * 継承の導入(Introduce Inheritance)
-    * 階層構造の統合(Collapse Hierarchy)
-    * テンプレートメソッドの作成(From Template Method)
-    * 継承から移譲のへ(Replace Inheritance with Delegation)
-    * 委譲から継承へ(Replace Delegation with Hierarchy)
-    * 抽象スーパークラスからモジュールへ(Replae Abstract Superclass with Module)
-  * 大規模なリファクタリング
-    * 複合的な継承階層の分割(Tease Apart Inheritance)  
-    * 手続き型設計からオブジェクト指向設計へ(Convert Procedural Design to Objects)
-    * ドメインのプレゼンテーションからの分離(Separate Domain from Presentation)
-    * 継承階層の抽出(Extract Hierarchy)
-  
-  
-====== においと経験則[^CC]
-* コードの臭い
-  * コードの重複
-  * 長いメソッド
-  * 大きなクラス
-  * 長い引数リスト
-  * 変更系統の分岐
-  * ショットガン創の手術
-  * メソッドの浮気
-  * 群れたがるデータ
-  * プリミティブ強迫症
-  * case文
-  * パラレルな継承階層
-  * 仕事をしないクラス
-  * 空論的一般化
-  * 一時フィールド
-  * メッセージの連鎖
-  * 横流しフローカー
-  * 親密すぎるクラス
-  * インターフェイスの異なるクラス群
-  * 不完全なライブラリクラス
-  * データクラス
-  * 継承した遺産の拒絶
-  * コメント
-  * メタプログラミング狂
-  * 柔軟すぎるAPI
-  * 紋切り型コードの繰り返し
-    
-  * コメント
-    * C1:不適切な情報
-    * C2:退化コメント
-    * C3:冗長なコメント
-    * C4:記述不足のコメント
-    * C5:コメントアウトされたコード  
-  * 環境
-    * E1:ビルドに複数のステップを要する
-    * E2:テストに複数のステップを要する  
-  * 関数
-    * F1:多すぎる引数
-    * F2:出力引数
-    * F3:フラグ引数
-    * F4:死んだ関数    
-  * 一般
-    * G1:１つのソースファイルに複数の言語を使用する
-    * G2:あって当然の振る舞いが実装されていない
-    * G3:境界値に対する不正確な振る舞い
-    * G4:安全軽視
-    * G5:重複
-    * G6:抽象レベルが正しくないコード
-    * G7:継承クラスに依存したベースクラス
-    * G8:情報過多
-    * G9:デッドコード
-    * G10:垂直分離
-    * G11:不整合
-    * G12:雑然
-    * G13:人為的な結合
-    * G14:機能の羨望
-    * G15:セレクタ引数
-    * G16:不明瞭な意図
-    * G17:責務を持たせる場所の間違い
-    * G18:不適切なstatic
-    * G19:説明的変数
-    * G20:関数名は体を表すべき
-    * G21:アルゴリズムを理解する
-    * G22:論理的な依存性を物理的なものとする
-    * G23:if/elseやswitch/caseよりも多態を好む
-    * G24:標準や規約に従う
-    * G25:マジックナンバーを名前付けした定数に置き換える
-    * G26:正確であれ
-    * G27:規約より構造
-    * G28:条件をカプセル化せよ
-    * G29:条件の非定刑を避ける
-    * G30:関数では１つのことを行うべき
-    * G31:隠れた時間軸上の結合
-    * G32:いいかげんにならないこと
-    * G33:境界条件はカプセル化する
-    * G34:関数は１つの抽象レベルを担うべき
-    * G35:設定可能なデータは高いレベルに置く
-    * G36:推移的なナビゲーションを避ける  
-  * Java
-    * J1:ワイルドカードを使って、長いimportのリストを避ける
-    * J2:定数を継承しない
-    * J3:定数とenum
-  * 名前
-    * N1:記述的な名前を選ぶ
-    * N2:抽象レベルに適切な名前を選ぶ
-    * N3:可能な限り標準の用語を使用する
-    * N4:はっきりした名前
-    * N5:広いスコープには長い名前を
-    * N6:エンコーディングを避ける
-    * N7:名前で副作用を示すべき
-  * テスト
-    * T1:不十分なテスト
-    * T2:カバレッジツールを脂油する!
-    * T3:ささいなテストを省略しない
-    * T4:無視すること指定されたテストは、あいまいさへの問いかけである
-    * T5:境界条件テスト
-    * T6:バグの周辺は徹底的にテストを
-    * T7:失敗パターンは何かを語る
-    * T8:テストカバレッジのパターンは何かを語る
-    * T9:テストは高速に実行できるべき
-  
-  
+
 ==== 導出プラクティス
   
 ===== 本物の顧客参加
@@ -976,7 +696,309 @@ DOAの概念をさらに進めたアプローチ。オブジェクトとは、�
 ===== 交渉によるスコープ契約
   
 ===== 利用都度課金
-  
+
+=== テスト駆動開発
+==== テスト駆動開発のパターン
+
+===== テスト(名詞)
+* 独立したテスト
+* TODOリスト
+* テストファースト
+* アサートファースト
+* テストデータ
+* 明示的なデータ
+
+===== レッドバーのパターン
+* 一歩を示すテスト
+* 説明的なテスト
+* 学習用テスト
+* 脱線はTODOリストへ
+* 回帰テスト
+* 休憩
+* やり直す
+* 安い椅子に良い椅子
+
+===== テスティングのパターン
+* 小さいテスト
+* Mock Object(偽装オブジェクト)パターン
+* Self Shunt(自己接続)パターン
+* Long String(記録用文字列)パターン
+* Crash Test Dummy(衝突実験ダミー人形)パターン
+* 失敗させたままのテスト
+* きれいなチェックイン
+
+===== グリーンバーのパターン
+* 仮実装を経て本実装へ
+* 三角測量
+* 明白な実装
+* 一から多へ
+* xUnitのパターン
+* フィクスチャー
+* 外部フィクスチャー
+* テストメソッド
+* 例外のテスト
+* まとめてテスト
+
+===== デザインパターン
+* Commandパターン
+* Value Objectパターン
+* Null Objectパターン
+* Template Methodパターン
+* Pluggable Objectパターン
+* Factory Methodパターン
+* Imposterパターン
+* Collecting Parameterパターン
+* Singletonパターン
+
+===== リファクタリング
+* 差異をなくす
+* 変更の分離
+* データ構造の変更
+* メソッドの抽出
+* メソッドのインライン化
+* インタフェースの抽出
+* メソッドの移動
+* メソッドオブジェクト
+* パラメータの追加
+* メソッドからコンストラクタへのパラメータの移動
+
+==== F.I.R.S.T
+1. Fast(高速)
+1. Independent(独立)
+1. Repeatable(再現性)
+1. Self-Validating(自己検証可能)
+1. Timely(適時性)
+
+=== リファクタリング
+==== リファクタリング<<Refactoring>>
+* コードの不吉な臭い
+* メソッドの構成
+* オブジェクト間での特性の移動
+* データの再編成
+* 条件記述の単純化
+* メソッド呼び出しの単純化
+* 継承の取り扱い
+
+==== リファクタリングの定義
+==== リファクタリングを行う理由
+* リファクタリングはソフトウェア設計を改善する
+* リファクタリングはソフトウェアを理解しやすくする
+* リファクタリングはバグを見つけ出す
+* リファクタリングでより速くプログラミングできる
+==== いつリファクタリングをすべきか
+* ３度目の法則
+* 機能追加時にリファクタリングを行う
+* バグフィックスの時にリファクタリングを行う
+* コードレビューの時にリファクタリングを行う
+
+==== リファクタリングカタログ
+
+===== メソッドの構成方法
+* メソッドの抽出(Extract Method)
+* メソッドのインライン化(Inline Method)
+* 一時変数のインライン化(Inline Temp)
+* 一時変数から問い合わせメソッドへ(Replace Temp with Query)
+* 一時変数からチェインへ(Replace Temp with Query)
+* 説明変数の導入(Introduce Explaining Variable)
+* 一時変数の導入(Split Temporary Variable)
+* 引数への代入の除去(Remove Assignments to Parameters)
+* メソッドからメソッドオブジェクトへ(Replace Method with Method Object)
+* アルゴリズム変更(Substitute Algorithm)
+* ループからコレクションクロージャメソッドへ(Replace Loop with Collection Closure Method)
+* サンドイッチメソッドの抽出(Extract Surrounding Method)
+* クラスアノテーションの導入(Introduce Class Annotation)
+* 名前付き引数の導入(Introduce Named Parameter)
+* 名前付き引数の除去(Remove Named Parameter)
+* 使われていないデフォルト引数の除去(Remove Unused Default Parameter)
+* 動的メソッド定義(Dynamic Method Definition)
+* 動的レセプタから動的メソッド定義へ(Replace Dynamic Receptor with Dynamic Method Definition)
+* 動的レセプタの分離(Isolate Dynamic Receptor)
+* evalを実行時からパース時へ(Move Eval from Runtime to Parse Time)
+
+===== オブジェクト間でのメンバの移動
+* メソッドの移動(Move Method)
+* フィールドの移動(Move Field)
+* クラスの抽出(Extract Class)
+* クラスのインライン化(Inline Class)
+* 移譲の隠蔽(Hide Delegate)
+* 横流しブローカーの除去(Remove Middle Man)
+
+===== データの構成
+* 自己カプセル化フィールド(Self Encapsulate Field)
+* データ値からオブジェクトへ(Replace Data Value with Object)
+* 値から参照へ(Change Value to Reference)
+* 参照から値へ(Change Reference to Value)
+* 配列からオブジェクトへ(Replace Array with Object)
+* ハッシュからオブジェクトへ(Replace Array with Object)
+* 片方向リンクから双方向リンクへ(Change Unidirectional Association to Bidirectional)
+* 双方向リンクから片方向リンクへ(Change Bidirectional Association to Unidirectional)
+* マジックナンバーからシンボル定数へ(Replace Magic Number with Symbolic Constant)
+* コレクションのカプセル化(Encapsulate Collection)
+* レコードからデータクラスへ(Replace Record with Data Class)
+* タイプコードからポリモーフィズムへ(Replace Type Code with Polymorphism)
+* タイプコードからモジュールのextendへ(Replace Type Code with Module Extension)
+* タイプコードからState/Strategyへ(Replace Type Code with State/Strategy)
+* サブクラスからフィールドへ(Replace Subclass with Fields)
+* 属性初期化の遅延実行(Lazily Initialized Attribute)
+* 属性初期化の先行実行(Eagerly Initialized Attribute)
+
+===== 条件式の単純化
+* 条件分の分解(Decompose Conditional)
+* 条件分岐の組み換え(Recompose Conditinal)
+* 重複する条件分岐の断片の統合(Consolidate Duplicate Conditional Fragments)
+* 制御フラグの除去
+* 条件分岐のネストからガード節へ(Replace Nested Conditional with Guard Clauses)
+* 条件分岐からポリモーフィズムへ(Replace Conditional with Polymorphism)
+* nullオブジェクトの導入(Introduce Null Object)
+* アサーションの導入(Introduce Assertion)
+
+===== メソッド呼び出しの単純化
+* メソッド名の変更(Rename Method)
+* 引数の追加(Add Parameter)
+* 引数の削除(Remove Parameter)
+* 問い合わせと更新の分離(Separate Query from Modifier)
+* メソッドのパラメータ化(Parameterize Method)
+* 引数から別々のメソッドへ(Replace Parameter with Explicit Methods)
+* オブジェクト自体の受け渡し(Preserve Whole Object)
+* 引数からメソッドへ(Replace Parameter with Method)
+* 引数オブジェクトの導入(Introduce Parameter Object)
+* 設定メソッドの削除(Remove Setting Method)
+* メソッドの隠蔽(Hide Method)
+* コンストラクタからファクトリメソッドへ(Replace Constructor with Factory Method)
+* エラーコードから例外へ(Replace Error Code wiht Exception)
+* 例外からテストへ(Replace Exception with Test)
+* ゲートウェイの導入(Introduce Gateway)
+* 式ビルダーの導入(Intorduce Expression Builder)
+
+===== 一般化の処理
+* メソッドの上位階層への移動(Pull Up Method)
+* メソッドの下位階層への移動(Push Down Method)
+* モジュールの抽出(Extract Module)
+* モジュールのインライン化(Inline Module)
+* サブクラスの抽出(Extract Subclass)
+* 継承の導入(Introduce Inheritance)
+* 階層構造の統合(Collapse Hierarchy)
+* テンプレートメソッドの作成(From Template Method)
+* 継承から移譲のへ(Replace Inheritance with Delegation)
+* 委譲から継承へ(Replace Delegation with Hierarchy)
+* 抽象スーパークラスからモジュールへ(Replae Abstract Superclass with Module)
+
+===== 大規模なリファクタリング
+* 複合的な継承階層の分割(Tease Apart Inheritance)
+* 手続き型設計からオブジェクト指向設計へ(Convert Procedural Design to Objects)
+* ドメインのプレゼンテーションからの分離(Separate Domain from Presentation)
+* 継承階層の抽出(Extract Hierarchy)
+
+==== においと経験則[^CC]
+===== 設計の悪臭
+1. 硬さ
+1. もろさ
+1. 移植性のなさ
+1. 扱いにくさ
+1. 不必要な複雑さ
+1. 不必要な繰り返し
+1. 不透明さ
+
+===== コードの臭い
+* コードの重複
+* 長いメソッド
+* 大きなクラス
+* 長い引数リスト
+* 変更系統の分岐
+* ショットガン創の手術
+* メソッドの浮気
+* 群れたがるデータ
+* プリミティブ強迫症
+* case文
+* パラレルな継承階層
+* 仕事をしないクラス
+* 空論的一般化
+* 一時フィールド
+* メッセージの連鎖
+* 横流しフローカー
+* 親密すぎるクラス
+* インターフェイスの異なるクラス群
+* 不完全なライブラリクラス
+* データクラス
+* 継承した遺産の拒絶
+* コメント
+* メタプログラミング狂
+* 柔軟すぎるAPI
+* 紋切り型コードの繰り返し
+
+* コメント
+** C1:不適切な情報
+** C2:退化コメント
+** C3:冗長なコメント
+** C4:記述不足のコメント
+** C5:コメントアウトされたコード
+* 環境
+** E1:ビルドに複数のステップを要する
+** E2:テストに複数のステップを要する
+* 関数
+** F1:多すぎる引数
+** F2:出力引数
+** F3:フラグ引数
+** F4:死んだ関数
+* 一般
+** G1:１つのソースファイルに複数の言語を使用する
+** G2:あって当然の振る舞いが実装されていない
+** G3:境界値に対する不正確な振る舞い
+** G4:安全軽視
+** G5:重複
+** G6:抽象レベルが正しくないコード
+** G7:継承クラスに依存したベースクラス
+** G8:情報過多
+** G9:デッドコード
+** G10:垂直分離
+** G11:不整合
+** G12:雑然
+** G13:人為的な結合
+** G14:機能の羨望
+** G15:セレクタ引数
+** G16:不明瞭な意図
+** G17:責務を持たせる場所の間違い
+** G18:不適切なstatic
+** G19:説明的変数
+** G20:関数名は体を表すべき
+** G21:アルゴリズムを理解する
+** G22:論理的な依存性を物理的なものとする
+** G23:if/elseやswitch/caseよりも多態を好む
+** G24:標準や規約に従う
+** G25:マジックナンバーを名前付けした定数に置き換える
+** G26:正確であれ
+** G27:規約より構造
+** G28:条件をカプセル化せよ
+** G29:条件の非定刑を避ける
+** G30:関数では１つのことを行うべき
+** G31:隠れた時間軸上の結合
+** G32:いいかげんにならないこと
+** G33:境界条件はカプセル化する
+** G34:関数は１つの抽象レベルを担うべき
+** G35:設定可能なデータは高いレベルに置く
+** G36:推移的なナビゲーションを避ける
+* Java
+** J1:ワイルドカードを使って、長いimportのリストを避ける
+** J2:定数を継承しない
+** J3:定数とenum
+* 名前
+** N1:記述的な名前を選ぶ
+** N2:抽象レベルに適切な名前を選ぶ
+** N3:可能な限り標準の用語を使用する
+** N4:はっきりした名前
+** N5:広いスコープには長い名前を
+** N6:エンコーディングを避ける
+** N7:名前で副作用を示すべき
+* テスト
+** T1:不十分なテスト
+** T2:カバレッジツールを脂油する!
+** T3:ささいなテストを省略しない
+** T4:無視すること指定されたテストは、あいまいさへの問いかけである
+** T5:境界条件テスト
+** T6:バグの周辺は徹底的にテストを
+** T7:失敗パターンは何かを語る
+** T8:テストカバレッジのパターンは何かを語る
+** T9:テストは高速に実行できるべき
   
 === 練習<<CCD>>
   
@@ -1056,28 +1078,29 @@ main()
  1. 疑問点があったらコミットログや本に書き込む
  1. 章ごとにタグを打つ
   
-===== プログラマの毎日の基礎練習プログラム
+==== プログラマの毎日の基礎練習プログラム
 
-* 初級のエチュード
-  * 指の動かし方
-    * エディタ
-  * ドキュメントの書き方
-    * Markdown
-  * 環境の構築方法
-    * 仮想マシン
-    * バージョン管理
-    * パッケージ管理
-  * アプリケーション開発ライフサイクル
-    * GitHubFlow
-    * GitFlow
-  * プログラミング３大要素
-    * 原則
-    * パターン
-    * プラクティス
-* 中級のエチュード
-   * 原則
-   * パターン
-   * プラクティス
+===== 初級のエチュード
+* 指の動かし方
+** エディタ
+* ドキュメントの書き方
+** Markdown
+* 環境の構築方法
+** 仮想マシン
+** バージョン管理
+** パッケージ管理
+* アプリケーション開発ライフサイクル
+** GitHubFlow
+** GitFlow
+* プログラミング３大要素
+** 原則
+** パターン
+** プラクティス
+
+===== 中級のエチュード
+* 原則
+* パターン
+* プラクティス
 
 
 == 参照
