@@ -30,6 +30,12 @@ Welcome to My Notebooks's documentation!
    /business_related_legal/index
 
 .. toctree::
+   :maxdepth: 2
+   :caption: 財務・会計:
+
+   /accounting/index
+
+.. toctree::
    :maxdepth: 1
    :caption: サンプル
    :numbered:
