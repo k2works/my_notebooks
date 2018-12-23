@@ -93,9 +93,6 @@ class Test貸借対照表(unittest.TestCase):
     def test貸借対照表は繰延資産を持つ(self):
         self.assertEqual(繰延資産, type(self.貸借対照表.繰延資産))
 
-    def test貸借対照表は繰延資産を持つ(self):
-        self.assertEqual(繰延資産, type(self.貸借対照表.繰延資産))
-
     def test貸借対照表は固定負債を持つ(self):
         self.assertEqual(固定負債, type(self.貸借対照表.固定負債))
 
