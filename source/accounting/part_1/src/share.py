@@ -75,3 +75,27 @@ class 金銭:
 
 class MoneyException(Exception):
     pass
+
+
+class 科目:
+    貸 = '貸方'
+    借 = '借方'
+
+    def __init__(self, 金額, 貸方借方=None):
+        self.__金銭 = 金銭(金額)
+        self.__貸方借方 = 貸方借方
+
+    @property
+    def 金銭(self):
+        return self.__金銭
+
+    @property
+    def 金額(self):
+        return self.__金銭.金額
+
+    @property
+    def 貸借(self):
+        return self.__貸方借方
+
+    def has内訳(self):
+        return False
