@@ -1,6 +1,7 @@
 import unittest
 from balance_sheet import *
 
+
 class Test貸借対照表(unittest.TestCase):
     def setUp(self):
         _流動資産内訳 = [
