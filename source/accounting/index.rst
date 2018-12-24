@@ -8,4 +8,5 @@
    ./part_1/chap1_1
    ./part_1/chap1_2
    ./part_1/chap1_3
+   ./part_1/chap1_4
 
