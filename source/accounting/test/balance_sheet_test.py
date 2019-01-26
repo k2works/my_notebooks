@@ -1,10 +1,8 @@
 import unittest
-from balance_sheet import *
-from solvency_ratio import *
-import math
+from src.balance_sheet import *
 
 
-class Test安全性分析(unittest.TestCase):
+class Test貸借対照表(unittest.TestCase):
     def setUp(self):
         _流動資産内訳 = [
             現金及び預金(13500),
@@ -78,26 +76,51 @@ class Test安全性分析(unittest.TestCase):
         ]
         _純資産 = 純資産(_純資産内訳)
 
-        _貸借対照表 = 貸借対照表(_流動資産, _固定資産, _繰延資産, _流動負債, _固定負債, _純資産)
-        self.安全性分析 = 安全性分析(_貸借対照表)
+        self.貸借対照表 = 貸借対照表(_流動資産, _固定資産, _繰延資産, _流動負債, _固定負債, _純資産)
 
-    def test流動比率(self):
-        self.assertEqual(129, self.安全性分析.流動比率)
+    def test貸借対照表(self):
+        self.assertEqual(貸借対照表, type(self.貸借対照表))
 
-    def test当座比率(self):
-        self.assertEqual(54, self.安全性分析.当座比率)
+    def test貸借対照表は流動資産を持つ(self):
+        self.assertEqual(流動資産, type(self.貸借対照表.流動資産))
 
-    def test固定比率(self):
-        self.assertEqual(139, self.安全性分析.固定比率)
+    def test貸借対照表は固定資産を持つ(self):
+        self.assertEqual(固定資産, type(self.貸借対照表.固定資産))
 
-    def test固定長期適合率(self):
-        self.assertEqual(1, self.安全性分析.固定長期適合率)
+    def test貸借対照表は流動負債を持つ(self):
+        self.assertEqual(流動負債, type(self.貸借対照表.流動負債))
 
-    def test自己資本比率(self):
-        self.assertEqual(39, self.安全性分析.自己資本比率)
+    def test貸借対照表は繰延資産を持つ(self):
+        self.assertEqual(繰延資産, type(self.貸借対照表.繰延資産))
 
-    def test負債比率(self):
-        self.assertEqual(162, self.安全性分析.負債比率)
+    def test貸借対照表は固定負債を持つ(self):
+        self.assertEqual(固定負債, type(self.貸借対照表.固定負債))
+
+    def test貸借対照表は純資産を持つ(self):
+        self.assertEqual(純資産, type(self.貸借対照表.純資産))
+
+    def test貸借対照表の資産合計と負債純資産合計は一致する(self):
+        self.assertEqual(金銭(155400).金額, self.貸借対照表.資産合計.金額)
+        self.assertEqual(金銭(155400).金額, self.貸借対照表.負債純資産合計.金額)
+
+    def test流動資産の合計は流動資産科目の合計と一致する(self):
+        self.assertEqual(金銭(72100).金額, self.貸借対照表.流動資産合計.金額)
+
+    def test固定資産の合計は固定資産科目の合計と一致する(self):
+        self.assertEqual(金銭(82300).金額, self.貸借対照表.固定資産合計.金額)
+
+    def test繰延資産の合計は繰延資産科目の合計と一致する(self):
+        self.assertEqual(金銭(1000).金額, self.貸借対照表.繰延資産合計.金額)
+
+    def test流動負債の合計は流動負債科目の合計と一致する(self):
+        self.assertEqual(金銭(55900).金額, self.貸借対照表.流動負債合計.金額)
+
+    def test固定負債の合計は固定負債科目の合計と一致する(self):
+        self.assertEqual(金銭(40000).金額, self.貸借対照表.固定負債合計.金額)
+
+    def test純資産の合計は純資産科目の合計と一致する(self):
+        self.assertEqual(金銭(59500).金額, self.貸借対照表.純資産合計.金額)
+
 
 if __name__ == "__main__":
     unittest.main()

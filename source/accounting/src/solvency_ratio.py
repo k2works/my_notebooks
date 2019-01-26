@@ -1,5 +1,5 @@
 import math
-from balance_sheet import *
+from src.balance_sheet import *
 
 
 class 安全性分析:

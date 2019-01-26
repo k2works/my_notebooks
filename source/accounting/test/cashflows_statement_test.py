@@ -1,5 +1,5 @@
 import unittest
-from cashflows_statement import *
+from src.cashflows_statement import *
 
 
 class Testキャッシュフロー計算書(unittest.TestCase):

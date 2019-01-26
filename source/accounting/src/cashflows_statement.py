@@ -1,4 +1,4 @@
-from share import 金銭, 科目
+from src.share import 金銭, 科目
 
 
 class キャッシュフロー:

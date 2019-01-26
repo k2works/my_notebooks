@@ -1,5 +1,5 @@
 import unittest
-from income_statement import *
+from src.income_statement import *
 
 
 class Test損益計算書(unittest.TestCase):
