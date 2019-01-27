@@ -99,3 +99,37 @@ class 科目:
 
     def has内訳(self):
         return False
+
+class 比率:
+    def __init__(self, 値, 単位='%'):
+        self.__値 = 値
+        self.__単位 = 単位
+
+    def __str__(self):
+        return f"{self.__値}{self.__単位}"
+
+    @property
+    def 値(self):
+        return self.__値
+
+    @property
+    def 単位(self):
+        return self.__単位
+
+    def __eq__(self, other):
+        if not isinstance(other, self.__class__):
+            return False
+        if not self.__値 == other.値:
+            return False
+        if not self.__単位 == other.__単位:
+            return False
+        return type(self) == type(other)
+
+    def __ne__(self, other):
+        if not isinstance(other, self.__class__):
+            return True
+        if not self.__値 == other.値:
+            return True
+        if not self.__単位 == other.__単位:
+            return True
+        return type(self) != type(other)
