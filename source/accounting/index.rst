@@ -10,4 +10,4 @@
    ./chap1_3
    ./chap1_4
    ./chap2_1
-
+   ./chap2_2
