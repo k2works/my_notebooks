@@ -82,22 +82,22 @@ class Test安全性分析(unittest.TestCase):
         self.安全性分析 = 安全性分析(_貸借対照表)
 
     def test流動比率(self):
-        self.assertEqual(129, self.安全性分析.流動比率)
+        self.assertEqual('128.98%', str(self.安全性分析.流動比率))
 
     def test当座比率(self):
-        self.assertEqual(54, self.安全性分析.当座比率)
+        self.assertEqual('75.31%', str(self.安全性分析.当座比率))
 
     def test固定比率(self):
-        self.assertEqual(139, self.安全性分析.固定比率)
+        self.assertEqual('138.32%', str(self.安全性分析.固定比率))
 
     def test固定長期適合率(self):
-        self.assertEqual(1, self.安全性分析.固定長期適合率)
+        self.assertEqual('82.71%', str(self.安全性分析.固定長期適合率))
 
     def test自己資本比率(self):
-        self.assertEqual(39, self.安全性分析.自己資本比率)
+        self.assertEqual('38.29%', str(self.安全性分析.自己資本比率))
 
     def test負債比率(self):
-        self.assertEqual(162, self.安全性分析.負債比率)
+        self.assertEqual('161.18%', str(self.安全性分析.負債比率))
 
 if __name__ == "__main__":
     unittest.main()
