@@ -17,34 +17,39 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="SymPyで代数と式を計算する" href="04.html" />
     <link rel="prev" title="データをグラフで視覚化する" href="02.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -242,18 +247,18 @@ div.nblast {
 
 /* input prompt */
 div.nbinput div.prompt pre {
-    color: #303F9F;
+    color: #307FC1;
 }
 
 /* output prompt */
 div.nboutput div.prompt pre {
-    color: #D84315;
+    color: #BF5B3D;
 }
 
 /* all prompts */
 div.nbinput div.prompt,
 div.nboutput div.prompt {
-    min-width: 8ex;
+    min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
     text-align: right;
@@ -293,9 +298,9 @@ div.nboutput div.output_area {
 
 /* input area */
 div.nbinput div.input_area {
-    border: 1px solid #cfcfcf;
+    border: 1px solid #e0e0e0;
     border-radius: 2px;
-    background: #f7f7f7;
+    background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
@@ -303,7 +308,7 @@ div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
-/* override sphinx.ext.pngmath center alignment in output cells */
+/* override sphinx.ext.imgmath center alignment in output cells */
 div.nboutput div.math p {
     text-align: left;
 }
@@ -353,6 +358,40 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -369,14 +408,18 @@ div.nboutput div.output_area.stderr {
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
 </style>
 <div class="section" id="データを統計量で記述する">
 <h1>データを統計量で記述する<a class="headerlink" href="#データを統計量で記述する" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="平均を求める">
 <h2>平均を求める<a class="headerlink" href="#平均を求める" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -411,7 +454,7 @@ div.nboutput div.output_area.stderr {
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="stderr output_area docutils container">
+<div class="output_area stderr docutils container">
 <div class="highlight"><pre>
 ....
 ----------------------------------------------------------------------
@@ -424,8 +467,7 @@ OK
 <div class="section" id="中央値を求める">
 <h2>中央値を求める<a class="headerlink" href="#中央値を求める" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -481,7 +523,7 @@ OK
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="stderr output_area docutils container">
+<div class="output_area stderr docutils container">
 <div class="highlight"><pre>
 .......
 ----------------------------------------------------------------------
@@ -496,8 +538,7 @@ OK
 <div class="section" id="一番多い要素を見つける">
 <h3>一番多い要素を見つける<a class="headerlink" href="#一番多い要素を見つける" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -532,8 +573,7 @@ OK
 <div class="section" id="最頻値を探す">
 <h3>最頻値を探す<a class="headerlink" href="#最頻値を探す" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -564,7 +604,7 @@ OK
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="stderr output_area docutils container">
+<div class="output_area stderr docutils container">
 <div class="highlight"><pre>
 ........
 ----------------------------------------------------------------------
@@ -574,8 +614,7 @@ OK
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -612,7 +651,7 @@ OK
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="stderr output_area docutils container">
+<div class="output_area stderr docutils container">
 <div class="highlight"><pre>
 .........
 ----------------------------------------------------------------------
@@ -624,49 +663,48 @@ OK
 </div>
 <div class="section" id="度数分布を作る">
 <h3>度数分布を作る<a class="headerlink" href="#度数分布を作る" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">点数</th>
-<th class="head">頻度</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>点数</p></th>
+<th class="head"><p>頻度</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>1</td>
-<td>2</td>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>2</p></td>
 </tr>
-<tr class="row-odd"><td>2</td>
-<td>1</td>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
 </tr>
-<tr class="row-even"><td>4</td>
-<td>1</td>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td>5</td>
-<td>2</td>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>2</p></td>
 </tr>
-<tr class="row-even"><td>6</td>
-<td>3</td>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>3</p></td>
 </tr>
-<tr class="row-odd"><td>7</td>
-<td>2</td>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>2</p></td>
 </tr>
-<tr class="row-even"><td>8</td>
-<td>2</td>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>2</p></td>
 </tr>
-<tr class="row-odd"><td>9</td>
-<td>5</td>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>5</p></td>
 </tr>
-<tr class="row-even"><td>10</td>
-<td>2</td>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>2</p></td>
 </tr>
 </tbody>
 </table>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -706,8 +744,7 @@ Number  Frequency
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -755,8 +792,7 @@ Number  Frequency
 <div class="section" id="数集合の範囲を求める">
 <h3>数集合の範囲を求める<a class="headerlink" href="#数集合の範囲を求める" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -791,7 +827,7 @@ Number  Frequency
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="stderr output_area docutils container">
+<div class="output_area stderr docutils container">
 <div class="highlight"><pre>
 ..........
 ----------------------------------------------------------------------
@@ -805,8 +841,7 @@ OK
 <h3>分散と標準偏差を求める<a class="headerlink" href="#分散と標準偏差を求める" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><span class="math notranslate nohighlight">\(\frac{\sum(x_i - x_{avg})^2}{n}\)</span></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -850,7 +885,7 @@ OK
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="stderr output_area docutils container">
+<div class="output_area stderr docutils container">
 <div class="highlight"><pre>
 ..........
 ----------------------------------------------------------------------
@@ -874,8 +909,7 @@ OK
 <p><span class="math notranslate nohighlight">\(\sum x^2\)</span>　 集合<span class="math notranslate nohighlight">\(x\)</span>の数の和の2乗</p>
 <p><span class="math notranslate nohighlight">\(\sum y^2\)</span>　 集合<span class="math notranslate nohighlight">\(y\)</span>の数の和の2乗</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -942,7 +976,7 @@ OK
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="stderr output_area docutils container">
+<div class="output_area stderr docutils container">
 <div class="highlight"><pre>
 ..........
 ----------------------------------------------------------------------
@@ -956,8 +990,7 @@ OK
 <div class="section" id="散布図">
 <h2>散布図<a class="headerlink" href="#散布図" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -986,8 +1019,7 @@ Requirement already satisfied: setuptools in /Users/k2works/.pyenv/versions/3.7.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1011,8 +1043,7 @@ Requirement already satisfied: setuptools in /Users/k2works/.pyenv/versions/3.7.
 </div>
 <p><a class="reference external" href="http://blog.livedoor.jp/oyajieng_memo/archives/1677707.html">アンスコムの4つ組</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1034,8 +1065,7 @@ Requirement already satisfied: six&gt;=1.5 in /Users/k2works/.local/lib/python3.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1073,8 +1103,7 @@ Requirement already satisfied: six&gt;=1.5 in /Users/k2works/.local/lib/python3.
 <div class="section" id="テキストファイルからデータを読み込む">
 <h3>テキストファイルからデータを読み込む<a class="headerlink" href="#テキストファイルからデータを読み込む" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1114,7 +1143,7 @@ Requirement already satisfied: six&gt;=1.5 in /Users/k2works/.local/lib/python3.
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="stderr output_area docutils container">
+<div class="output_area stderr docutils container">
 <div class="highlight"><pre>
 ..........
 ----------------------------------------------------------------------
@@ -1127,8 +1156,7 @@ OK
 <div class="section" id="CSVファイルからデータを読み込む">
 <h3>CSVファイルからデータを読み込む<a class="headerlink" href="#CSVファイルからデータを読み込む" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1173,8 +1201,7 @@ OK
 </div>
 <p><a class="reference external" href="https://www.google.com/trends/correlate/">https://www.google.com/trends/correlate/</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1271,7 +1298,7 @@ Highest correlation: 0.9643403143357506
         <a href="04.html" class="btn btn-neutral float-right" title="SymPyで代数と式を計算する" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="02.html" class="btn btn-neutral" title="データをグラフで視覚化する" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="02.html" class="btn btn-neutral float-left" title="データをグラフで視覚化する" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1280,7 +1307,7 @@ Highest correlation: 0.9643403143357506
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, k2works.
+        &copy; Copyright 2018, k2works
 
     </p>
   </div>
@@ -1297,34 +1324,16 @@ Highest correlation: 0.9643403143357506
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.0.0',
-            LANGUAGE:'ja',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
