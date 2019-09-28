@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  sphinx:
+    build: .
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/work
+    working_dir: '/work'
+    command: ["make", "livehtml"]
+
+  asciidocs:
+    image: gradle
+    ports:
+      - 35729:35729
+    volumes:
+      - .:/work
+    working_dir: '/work'
+    command: ["gradle", "livereload"]
